@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'orders/new'
+  get 'orders/edit'
+  get 'items/new'
+  get 'items/index'
+  get 'restaurants/index'
+  get 'restaurants/show'
+  get 'restaurants/new'
+  get 'restaurants/edit'
   devise_for :users
   root to: 'pages#home'
 
