@@ -45,4 +45,11 @@
 }
 .card-link:hover {
   opacity: 0.1;
+  height: 200px;
+  background-color: blue;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 3px;
 }

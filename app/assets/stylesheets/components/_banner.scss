@@ -1,3 +1,4 @@
+
 .banimage{
   background-image:url('https://previews.123rf.com/images/rvlsoft/rvlsoft1210/rvlsoft121000060/15802816-big-hamburger-on-white-background.jpg');
   opacity: 0.4;
@@ -7,12 +8,12 @@
   color: white;
   text-align: center;
   height: 40vh;
+
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
   background-color: white;
 
 }
@@ -46,5 +47,15 @@
 
 }
 
+.bannernew{
+  height: 120vh;
+  background-size: cover;
+  margin-top: -25px;
+}
 
+.bannernew h1{
+  color: white;
+  margin-top: 20px;
+  padding-top: 40px;
+}
 

@@ -8,11 +8,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 70px;
 }
 
 /* User Avatar */
@@ -41,8 +42,9 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #2E6C7D;
   text-decoration: none;
+  font-weight: bolder;
 }
 
 /* Dropdown menu */

@@ -1,2 +1,29 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<div>
+  <p> Search bar</p>
+</div>
+
+<div class="main-container">
+  <div class="card-container">
+    <div class="row">
+      <% @restaurants.each do |restaurant| %>
+       <div class="col-xs-12 col-md-6">
+          <div class="card">
+            <div class="restaurant-title-wrapper">
+              <h2> restaurant.name.upcase </h2>
+            </div>
+            <div class="card-category">
+              <%= restaurant.category.capitalize %>
+            </div>
+          </div>
+       </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div class="map">
+      <p id="map"> sticky map 🌋 </p>
+    </div>
+  </div>
+
+</div>
