@@ -1,30 +1,27 @@
 class RestaurantsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_rest, only: [:show, :edit, :update]
+  
+  def new
+    @restaurant = Restaurant.new
+  end
 
   def index
     @restaurants = Restaurant.all
   end
 
-  def show
-  end
-
-  def new
-    @restaurant = Restaurant.new
-  end
-
-
-   def create
-      @restaurant = Restaurant.new(restaurant_params)
-      @restaurant.user = current_user
-      # calls for the same method within restaurant_policy
-      # authorize @restaurant
-      if @restaurant.save
-        redirect_to restaurant_path(@restaurant)
-      else
-        render :new
-      end
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user = current_user
+    # calls for the same method within restaurant_policy
+    # authorize @restaurant
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
     end
+  end
 
 
   def edit
