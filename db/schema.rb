@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_182457) do
+ActiveRecord::Schema.define(version: 2018_06_19_140738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.integer "total_price"
+    t.integer "number_of_people"
+    t.string "status", default: "Pending"
+    t.datetime "date"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_bills_on_restaurant_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -28,16 +40,23 @@ ActiveRecord::Schema.define(version: 2018_06_18_182457) do
     t.index ["restaurant_id"], name: "index_items_on_restaurant_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "restaurant_id"
-    t.integer "number_of_people"
-    t.string "status", default: "Pending"
-    t.datetime "date"
-    t.text "comment"
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
+    t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "bill_id"
+    t.bigint "user_id"
+    t.string "status", default: "Pending"
+    t.text "special_request"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -72,8 +91,11 @@ ActiveRecord::Schema.define(version: 2018_06_18_182457) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bills", "restaurants"
   add_foreign_key "items", "restaurants"
-  add_foreign_key "orders", "restaurants"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "bills"
   add_foreign_key "orders", "users"
   add_foreign_key "restaurants", "users"
 end

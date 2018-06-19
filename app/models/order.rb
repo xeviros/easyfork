@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
+  belongs_to :bill
   belongs_to :user
-  belongs_to :restaurant
 end
