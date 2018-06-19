@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     resources :bills, only: [:new, :create]
   end
 
-  resources :reviews, only: [:index, :edit, :update,]
   resources :bills, only: [:edit, :update] do
-    resources :orders
+    resources :orders, only: [:new, :create, :index, :edit, :update]
     resources :reviews, only: [:new, :create]
   end
+  resources :reviews, only: [:index, :edit, :update]
 
   get '/my-orders', to: "dashboard#my_orders"
   get '/my-restaurants', to: "dashboard#my_restaurants"
