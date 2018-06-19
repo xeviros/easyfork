@@ -11,16 +11,15 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :restaurants do
-    resources :items, only: [:new, :crete]
-    resources :orders, only: [:new, :create] do
-      resources :reviews, only: [:new, :create]
-    end
+    resources :items
+    resources :bills, only: [:new, :create]
   end
 
-  resources :items, only: [:edit, :update, :destroy]
-  resources :orders, only: [:edit, :update, :destroy] do
-    resources :order_items
+  resources :bills, only: [:edit, :update] do
+    resources :orders, only: [:new, :create, :index, :edit, :update]
+    resources :reviews, only: [:new, :create]
   end
+  resources :reviews, only: [:index, :edit, :update]
 
   get '/my-orders', to: "dashboard#my_orders"
   get '/my-restaurants', to: "dashboard#my_restaurants"
