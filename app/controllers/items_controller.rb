@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
 
   before_action :set_restaurant
   def new
+
     @item = Item.new
+    @item.restaurant = @restaurant
   end
 
   def create
@@ -13,10 +15,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-
-  def index
   end
 
   private
