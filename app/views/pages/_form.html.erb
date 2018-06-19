@@ -1,0 +1,12 @@
+
+<div class="container-search">
+
+  <%= form_tag restaurants_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: " Find a restaurant or category"
+  %>
+  <% end %>
+
+</div>
