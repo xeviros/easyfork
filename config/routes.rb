@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'orders/new'
-  get 'orders/edit'
-  get 'items/new'
-  get 'items/index'
-  get 'restaurants/index'
-  get 'restaurants/show'
-  get 'restaurants/new'
-  get 'restaurants/edit'
   devise_for :users
   root to: 'pages#home'
 
@@ -15,7 +7,7 @@ Rails.application.routes.draw do
     resources :bills, only: [:new, :create]
   end
 
-  resources :bills, only: [:edit, :update] do
+  resources :bills, only: [:edit, :update, :show] do
     resources :orders, only: [:new, :create, :index, :edit, :update]
     resources :reviews, only: [:new, :create]
   end
