@@ -1,25 +1,51 @@
-.box-banner{
-  height:800px;
+
+.banimage{
+  background-image:url('https://previews.123rf.com/images/rvlsoft/rvlsoft1210/rvlsoft121000060/15802816-big-hamburger-on-white-background.jpg');
+  opacity: 0.4;
 }
 
 .banner {
-  background-position: center;
   color: white;
   text-align: center;
-  height: 100vh;
+  height: 40vh;
+
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
+
 }
+
+
 
 .banner h1 {
-  font-size: 100px;
-  font-weight: 900;
+  font-size: 50px;
+  font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: $lblue-easyfork;
+
+}
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+  color: $dgrey-easyfork;
 }
 
+.banner h4{
+  color: $orange-easyfork;
+  text-align: right;
+
+}
+
+.row h2{
+  color: $lblue-easyfork;
+
+}
 
 .bannernew{
   height: 120vh;
@@ -32,3 +58,4 @@
   margin-top: 20px;
   padding-top: 40px;
 }
+
