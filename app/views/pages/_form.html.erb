@@ -1,42 +1,43 @@
-<div class="container">
 
-  <div class="searchbox">
+  <div class="box-search">
 
-
-
-      <div class="topnav">
-         <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Categories</button>
-  <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    <a href="restaurants">All restaurants</a>
-    <a href="restaurants?utf8=✓&query=French">French</a>
-    <a href="restaurants?utf8=✓&query=Italian">Italian</a>
-    <a href="restaurants?utf8=✓&query=Japonese">Japonese</a>
-    <a href="restaurants?utf8=✓&query=Spanish">Spanish</a>
-  </div>
-</div>
-
-
-
-                    <input type="date" id="start" name="trip"
-                           value="2018-07-22"
-                           min="2018-01-01" max="2018-12-31" />
-
-                    <input type="time" id="appt-time" name="appt-time"
-                           min="9:00" max="18:00" required />
-      <span class="search">
-                  <%= form_tag restaurants_path, method: :get do %>
-                  <%= text_field_tag :query,
-                    params[:query],
-                    class: "form-control",
-                    placeholder: " Find a restaurant or category"
-                  %>
-                  <% end %>
-        </span>
-
+    <div class="box-category">
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Categories</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="restaurants">All restaurants</a>
+          <a href="restaurants?utf8=✓&query=French">French</a>
+          <a href="restaurants?utf8=✓&query=Italian">Italian</a>
+          <a href="restaurants?utf8=✓&query=Japonese">Japonese</a>
+          <a href="restaurants?utf8=✓&query=Spanish">Spanish</a>
+        </div>
+      </div>
     </div>
+
+    <div class="box-date">
+
+        <input type="date" id="start" name="trip"
+         value="2018-07-22"
+         min="2018-01-01" max="2018-12-31" />
+
+         <input type="time" id="appt-time" name="appt-time"
+          min="9:00" max="18:00" required />
+    </div>
+    <div class="box-search-window">
+
+                    <%= form_tag restaurants_path, method: :get do %>
+                    <%= text_field_tag :query,
+                      params[:query],
+                      class: "form-control",
+                      placeholder: " Find a restaurant or category"
+                    %>
+                    <% end %>
+    </div>
+
+
+
   </div>
-</div>
+
 
 
