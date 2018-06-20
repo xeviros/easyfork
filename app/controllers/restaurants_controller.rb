@@ -8,17 +8,11 @@ class RestaurantsController < ApplicationController
   end
 
   def index
-          sql_query = " \
-        restaurants.name @@ :query \
-        OR restaurants.category @@ :query \
-        OR restaurants.address @@ :query \
-      "
 
- #  SIMPLE SEARCH
- #  sql_query = "name ILIKE :query OR category ILIKE :query OR description ILIKE :query OR address ILIKE :query"
 
     if params[:query].present?
-      @restaurants = Restaurant.where(sql_query, query: "%#{params[:query]}%")
+      sql_query = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
+      @restaurants = Restaurant.all.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
     else
       @restaurants = Restaurant.all
     end
