@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
       @restaurants = Restaurant.all.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-      @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+      #@restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
       @markers = @restaurants.map do |restaurant|
         {
           lat: restaurant.latitude,
@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
       end
     else
       @restaurants = Restaurant.all
-      @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+      #@restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
       @markers = @restaurants.map do |restaurant|
         {
           lat: restaurant.latitude,
