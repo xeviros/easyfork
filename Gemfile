@@ -12,6 +12,9 @@ gem 'redis'
 
 #add a gem
 gem 'money-rails'
+
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 gem "geocoder"
 gem "pg_search"
 gem 'searchkick', '~> 3.0'
