@@ -1,0 +1,4 @@
+<% @bill.restaurant.items.each do |item| %>
+  <%= link_to item.name, order_order_item_path(@order, item_id: item.id) %>
+<% end %>
+
