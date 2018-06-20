@@ -12,6 +12,7 @@ gem 'redis'
 
 #add a gem
 gem 'money-rails'
+gem "geocoder"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
