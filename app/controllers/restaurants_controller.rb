@@ -2,13 +2,27 @@ class RestaurantsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_rest, only: [:show, :edit, :update]
-  
+
   def new
     @restaurant = Restaurant.new
   end
 
   def index
-    @restaurants = Restaurant.all
+          sql_query = " \
+        restaurants.name @@ :query \
+        OR restaurants.category @@ :query \
+        OR restaurants.address @@ :query \
+      "
+
+ #  SIMPLE SEARCH
+ #  sql_query = "name ILIKE :query OR category ILIKE :query OR description ILIKE :query OR address ILIKE :query"
+
+    if params[:query].present?
+      @restaurants = Restaurant.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
+
   end
 
   def create
