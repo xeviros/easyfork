@@ -22,7 +22,7 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
 
-          <% if @user.picture.file.nil? %>
+          <% if current_user.picture.file.nil? %>
             <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
