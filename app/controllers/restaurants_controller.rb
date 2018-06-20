@@ -8,15 +8,26 @@ class RestaurantsController < ApplicationController
   end
 
   def index
-
-
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
       @restaurants = Restaurant.all.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+      @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+      @markers = @restaurants.map do |restaurant|
+        {
+          lat: restaurant.latitude,
+          lng: restaurant.longitude#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
     else
       @restaurants = Restaurant.all
+      @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+      @markers = @restaurants.map do |restaurant|
+        {
+          lat: restaurant.latitude,
+          lng: restaurant.longitude#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
     end
-
   end
 
   def create
