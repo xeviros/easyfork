@@ -2,13 +2,34 @@ class RestaurantsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_rest, only: [:show, :edit, :update]
-  
+
   def new
     @restaurant = Restaurant.new
   end
 
   def index
-    @restaurants = Restaurant.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
+      @restaurants = Restaurant.all.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+      @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+      @markers = @restaurants.map do |restaurant|
+        {
+          lat: restaurant.latitude,
+          lng: restaurant.longitude#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
+      end
+    else
+      @restaurants = Restaurant.all
+      @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+      @markers = @restaurants.map do |restaurant|
+        {
+          lat: restaurant.latitude,
+          lng: restaurant.longitude#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
+      end
+    end
   end
 
   def create

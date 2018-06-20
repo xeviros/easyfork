@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
 
   before_action :set_restaurant
   def new
-
     @item = Item.new
     @item.restaurant = @restaurant
   end

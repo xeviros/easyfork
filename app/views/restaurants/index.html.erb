@@ -1,5 +1,6 @@
 <div>
   <p> Search bar</p>
+  <%= render :partial => 'pages/form' %>
 </div>
 
 <div class="main-container">
@@ -9,10 +10,10 @@
        <div class="col-xs-12 col-md-6">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
             <div class="restaurant-title-wrapper">
-              <h2> <%=  restaurant.name.upcase %> </h2>
+              <h2> <%= restaurant.name.capitalize %> </h2>
             </div>
             <div class="card-category">
-              <%= restaurant.category.capitalize %>
+              <%= restaurant.category %>
             </div>
             </div>
           </div>
@@ -22,8 +23,13 @@
   </div>
 
   <div class="map-container">
-    <div class="map">
-      <p id="map"> sticky map 🌋 </p>
+    <div
+      id="map"
+      class="map"
+      style="width: 100%;
+      height: 500px;"
+      data-markers="<%= @markers.to_json %>"
+      >
     </div>
   </div>
 
