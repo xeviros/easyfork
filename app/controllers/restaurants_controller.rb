@@ -18,6 +18,7 @@ class RestaurantsController < ApplicationController
           lng: restaurant.longitude#,
           # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
         }
+      end
     else
       @restaurants = Restaurant.all
       @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
@@ -27,6 +28,7 @@ class RestaurantsController < ApplicationController
           lng: restaurant.longitude#,
           # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
         }
+      end
     end
   end
 
