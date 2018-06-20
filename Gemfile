@@ -13,6 +13,8 @@ gem 'redis'
 #add a gem
 gem 'money-rails'
 gem "geocoder"
+gem "pg_search"
+gem 'searchkick', '~> 3.0'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
