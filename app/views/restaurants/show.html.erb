@@ -30,7 +30,6 @@
     </div>
 
   </div>
-
     <div class="call-to-action">
 
       <div class="call-to-action-menu">
@@ -45,7 +44,7 @@
 
       <div class="call-to-action-button">
         <button>
-          <%= link_to "Start Order", restaurant_path %>
+          <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post %>
         </button>
       </div>
     </div>
