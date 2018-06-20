@@ -15,10 +15,10 @@ class OrdersController < ApplicationController
     end
   end
 
-  def end
+  def order_params
+    params.require(:order).permit(:user_id, :restaurant_id, :number_of_people, :status, :date, :comment)
   end
 
-  params.require(:order).permit(:user_id, :restaurant_id, :number_of_people, :status, :date, :comment)
 end
 
 
