@@ -1,38 +1,22 @@
-<div class="banner" style="background-image: url('http://www.desktop-screens.com/data/out/94/3346050-restaurant-wallpapers.jpg')">
+<div class="banner" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
+  <div class="resto-infos">
+    <h3 ><%= @restaurant.name %></h3>
+    <div class= "text-box" <p>€€€ --- 10 rue La Croix</p> </div>
 
-</div>
-
-<div class="container">
-
-  <div class="row">
-
-      <div class="restaurant-main-info">
-        <div class="restaurant-show-title">
-          <h1><%= @restaurant.name %></h1>
-        </div>
-        <div class="restaurant-show-address">
-          <p><%= @restaurant.address %></p>
-        </div>
-        <div class="restaurant-show-description">
-          <h4> Restaurant's description </h4>
-        </div>
-      </div>
-
-    <div class="restaurant-secondary-info">
-      <div class="restaurant-secondary-info-category">
-        <p>Category</p>
-        <p> <%= @restaurant.category %></p>
-      </div>
-      <div class="restaurant-secondary-info-price">
-        <p>Price</p>
-        <p> 20 € </p>
-      </div>
-    </div>
 
   </div>
-    <div class="call-to-action">
+</div>
 
-      <div class="call-to-action-menu">
+ <div class="map" style="background-image: url('http://catolico.info/wp-content/uploads/2018/04/google-maps-barcelona-writing-articles-982-x-582-pixels.png')">
+    <h1> MAP </h1>
+  </div>
+
+
+
+ <div class="text-right">  <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>  </div>
+<div class="container-show">
+
+
         <div class="menu">
           <h2> Menu: </h2>
           <% @restaurant.items.each do |item| %>
@@ -40,17 +24,14 @@
           <%= item.price %> € <br>
           <% end %>
         </div>
-      </div>
 
-      <div class="call-to-action-button">
-        <button>
-          <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post %>
-        </button>
-      </div>
-    </div>
 
-  <div class="map" style="background-image: url('http://catolico.info/wp-content/uploads/2018/04/google-maps-barcelona-writing-articles-982-x-582-pixels.png')">
-    <h1> MAP </h1>
-  </div>
+
+
+
+
 
 </div>
+
+
+
