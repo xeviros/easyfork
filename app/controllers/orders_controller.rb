@@ -15,9 +15,6 @@ class OrdersController < ApplicationController
     end
   end
 
-
-  end
-
   def end
   end
 
