@@ -33,6 +33,7 @@ h1{
 
 h2{
   margin: 50px;
+  color: $lblue-easyfork;
 }
 
 
@@ -62,3 +63,12 @@ h2{
   color: grey;
   font-size: 12px;
  }
+
+
+.container-show{
+  width: 60em;
+  background: #F4F4F4;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1000px;
+}
