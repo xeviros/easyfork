@@ -35,7 +35,7 @@
 
       <div class="menu-title">
       <% if @restaurant.items[0].nil? %>
-        <h2>This restaurant doesn't have any item in this category :() </h2>
+        <h2>This restaurant doesn't have any item in this category :'( </h2>
       <% else %>
         <h2>  <%= @restaurant.items[0].category.upcase %>: </h2>
       <% end %>
