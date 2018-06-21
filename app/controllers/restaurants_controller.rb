@@ -44,6 +44,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def show
+    # calls for the same method within restaurant_policy
+    @markers = [{lat: @restaurant.latitude, lng: @restaurant.longitude}]
+  end
 
   def edit
   end
