@@ -14,11 +14,23 @@ class OrdersController < ApplicationController
 
   end
 
+  # def update
+  #   @order = Order.find(params[:id])
+  #   @bill = @order.bill
+  #   # @restaurant = Restaurant.find(params[:restaurant_id])
+  #   @order.update
+  #   if @order.save
+  #     redirect_to edit_bill_path(@bill)
+  #   else
+  #     redirect_to back
+  #   end
+  # end
+
 
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :restaurant_id, :number_of_people, :status, :date, :comment)
+    params.require(:order).permit(:user_id, :status, :special_request, :bill_id)
   end
 
 end

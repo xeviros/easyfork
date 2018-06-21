@@ -2,9 +2,6 @@ class BillsController < ApplicationController
   def new
   end
 
-  def edit
-  end
-
   def show
     @bill = Bill.find(params[:id])
     if @order = @bill.has_ordered?(current_user)
@@ -23,6 +20,12 @@ class BillsController < ApplicationController
     redirect_to bill_path(@bill)
   end
 
-  def update
+  def edit
+    @bill = Bill.find(params[:id])
   end
+
+  # def update
+  #   @bill = Bill.find(params[:id])
+  # end
+
 end
