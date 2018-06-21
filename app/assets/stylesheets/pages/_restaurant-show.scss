@@ -22,3 +22,63 @@
     align-items: center;
   }
 
+
+.menu-title {
+
+}
+
+.menu-all {
+
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid $orange-easyfork;
+}
+
+.menu-picture {
+  display: flex;
+  align-items: center;
+;
+  width: 10%;
+  height: 100px;
+  margin-left: 50px;
+
+}
+
+.menu-description {
+ display: grid;
+
+
+
+  width: 45%;
+  height: 100px;
+}
+
+.menu-description h3 {
+  display:table-cell;
+  vertical-align:middle;
+  width: 40%;
+}
+.menu-description p {
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.menu-price {
+  display: flex;
+  align-items: center;
+
+   width: 10%;
+   height: 100px;
+}
+
+.menu-add {
+  display: flex;
+  align-items: center;
+
+   width: 10%;
+   height: 100px;
+}
