@@ -7,7 +7,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     if self.model.is_a?(User)
       "http://steamavatars.co/?media_dl=2408"
     else
-      "http://res.cloudinary.com/dmbqqlt51/image/upload/v1528882087/RestaurantBNB/restaurants/restaurant1.jpg"
+      "rest1.jpg"
     end
   end
 
