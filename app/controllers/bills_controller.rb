@@ -12,6 +12,7 @@ class BillsController < ApplicationController
     else
       @order = Order.create(bill: @bill, user: current_user)
     end
+    @order_item = OrderItem.new
   end
 
   def create

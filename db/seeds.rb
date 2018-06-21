@@ -22,15 +22,15 @@ Item.create!(name: "Pasta", price: 10, restaurant: resto1)
 Item.create!(name: "chicken", price: 10, restaurant: resto1)
 Item.create!(name: "steak", price: 10, restaurant: resto1)
 
-Item.create!(name: "Pizza", price: 10, restaurant: resto2)
-Item.create!(name: "Pasta", price: 10, restaurant: resto2)
-Item.create!(name: "chicken", price: 10, restaurant: resto2)
-Item.create!(name: "steak", price: 10, restaurant: resto2)
+Item.create!(name: "juice", price: 10, restaurant: resto2)
+Item.create!(name: "carrot", price: 10, restaurant: resto2)
+Item.create!(name: "avocado", price: 10, restaurant: resto2)
+Item.create!(name: "vegan steak", price: 10, restaurant: resto2)
 
-Item.create!(name: "Pizza", price: 10, restaurant: resto3)
-Item.create!(name: "Pasta", price: 10, restaurant: resto3)
-Item.create!(name: "chicken", price: 10, restaurant: resto3)
-Item.create!(name: "steak", price: 10, restaurant: resto3)
+Item.create!(name: "sushi", price: 10, restaurant: resto3)
+Item.create!(name: "rice", price: 10, restaurant: resto3)
+Item.create!(name: "sushi 2", price: 10, restaurant: resto3)
+Item.create!(name: "miso", price: 10, restaurant: resto3)
 
 puts "Finished!"
 

@@ -1,19 +1,19 @@
 class OrdersController < ApplicationController
-  def new
-    @order = Order.new
-    @restaurant = Restaurant.find(params[:restaurant_id])
-
-  end
 
   def create
     @item = @order.order_items.new(item_params)
     @restaurant = Restaurant.find(params[:restaurant_id])
     if @order.save
-      redirect_to ??
+      redirect_to :back
     else
       render :new
     end
   end
+
+  def edit
+
+  end
+
 
   private
 
@@ -22,5 +22,3 @@ class OrdersController < ApplicationController
   end
 
 end
-
-
