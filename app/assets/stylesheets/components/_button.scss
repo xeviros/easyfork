@@ -14,3 +14,13 @@
 .show .dropdown-content {
   display: block !important;
 }
+
+.btn-menu{
+  color:$dblue-easyfork;
+  background: $lgrey-easyfork;
+    &:hover{
+    background:#0E2C40;
+    color: black;
+
+  }
+}

@@ -18,30 +18,37 @@
 <br>
 <div class="text-center">  <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>
 </div>
-
-
-
-<div class="container-show">
-
-  <div class="menu-title">
-    <h2> Menu: </h2>
-    <% @restaurant.items.each do |item| %>
-      <div class="menu-all">
-        <div class="menu-picture"><%= image_tag "food.png"%></div>
-        <div class="menu-description">
-          <h3><%= item.name %></h3>
-          <p>Description</p>
-        </div>
-        <div class="menu-price">      <%= item.price %> € </div>
-        <div class="menu-add"></div>
+<div class="cont-pills-menus">
+    <div class="container-pills">
+      <div class="col-md-12">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="btn-menu"><a href="#">Menu</a></li>
+          <li><a href="?utf8=✓&query=starter">Starters</a></li>
+          <li><a href="?utf8=✓&query=main">Main</a></li>
+          <li><a href="?utf8=✓&query=dessert">Desserts</a></li>
+          <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
+        </ul>
+      </div>
     </div>
-     <% end %>
 
+    <div class="container-show">
 
-
-
-      <br>
-  </div>
+      <div class="menu-title">
+        <h2> Menu:</h2>
+        <% @restaurant.items.each do |item| %>
+          <div class="menu-all">
+            <div class="menu-picture"><%= image_tag "food.png" , height: 100%></div>
+            <div class="menu-description">
+              <h3><%= item.name %></h3>
+              <p><%= item.description %></p>
+            </div>
+            <div class="menu-price">      <%= item.price %> € </div>
+            <div class="menu-add"></div>
+        </div>
+         <% end %>
+          <br>
+         </div>
+    </div>
 </div>
 
 
