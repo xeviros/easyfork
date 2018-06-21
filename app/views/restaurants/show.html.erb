@@ -1,11 +1,20 @@
-<div class="banner" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
+<% if @restaurant.photo.file.nil? %>
+<div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
   <div class="resto-infos">
     <h3 ><%= @restaurant.name %></h3>
-    <div class= "text-box" <p>€€€ --- 10 rue La Croix</p> </div>
-
-
+    <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> 10 rue La Croix</p> </div>
   </div>
 </div>
+
+<% else %>
+<div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
+  <div class="resto-infos">
+    <h3 ><%= @restaurant.name %></h3>
+    <div class= "text-box"> <p> €€€ --- 10 rue La Croix</p> </div>
+  </div>
+</div>
+
+<% end %>
 
  <div class="map" style="background-image: url('http://catolico.info/wp-content/uploads/2018/04/google-maps-barcelona-writing-articles-982-x-582-pixels.png')">
     <h1> MAP </h1>
