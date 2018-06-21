@@ -1,10 +1,16 @@
 .card {
-  height: 175px;
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
+  box-shadow: 5px 6px 6px #b5b5b5;
   color: white;
   position: relative;
+  margin: 5px;
+  border-radius: 3px;
+  display: flex;
+  margin-top: 10px;
+  margin-right: 2px;
 }
 .card-user {
   position: absolute;
@@ -22,17 +28,56 @@
 }
 .card-description {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 10px;
 }
-.card-description h2 {
-  font-size: 24px;
+
+.card-title-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
+
+.card-edit-wrapper{
+  opacity: 0.8;
+  position: relative;
+  display: flex;
+  left: 94%;
+  top: 3%;
+  font-size: 30px;
+  &:hover {
+    opacity: 1;
+    font-size: 32px;
+  }
+}
+
+.card-title-wrapper h2 {
+  font-size: 25px;
+  color: white !important;
+}
+
+.card-description h2 {
+  position: relative;
+  text-align: center;
+  font-size: 21px;
+}
+
 .card-description p {
   font-size: 14px;
-  opacity: 0.7;
+  opacity: 0.8;
   font-weight: lighter;
 }
+
+.card-description i {
+  font-size: 20px;
+  padding: 5px;
+  color:#FAFAFA;
+}
+
 .card-link {
   position: absolute;
   top: 0;
@@ -43,13 +88,27 @@
   background: black;
   opacity: 0;
 }
+
 .card-link:hover {
   opacity: 0.1;
-  height: 200px;
-  background-color: blue;
-  border-radius: 3px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 10px 3px;
+}
+
+.fa-pen-square {
+  color: white;
+}
+
+
+.fa-euro-sign{
+font-size: 30px;
+padding: 5px;
+}
+
+
+.fa-map-marker{
+font-size: 30px;
+padding: 5px;
+}
+
+.card-container{
+  padding: 10px;
 }
