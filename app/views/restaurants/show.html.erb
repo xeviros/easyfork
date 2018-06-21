@@ -1,46 +1,43 @@
 <% if @restaurant.photo.file.nil? %>
-<div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
-  <div class="resto-infos">
-    <h3 ><%= @restaurant.name %></h3>
-    <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> 10 rue La Croix</p> </div>
+  <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
+    <div class="resto-infos">
+      <h3 ><%= @restaurant.name %></h3>
+      <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> 10 rue La Croix</p> </div>
+    </div>
   </div>
-</div>
 
 <% else %>
-<div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
-  <div class="resto-infos">
-    <h3 ><%= @restaurant.name %></h3>
-    <div class= "text-box"> <p> €€€ --- 10 rue La Croix</p> </div>
+  <div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
+    <div class="resto-infos">
+      <h3 ><%= @restaurant.name %></h3>
+      <div class= "text-box"> <p> €€€ --- 10 rue La Croix</p> </div>
+    </div>
   </div>
-</div>
-
 <% end %>
 
- <div class="map" style="background-image: url('http://catolico.info/wp-content/uploads/2018/04/google-maps-barcelona-writing-articles-982-x-582-pixels.png')">
-    <h1> MAP </h1>
-  </div>
-
-
-
- <div class="text-right">  <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>  </div>
-<div class="container-show">
-
-
-        <div class="menu">
-          <h2> Menu: </h2>
-          <% @restaurant.items.each do |item| %>
-          <%= item.name %>
-          <%= item.price %> € <br>
-          <% end %>
-        </div>
-
-
-
-
-
-
-
+<br>
+<div class="text-center">  <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>  
 </div>
 
+<div class="container-show">
+  <div class="menu">
+    <h2> Menu: </h2>
+      <% @restaurant.items.each do |item| %>
+        <%= item.name %>
+        <%= item.price %> € 
+      <% end %>
+      <br>
+  </div>
+</div>
+
+
+<div class="container">
+  <div
+    id="map"
+    style="width: 100%;
+    height: 380px;"
+    data-markers="<%= @markers.to_json %>"
+    ></div>
+</div>
 
 
