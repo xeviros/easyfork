@@ -1,5 +1,8 @@
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  const box = document.getElementById("js-trigger")
+  box.addEventListener('click', () => {
+      box.parentElement.classList.toggle("show");
+    })
 }
 
 function filterFunction() {
@@ -16,3 +19,5 @@ function filterFunction() {
     }
   }
 }
+
+export { myFunction }
