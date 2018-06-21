@@ -23,26 +23,26 @@
       <div class="col-md-12">
         <ul class="nav nav-pills nav-stacked">
           <li class="btn-menu"><a href="#">Menu</a></li>
-          <li><a href="?utf8=✓&query=starter">Starters</a></li>
-          <li><a href="?utf8=✓&query=main">Main</a></li>
-          <li><a href="?utf8=✓&query=dessert">Desserts</a></li>
+          <li><a href="?utf8=✓&query=starters">Starters</a></li>
+          <li><a href="?utf8=✓&query=mains">Main</a></li>
+          <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
           <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="container-show">
+    <div class="container-show" style="overflow:scroll;">
 
       <div class="menu-title">
       <% if @restaurant.items[0].nil? %>
-        <h2>This restaurant doesn't have any item in this category :'( </h2>
+        <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
       <% else %>
         <h2>  <%= @restaurant.items[0].category.upcase %>: </h2>
       <% end %>
 
       <% @restaurant.items.each do |item| %>
           <div class="menu-all">
-            <div class="menu-picture"><%= image_tag "food.png" , height: 100%></div>
+            <div class="menu-picture"><%= image_tag "food-#{item.category}.png" , height: 100%></div>
             <div class="menu-description">
               <h3><%= item.name %></h3>
               <p><%= item.description %></p>
