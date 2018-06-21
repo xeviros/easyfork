@@ -1,5 +1,4 @@
 <div>
-  <p> Search bar</p>
   <%= render :partial => 'pages/form' %>
 </div>
 
@@ -11,21 +10,29 @@
         <div class="col-xs-12 col-md-6">
           <% if restaurant.photo.file.nil? %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
-              <div class="restaurant-title-wrapper">
+              <div class="card-title-wrapper">
                 <h2> <%= restaurant.name.capitalize %> </h2>
               </div>
               <div class="card-category">
                 <%= restaurant.category %>
               </div>
+              <div class="card-description">
+              <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
+              </div>
+              <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
             </div>
           <% else %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
-              <div class="restaurant-title-wrapper">
+              <div class="card-title-wrapper">
                 <h2> <%= restaurant.name.capitalize %> </h2>
               </div>
               <div class="card-category">
                 <%= restaurant.category %>
               </div>
+              <div class="card-description">
+              <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
+              </div>
+              <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
             </div>
           <% end %>  
         </div>
@@ -36,7 +43,6 @@
   <div class="map-container">
     <div
       id="map"
-      class="map"
       style="width: 100%;
       height: 500px;"
       data-markers="<%= @markers.to_json %>"
@@ -44,4 +50,8 @@
     </div>
   </div>
 
+</div>
+
+<div class="banner banner-show-rest">
+  <%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-blue" %>
 </div>
