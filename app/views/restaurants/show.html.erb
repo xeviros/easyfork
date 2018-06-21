@@ -19,14 +19,27 @@
 <div class="text-center">  <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>
 </div>
 
-<div class="container-show">
-  <div class="menu">
-    <h2> Menu: </h2>
-      <% @restaurant.items.each do |item| %>
 
-        <%= item.name %>
-        <%= item.price %> €
-      <% end %>
+
+<div class="container-show">
+
+  <div class="menu-title">
+    <h2> Menu: </h2>
+    <% @restaurant.items.each do |item| %>
+      <div class="menu-all">
+        <div class="menu-picture"><%= image_tag "food.png"%></div>
+        <div class="menu-description">
+          <h3><%= item.name %></h3>
+          <p>Description</p>
+        </div>
+        <div class="menu-price">      <%= item.price %> € </div>
+        <div class="menu-add"></div>
+    </div>
+     <% end %>
+
+
+
+
       <br>
   </div>
 </div>
