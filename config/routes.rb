@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :order_items, only: [:create]
   end
 
+  resources :order_items, only: [:edit, :update, :destroy]
+
   get '/my-orders', to: "dashboard#my_orders"
   get '/my-restaurants', to: "dashboard#my_restaurants"
   get '/order-requests', to: "dashboard#order_requests"
