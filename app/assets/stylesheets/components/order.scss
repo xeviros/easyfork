@@ -1,0 +1,86 @@
+.order{
+  background: white;
+      box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+  width: 500px;
+  height: 200px;
+  position: relative;
+  padding: 20px;
+  color: $dgrey-easyfork;
+  font-weight: 100;
+}
+
+.order p{
+  margin-bottom: 0px;
+}
+
+.order i{
+  color: $lblue-easyfork;
+  padding-left: 20px;
+  padding-right: 20px;
+  &:hover{
+    font-size: 22px;
+  }
+}
+
+
+
+
+
+.order-price{
+  font-size: 13px;
+  font-weight: 100;
+  position: absolute;
+  left: 400px;
+  width: 200px;
+   color: #434343;
+}
+
+.order-name{
+  color: $lblue-easyfork;
+  font-weight: 500;
+  padding-bottom: 20px;
+
+}
+
+.item-name{
+  padding: 10px;
+}
+
+
+.total-price{
+  color: #434343;
+  position: absolute;
+  left: 400px;
+  width: 200px;
+  margin-left: -100px;
+  font-weight: 300;
+  margin-top: 30px;
+}
+
+.order-items{
+  height: 70px;
+  position:relative;
+  width:460px;
+}
+
+.order-accepted{
+  color: green;
+  font-size: 20px;
+padding: 30px 0px;
+}
+
+.order-pending{
+  color: orange;
+  font-size: 20px;
+padding: 30px 0px;
+}
+
+.order-rejected{
+  color: red;
+  font-size: 20px;
+padding: 30px 0px;
+}
+
+
+
+

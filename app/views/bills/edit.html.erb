@@ -1,23 +1,38 @@
-<h1>Bills#edit</h1>
+<h1 class= "text-center">All orders</h1>
 <div class="container">
-<% @bill.orders.each do |order| %>
-  <%= order.user.email %>
-  <%= order.status %>
+  <div class="row">
+    <% @bill.orders.each do |order| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="order">
+          <div class="order-infos">
+            <p class= "order-name"> Order of <%= order.user.email.capitalize %> </p>
 
-  <% order.order_item.each do |order_item| %>
-    <p class="text-center"> <%= order_item.item.name %> <%= order_item.item.price%>€<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-blue'%> </p>
-  <% end %>
-<% end %>
 
-<p>Total price:</p>
-<p>
-  <% sum = 0 %>
-  <% @bill.orders.each do |order| %>
-    <% order.order_item.each do |order_item| %>
-      <% sum += order_item.item.price%>
+            <div class="order-items" style="overflow:scroll">
+
+            <% order.order_item.each do |order_item| %>
+            <p> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }%> <span class="item-name"><%= order_item.item.name.capitalize %> <span class="order-price"> <%= order_item.item.price%> €</span> </span>
+            <% end %>
+          </div>
     <% end %>
-  <% end %>
-  <%= sum %>€
-</p>
 
+
+
+         <p class="total-price"> Total price:
+          <% sum = 0 %>
+          <% @bill.orders.each do |order| %>
+          <% order.order_item.each do |order_item| %>
+          <% sum += order_item.item.price%>
+          <% end %>
+          <%= sum %> € </p>
+          <p class= "order-<%=order.status.downcase%>"><%= order.status %> </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<h1 class="text-center"> <%= link_to 'VALIDATE BILL', restaurants_path, class: 'btn btn-blue'%>
+
+
