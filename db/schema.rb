@@ -53,8 +53,6 @@ ActiveRecord::Schema.define(version: 2018_06_21_140449) do
     t.bigint "bill_id"
     t.bigint "user_id"
     t.string "status", default: "Pending"
-    t.jsonb "payment"
-    t.integer "amount_cents", default: 0, null: false
     t.text "special_request"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
