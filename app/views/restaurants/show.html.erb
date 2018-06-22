@@ -1,4 +1,5 @@
 <% if @restaurant.photo.file.nil? %>
+
   <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
     <div class="resto-infos">
       <h3 ><%= @restaurant.name %></h3>
@@ -6,20 +7,24 @@
       <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @restaurant.address %></p> </div>
     </div>
   </div>
+</div>
 
 <% else %>
+
   <div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
     <div class="resto-infos">
       <h3 ><%= @restaurant.name %></h3>
       <div class= "text-box"> <p> @restaurant.address</p> </div>
     </div>
   </div>
+</div>
 <% end %>
 <div class="search-index">
   <%= render :partial => 'pages/form' %>
 </div>
 
 <br>
+
 <div class="text-center">  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>
 </div>
 <br>
@@ -29,6 +34,7 @@
 
 
 <div class="cont-pills-menus">
+
     <div class="container-pills">
       <div class="col-md-12">
         <ul class="nav nav-pills nav-stacked">
@@ -40,13 +46,15 @@
         </ul>
       </div>
     </div>
+  </div>
 
-    <div class="container-show" style="overflow:scroll;">
+  <div class="container-show" style="overflow:scroll;">
 
-      <div class="menu-title">
+    <div class="menu-title">
       <% if @restaurant.items[0].nil? %>
-        <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
+      <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
       <% else %>
+
         <h4>  <%= @restaurant.items[0].category.upcase %>: </h4>
       <% end %>
 
@@ -60,20 +68,23 @@
             <div class="menu-price">      <%= item.price %> € </div>
             <div class="menu-add"></div>
         </div>
-         <% end %>
-          <br>
-         </div>
+        <div class="menu-price">      <%= item.price %> € </div>
+        <div class="menu-add"></div>
+      </div>
+      <% end %>
+      <br>
     </div>
+  </div>
 </div>
 
 
 <div class="container">
   <div
-    id="map"
-    style="width: 100%;
-    height: 380px;"
-    data-markers="<%= @markers.to_json %>"
-    ></div>
+  id="map"
+  style="width: 100%;
+  height: 380px;"
+  data-markers="<%= @markers.to_json %>"
+  ></div>
 </div>
 
 
