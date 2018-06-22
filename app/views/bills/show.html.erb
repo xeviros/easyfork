@@ -42,6 +42,15 @@
       <% end %>
     </div>
 
+    <% add = image_path("add.png") %>
+    <% categories = {
+      "mains" => image_path("food-mains.png"),
+      "starters" => image_path("food-starters.png"),
+      "desserts" => image_path("food-desserts.png"),
+      "drinks" => image_path("food-drinks.png"),
+    }  %>
+
+
     <%= simple_form_for [@order, @order_item] do |f| %>
     <%= f.association :item,
     collection: @bill.restaurant.items,
@@ -51,9 +60,9 @@
     ->(item){ "
       <div class='menu-all'>
 
+      <div class='menu-picture'>
+      <img src='#{categories[item.category]}' height='65'/>
 
-      <div class='menu-picture', height: 80>
-      <img src='/assets/food-#{item.category}.png'/>
       </div>
       <div class='menu-description'>
       <h3>#{ item.name }</h3>
@@ -63,10 +72,8 @@
       #{ item.price } €
       </div>
       <div class='menu-add'>
-      <img src='/assets/add.png'>
+      <img src='#{add}' height='45'>
       </div>
-
-
       </div>
       ".html_safe } %>
       <%= f.button :submit %>
