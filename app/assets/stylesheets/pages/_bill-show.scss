@@ -1,0 +1,18 @@
+.cont-pills-menus-order{
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  height: 800px;
+  width: 100%;
+}
+
+.container-order{
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: 60%;
+  background-color: pink;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
