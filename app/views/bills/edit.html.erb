@@ -16,6 +16,13 @@
           </div>
     <% end %>
 
+    <%= sum %>€
+    <h1 class="text-center"> <%= link_to 'PAY ORDER', new_order_payment_path(order), class: 'btn btn-blue'%>
+  <% end %>
+
+</p>
+
+
 
 
          <p class="total-price"> Total price:
@@ -33,6 +40,8 @@
   </div>
 </div>
 
+
 <h1 class="text-center"> <%= link_to 'VALIDATE BILL', restaurants_path, class: 'btn btn-blue'%>
+
 
 
