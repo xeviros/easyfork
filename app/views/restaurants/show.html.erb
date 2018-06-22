@@ -2,7 +2,8 @@
   <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
     <div class="resto-infos">
       <h3 ><%= @restaurant.name %></h3>
-      <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> 10 rue La Croix</p> </div>
+      <p>  French food home made<%#= @restaurant.description %></p>
+      <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @restaurant.address %></p> </div>
     </div>
   </div>
 
@@ -10,21 +11,30 @@
   <div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
     <div class="resto-infos">
       <h3 ><%= @restaurant.name %></h3>
-      <div class= "text-box"> <p> €€€ --- 10 rue La Croix</p> </div>
+      <div class= "text-box"> <p> @restaurant.address</p> </div>
     </div>
   </div>
 <% end %>
+<div class="search-index">
+  <%= render :partial => 'pages/form' %>
+</div>
 
 <br>
-<div class="text-center">  <%= link_to "Start Order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>
+<div class="text-center">  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-blue'%>
 </div>
+<br>
+
+<br>
+
+
+
 <div class="cont-pills-menus">
     <div class="container-pills">
       <div class="col-md-12">
         <ul class="nav nav-pills nav-stacked">
           <li class="btn-menu"><a href="#">Menu</a></li>
           <li><a href="?utf8=✓&query=starters">Starters</a></li>
-          <li><a href="?utf8=✓&query=mains">Main</a></li>
+          <li><a href="?utf8=✓&query=mains">Mains</a></li>
           <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
           <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
         </ul>
@@ -37,14 +47,14 @@
       <% if @restaurant.items[0].nil? %>
         <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
       <% else %>
-        <h2>  <%= @restaurant.items[0].category.upcase %>: </h2>
+        <h4>  <%= @restaurant.items[0].category.upcase %>: </h4>
       <% end %>
 
       <% @restaurant.items.each do |item| %>
           <div class="menu-all">
-            <div class="menu-picture"><%= image_tag "food-#{item.category}.png" , height: 100%></div>
+            <div class="menu-picture"><%= image_tag "food-#{item.category}.png" , height: 60%></div>
             <div class="menu-description">
-              <h3><%= item.name %></h3>
+              <h3><%= item.name.capitalize %></h3>
               <p><%= item.description %></p>
             </div>
             <div class="menu-price">      <%= item.price %> € </div>

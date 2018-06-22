@@ -28,6 +28,9 @@
   justify-content: space-between;
   height: 1000px;
   width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 
@@ -37,26 +40,26 @@
   flex-direction: column;
   height: 200px;
   width: 20%;
+  color: #505050;
 
 }
 
 .container-pills a{
+color: #2E6C7D;
 
 }
-.menu-title {
-  border-top: 2px solid $orange-easyfork;
 
-}
+
 
 .menu-all {
 
-  height: 100px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
   padding-bottom: 20px;
-  border-bottom: 2px solid $dblue-easyfork;
+  border-top: 0.05px solid #D5CDCD;
 }
 
 .menu-picture {
@@ -64,8 +67,10 @@
   align-items: center;
 ;
   width: 10%;
-  height: 100px;
+  height: 30px;
   margin-left: 50px;
+  padding-top: 30px;
+
 
 }
 
@@ -74,25 +79,38 @@
  color: $dblue-easyfork;
   width: 45%;
   height: 100px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
+
 
 .menu-description h3 {
   display:table-cell;
   vertical-align:middle;
   width: 100%;
+  color: #666262;
+  font-size: 18px;
+  font-weight: 300;
 }
 .menu-description p {
   display:table-cell;
   vertical-align:middle;
   width: 90%;
+  color: #B1B1B1;
+  font-size: 15px;
+  font-weight: 100;
+  margin-top: -20px;
 }
 
 .menu-price {
   display: flex;
   align-items: center;
-
+color:#505050;
    width: 10%;
    height: 100px;
+   font-weight: 400;
+   padding-top: 30px;
+   font-size: 15px;
 }
 
 .menu-add {
@@ -101,4 +119,16 @@
 
    width: 10%;
    height: 100px;
+}
+
+
+.menu-title h4{
+  color: #2E6C7D;
+  padding: 20px;
+  margin-left: 50px;
+
+}
+
+.container-show{
+  background: #F1F1F1;
 }
