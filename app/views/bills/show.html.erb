@@ -1,41 +1,110 @@
-<%#items_array = @bill.restaurant.items %>
-<div class="main-container">
-  <div class="container item-menu">
-    <%= simple_form_for [@order, @order_item] do |f| %>
-      <%= f.association :item,
-        collection: @bill.restaurant.items,
-        as: :radio_buttons,
-        item_wrapper_class: 'js-form-trigger',
-        label_method: ->(obj){ "
-          <p>#{obj.name}</p>
-          <p>#{obj.price}€</p>
-          <img src='http://icons.iconarchive.com/icons/aha-soft/desktop-buffet/256/Chicken-icon.png'>
-        ".html_safe } %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
-
-  <div class="container">
-    <% @bill.orders.each do |order| %>
-      <% order.order_item.each do |order_item| %>
-        <p class="text-center"> <%= order_item.item.name %> <%= order_item.item.price%>€<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-blue'%> </p>
-      <% end %>
-    <% end %>
-
-
-    <p>Total price:</p>
-    <p>
-      <% sum = 0 %>
-      <% @bill.orders.each do |order| %>
-        <% order.order_item.each do |order_item| %>
-          <% sum += order_item.item.price%>
-        <% end %>
-      <% end %>
-      <%= sum %>€
-    </p>
-    <h1 class="text-center"> <%= link_to 'FINISH ORDER', edit_bill_path(@bill), class: 'btn btn-blue'%>
-    </h1>
-
+<% if @bill.restaurant.photo.file.nil? %>
+<div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
+  <div class="resto-infos">
+    <h3 ><%= @bill.restaurant.name %></h3>
+    <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @bill.restaurant.address  %></p> </div>
   </div>
 </div>
+
+<% else %>
+<div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
+  <div class="resto-infos">
+    <h3 ><%= @bill.restaurant.name %></h3>
+    <div class= "text-box"> <p>  <%= @bill.restaurant.address  %></p> </div>
+  </div>
+</div>
+<% end %>
+
+
+<br>
+<br>
+
+<div class="cont-pills-menus-order">
+  <div class="container-pills">
+    <div class="col-md-12">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="btn-menu"><a href="#">Menu</a></li>
+        <li><a href="?utf8=✓&query=starters">Starters</a></li>
+        <li><a href="?utf8=✓&query=mains">Main</a></li>
+        <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
+        <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container-show" style="overflow:scroll;">
+
+    <div class="menu-title">
+      <% if @bill.restaurant.items[0].nil? %>
+      <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
+      <% else %>
+      <h2>  <%= @bill.restaurant.items[0].category.upcase %>: </h2>
+      <% end %>
+    </div>
+
+    <%= simple_form_for [@order, @order_item] do |f| %>
+    <%= f.association :item,
+    collection: @bill.restaurant.items,
+    as: :radio_buttons,
+    item_wrapper_class: 'js-form-trigger',
+    label_method:
+    ->(item){ "
+      <div class='menu-all'>
+
+
+      <div class='menu-picture'>
+      <img src='/assets/food-#{item.category}.png'/>
+      </div>
+      <div class='menu-description'>
+      <h3>#{ item.name }</h3>
+      <p>#{ item.description }</p>
+      </div>
+      <div class='menu-price'>
+      #{ item.price } €
+      </div>
+      <div class='menu-add'>
+      <img src='/assets/add.png'>
+      </div>
+
+
+      </div>
+      ".html_safe } %>
+      <%= f.button :submit %>
+      <% end %>
+
+
+
+      <% @bill.restaurant.items.each do |item| %>
+
+
+
+      <% end %>
+      <br>
+    </div>
+
+    <div class="container-order">
+
+      <% @bill.orders.each do |order| %>
+      <% order.order_item.each do |order_item| %>
+      <p class="text-center"> <%= order_item.item.name %> <%= order_item.item.price%>€<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-blue'%> </p>
+      <% end %>
+      <% end %>
+
+
+      <p>Total price:</p>
+      <p>
+        <% sum = 0 %>
+        <% @bill.orders.each do |order| %>
+        <% order.order_item.each do |order_item| %>
+        <% sum += order_item.item.price%>
+        <% end %>
+        <% end %>
+        <%= sum %>€
+      </p>
+      <h1 class="text-center"> <%= link_to 'FINISH ORDER', edit_bill_path(@bill), class: 'btn btn-blue'%>
+      </h1>
+
+    </div>
+
+
 

@@ -5,9 +5,15 @@ class BillsController < ApplicationController
   def show
     @bill = Bill.find(params[:id])
     if @order = @bill.has_ordered?(current_user)
-      @order
+        @order
+      else
+        @order = Order.create(bill: @bill, user: current_user)
+    end
+   if params[:query].present?
+      sql_query = "category ILIKE :query"
+      @bill.restaurant.items = Item.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
     else
-      @order = Order.create(bill: @bill, user: current_user)
+      @bill.restaurant.items = Item.all
     end
     @order_item = OrderItem.new
   end
@@ -32,3 +38,5 @@ class BillsController < ApplicationController
   # end
 
 end
+
+
