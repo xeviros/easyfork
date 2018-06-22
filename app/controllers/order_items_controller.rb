@@ -7,6 +7,15 @@ class OrderItemsController < ApplicationController
     @order_item.order = @order
     @bill = @order_item.order.bill
     @order_item.save
+
+    # sum all the item price in order.amount_cents
+    @order.items.each do |item|
+      @order.amount_cents += item.price_cents
+    end
+    @order.amount_cents
+
+    @order.user = current_user
+    @order.save
     # redirect to bill show page
     redirect_to bill_path(@bill)
   end

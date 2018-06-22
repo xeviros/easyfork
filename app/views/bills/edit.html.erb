@@ -16,8 +16,12 @@
     <% order.order_item.each do |order_item| %>
       <% sum += order_item.item.price%>
     <% end %>
+    <%= sum %>€
+    <h1 class="text-center"> <%= link_to 'PAY ORDER', new_order_payment_path(order), class: 'btn btn-blue'%>
   <% end %>
-  <%= sum %>€
+
 </p>
 
 </div>
+
+
