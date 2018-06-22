@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get '/my-orders', to: "dashboard#my_orders"
   get '/my-restaurants', to: "dashboard#my_restaurants"
   get '/order-requests', to: "dashboard#order_requests"
+  get '/my-profile', to: "user#edit"
 
 end
