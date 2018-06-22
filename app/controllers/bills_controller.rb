@@ -4,14 +4,14 @@ class BillsController < ApplicationController
 
   def show
     @bill = Bill.find(params[:id])
-    if params[:query].present?
-      sql_query = "category ILIKE :query"
-      @bill.restaurant.items = Item.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-      if @order = @bill.has_ordered?(current_user)
+    if @order = @bill.has_ordered?(current_user)
         @order
       else
         @order = Order.create(bill: @bill, user: current_user)
-      end
+    end
+   if params[:query].present?
+      sql_query = "category ILIKE :query"
+      @bill.restaurant.items = Item.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
     else
       @bill.restaurant.items = Item.all
     end

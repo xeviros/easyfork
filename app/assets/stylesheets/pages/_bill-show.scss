@@ -2,7 +2,7 @@
   display: flex;
   align-self: flex-start;
   justify-content: space-between;
-  height: 800px;
+  height: 1000px;
   width: 100%;
 }
 
@@ -16,3 +16,14 @@
   margin-right: 50px;
 }
 
+.js-form-trigger .collection_radio_buttons {
+  width: 100%;
+}
+
+.js-form-trigger input {
+  display:none;
+}
+
+.container-show legend {
+  display: none;
+}
