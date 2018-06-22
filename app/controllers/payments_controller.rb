@@ -17,7 +17,7 @@ class PaymentsController < ApplicationController
     currency:     @order.amount.currency
   )
 
-  @order.update(payment: charge.to_json, status: 'paid')
+  @order.update(payment: charge.to_json, status: 'Paid')
   redirect_to edit_bill_path(@order.bill)
 
 rescue Stripe::CardError => e
