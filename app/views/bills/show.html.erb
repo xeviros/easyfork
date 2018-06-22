@@ -52,7 +52,7 @@
       <div class='menu-all'>
 
 
-      <div class='menu-picture'>
+      <div class='menu-picture', height: 80>
       <img src='/assets/food-#{item.category}.png'/>
       </div>
       <div class='menu-description'>
@@ -83,26 +83,30 @@
     </div>
 
     <div class="container-order">
-
-      <% @bill.orders.each do |order| %>
-      <% order.order_item.each do |order_item| %>
-      <p class="text-center"> <%= order_item.item.name %> <%= order_item.item.price%>€<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-blue'%> </p>
-      <% end %>
-      <% end %>
-
-
-      <p>Total price:</p>
-      <p>
-        <% sum = 0 %>
+      <h3 class="text-center">Your order</h3>
+      <div class= "overflow-bill" style="overflow:scroll">
         <% @bill.orders.each do |order| %>
         <% order.order_item.each do |order_item| %>
-        <% sum += order_item.item.price%>
+        <p> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }%> <span class="order-i"><%= order_item.item.name %><span class= "price-i"> <%= order_item.item.price%> € </span></span> </p>
+
         <% end %>
         <% end %>
-        <%= sum %>€
-      </p>
-      <h1 class="text-center"> <%= link_to 'FINISH ORDER', edit_bill_path(@bill), class: 'btn btn-blue'%>
-      </h1>
+      </div>
+
+
+      <div class= "label-tp"> Total price: </div>
+
+      <% sum = 0 %>
+      <% @bill.orders.each do |order| %>
+      <% order.order_item.each do |order_item| %>
+      <% sum += order_item.item.price%>
+      <% end %>
+      <% end %>
+
+      <div class="total-pricebill"><%= sum %>€ </div>
+
+      <h3 class="text-center btn-validate"> <%= link_to 'FINISH ORDER', edit_bill_path(@bill), class: 'btn btn-blue'%>
+      </h3>
 
     </div>
   </div>
