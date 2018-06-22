@@ -28,6 +28,9 @@ class BillsController < ApplicationController
 
   def edit
     @bill = Bill.find(params[:id])
+    # @bill.orders.each do |order|
+    #   order.update(status: "Accepted")
+    # end
   end
 
   # def update

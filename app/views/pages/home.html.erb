@@ -1,116 +1,99 @@
 
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(250,250,250,0.7) 0%, rgba(250,250,250,0.7) 50%), url('<%= image_path 'burger7.png' %>');">
+  <div class="banner-content">
+    <br>
 
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(250,250,250,0.7) 0%, rgba(250,250,250,0.7) 50%), url('<%= image_path 'burger7.png' %>');">
-    <div class="banner-content">
-      <br>
-
-      <h4>Are you still waiting?</h4>
-      <br>
-      <h1>BOOK A TABLE, ORDER YOUR <br> MEAL IN ADVANCE & SAVE TIME</h1>
-        <%= render :partial => 'pages/form-home' %>
-      <div>
-        <%= link_to "See all Restaurants", restaurants_path, class: "btn btn-blue" %>
-      </div>
+    <h4>Are you still waiting?</h4>
+    <br>
+    <h1>BOOK A TABLE, ORDER YOUR <br> MEAL IN ADVANCE & SAVE TIME</h1>
+    <%= render :partial => 'pages/form-home' %>
+    <div>
+      <%= link_to "See all Restaurants", restaurants_path, class: "btn btn-blue" %>
     </div>
   </div>
+</div>
 
+<div class="container container-home">
 
-
-<div class="container">
   <div class="row" style="margin-top: 70px">
     <h2>How it works?</h2>
   </div>
-  <div class="row" style="margin-top: 10px">
 
-          <div class="col-xs-12 col-sm-6">
-            <div class="card-how-it-works">
+  <div class="row-how-it-works" style="margin-top: 10px">
+    <div class="card-how-it-works">
+      <div class="how-icon">
+        <%= image_tag "calendar.png", height: 80 %>
+      </div>
+      <div class="how-text">
+        <p>Choose a restaurant a day or an hour</p>
+      </div>
+    </div>
 
-             <div class="how-icon">
-              <%= image_tag "calendar.png", height: 80 %>
-             </div>
-             <div class="how-text">
-              <p>Choose a restaurant a day or an hour</p>
-             </div>
-            </div>
-          </div>
+    <div class="arrow">
+      <%= image_tag "right-arrow.png", height: 80 %>
+    </div>
+
+    <div class="card-how-it-works">
+      <div class="how-icon">
+        <%= image_tag "ordering.png", height: 80 %>
+      </div>
+      <div class="how-text">
+        <p>Order your meal in advance from the restaurant's selection</p>
+      </div>
+    </div>
+
+    <div class="arrow">
+      <%= image_tag "right-arrow.png", height: 80 %>
+    </div>
 
 
-           <div class="col-xs-12 col-sm-6">
-            <div class="arrow">
-              <%= image_tag "right-arrow.png", height: 80 %>
-            </div>
-          </div>
-
-
-
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="card-how-it-works">
-            <div class="how-icon">
-             <%= image_tag "ordering.png", height: 80 %>
-            </div>
-            <div class="how-text">
-              <p>Order your meal in advance from the restaurant's selection</p>
-           </div>
-          </div>
-        </div>
-
-          <div class="col-xs-12 col-sm-6">
-            <div class="arrow">
-              <%= image_tag "right-arrow.png", height: 80 %>
-            </div>
-          </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="card-how-it-works">
-            <div class="how-icon">
-              <%= image_tag "food-mains.png", height: 80 %>
-            </div>
-            <div class="how-text">
-             <p>Enjoy your meal saving time</p>
-           </div>
-          </div>
-         </div>
+    <div class="card-how-it-works">
+      <div class="how-icon">
+        <%= image_tag "food-mains.png", height: 80 %>
+      </div>
+      <div class="how-text">
+        <p>Enjoy your meal saving time</p>
+      </div>
+    </div>
   </div>
 
 
-    <div class="row" style="margin-top: 70px">
-      <h2> New discoveries</h2>
-    </div>
-    <div class="row" style="margin-top: 10px">
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          </div>
-
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          </div>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 70px">
-      <h2>restaurants categories</h2>
-    </div>
-    <div class="row" style="margin-top: 10px">
-
-            <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          </div>
-
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          </div>
-        </div>
+  <div class="row" style="margin-top: 70px">
+    <h2> New discoveries</h2>
+  </div>
+  <div class="row" style="margin-top: 10px">
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
       </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 70px">
+    <h2>restaurants categories</h2>
+  </div>
+
+  <div class="row" style="margin-top: 10px">
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      </div>
+    </div>
+  </div>
 </div>
