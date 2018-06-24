@@ -57,6 +57,49 @@
     </div>
   </div>
 
+  <div class="row" style="margin-top: 70px">
+    <h2> Most popular restaurants</h2>
+  </div>
+  <div>
+    <div class="row">
+      <% @restaurants.each do |restaurant| %>
+
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <% if restaurant.photo.file.nil? %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
+          <div class="card-title-wrapper">
+            <h2> <%= restaurant.name.capitalize %> </h2>
+          </div>
+          <div class="card-category">
+            <%= restaurant.category %>
+          </div>
+          <div class="card-description">
+            <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
+          </div>
+          <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
+        </div>
+      </div>
+
+      <% else %>
+
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-title-wrapper">
+            <h2> <%= restaurant.name.capitalize %> </h2>
+          </div>
+          <div class="card-category">
+            <%= restaurant.category %>
+          </div>
+          <div class="card-description">
+            <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
+          </div>
+          <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 
   <div class="row" style="margin-top: 70px">
     <h2> New discoveries</h2>
@@ -78,22 +121,5 @@
     </div>
   </div>
 
-  <div class="row" style="margin-top: 70px">
-    <h2>restaurants categories</h2>
-  </div>
 
-  <div class="row" style="margin-top: 10px">
-    <div class="col-xs-12 col-md-4 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-4 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-4 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-      </div>
-    </div>
-  </div>
 </div>
