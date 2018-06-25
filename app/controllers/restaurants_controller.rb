@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
       end
     else
       @restaurants = Restaurant.all
-      #@restaurants = @restaurants.where.not(latitude: nil, longitude: nil)
+      @restaurants = @restaurants.where.not(latitude: nil, longitude: nil)
       @markers = @restaurants.map do |restaurant|
         {
           lat: restaurant.latitude,
