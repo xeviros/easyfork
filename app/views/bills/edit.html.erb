@@ -51,7 +51,7 @@
         <div class="order-infos">
           <p class= "order-name"> Order of <%= order.user.email.capitalize %></p>
           <div class="order-items" style="overflow:scroll">
-            <% order.order_item.each do |order_item| %>
+            <% order.order_items.each do |order_item| %>
               <p> - <span class="item-name"><%= order_item.item.name.capitalize %> <span class="order-price"> <%= order_item.item.price%> €</span> </span></p>
             <% end %>
           </div>
