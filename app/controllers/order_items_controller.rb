@@ -5,6 +5,7 @@ class OrderItemsController < ApplicationController
     @order = Order.find(params[:order_id])
     @order_item = OrderItem.new(order_item_params)
     @order_item.order = @order
+    authorize @order_item
     @bill = @order_item.order.bill
     @order_item.save
 
@@ -23,6 +24,7 @@ class OrderItemsController < ApplicationController
 
   def destroy
     @order_item = OrderItem.find(params[:id])
+    authorize @order_item
     @bill = @order_item.order.bill
 
     @order = @order_item.order

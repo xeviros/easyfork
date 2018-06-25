@@ -1,0 +1,28 @@
+
+
+
+<div class="container">
+  <h2 class="text-center">My orders</h2>
+  <% @orders.each do |order| %>
+    <div class="message">
+      <img class="avatar-small" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+      <div class="message-name">
+      <p> Bill n°: <%= order.bill_id %> </p>
+      <p> <%= order.bill.status.capitalize %></p>
+    </div>
+    <div class="message-body">
+      <p><strong> <%=  order.bill.restaurant.name %></strong></p>
+
+    </div>
+    <div >
+        <%= order.status %>
+        <p class="price"> <%= order.amount_cents %> € </p>
+    </div>
+    <div>
+
+    </div>
+  </div>
+<% end %>
+
+</div>
+
