@@ -8,10 +8,10 @@ User.destroy_all
 
 puts "Creating new database..."
 
-luca = User.create(email: "luca@luca.com", password: "123456")
-anna = User.create(email: "anna@anna.com", password: "123456")
-xavi = User.create(email: "xavi@xavi.com", password: "123456")
-ben = User.create(email: "ben@ben.com", password: "123456")
+luca = User.create(email: "luca@luca.com", password: "123456", first_name: "Luca", last_name: "De Montis")
+anna = User.create(email: "anna@anna.com", password: "123456", first_name: "Anna", last_name: "Bendahan")
+xavi = User.create(email: "xavi@xavi.com", password: "123456", first_name: "Xavi", last_name: "Ros")
+ben = User.create(email: "ben@ben.com", password: "123456", first_name: "Ben", last_name: "De Boissieu")
 
 resto1 = Restaurant.create!(name: "Bella Italia", address: "Carrer Arago 390, Barcelona", category: "Italian", user: luca, popularity: 3)
 resto2 = Restaurant.create!(name: "Xavi's place", address: "Carrer Casanova 20, Barcelona", category: "Spanish", user: xavi, popularity: 1)

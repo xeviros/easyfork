@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2018_06_25_142745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "popularity", default: 0
-    t.string "slug"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
