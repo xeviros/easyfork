@@ -118,10 +118,14 @@
         </div>
 
       </div>
+      <span>
+      <a href="whatsapp://send?text=<%= request.original_url %>" target="_blank""> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp</a>
 
-      <a href="whatsapp://send?text=<%= request.original_url %>"> <%= '<i class="fa fa-whatsapp"></i>'.html_safe %> Whatsapp</a>
+<!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
 
-      <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">Send Email</a>
+      <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a>
+
+      </span>
 
       <div class= "label-tp"> Total price: </div>
 
