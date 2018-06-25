@@ -1,7 +1,8 @@
+<div class="box-search">
 
-  <div class="box-search">
-
-    <div class="box-category">
+  <div class="row" style="margin-top: 10px">
+    <div class="col-xs-12 col-md-4 col-sm-8">
+        <div class="box-category">
       <div class="dropdown">
         <button id="js-trigger" class="btn btn-grey">Categories</button>
         <div id="myDropdown" class="dropdown-content">
@@ -14,32 +15,29 @@
         </div>
       </div>
     </div>
+    </div>
 
-    <div class="box-date">
+    <div class="col-xs-12 col-md-4 col-sm-8">
+        <div class="box-date">
 
         <input type="date" id="start" name="trip"
          value="2018-07-22"
          min="2018-01-01" max="2018-12-31" />
 
 
+        </div>
     </div>
-    <div class="box-date">
-              <input type="text" name="timepicker" class="timepicker"/>
-    </div>
-    <div class="box-search-window">
-
-                    <%= form_tag restaurants_path, method: :get do %>
-                    <%= text_field_tag :query,
-                      params[:query],
-                      class: "form-control",
-                      placeholder: " Find a restaurant or category"
-                    %>
-                    <% end %>
+    <div class="col-xs-12 col-md-4 col-sm-8">
+        <div class="box-date">
+                <input type="text" name="timepicker" class="timepicker"/>
+        </div>
     </div>
 
+    <div class="col-xs-12 col-md-4 col-sm-8">
+        <div class="box-search-window">
 
-
+          <h2>testttt</h2>
+        </div>
+    </div>
   </div>
-
-
-
+</div>

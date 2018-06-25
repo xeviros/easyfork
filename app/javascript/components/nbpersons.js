@@ -1,5 +1,5 @@
-function myFunction() {
-  const box = document.getElementById("js-trigger")
+function nbPersons() {
+  const box = document.getElementById("js-nbpersons")
   if (box) {
     box.addEventListener('click', () => {
       box.parentElement.classList.toggle("show");
@@ -7,4 +7,4 @@ function myFunction() {
   }
 }
 
-export { myFunction }
+export { nbPersons }
