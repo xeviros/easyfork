@@ -80,3 +80,13 @@ width: 300px;
 .container-show legend {
   display: none;
 }
+
+.banner-bill {
+  height: 35vh !important;
+  margin-bottom: 20px;
+}
+
+.banner-bill h1 {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
