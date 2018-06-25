@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'dashboard/my_orders_requests'
-  get 'dashboard/my_orders'
+
   devise_for :users
   root to: 'pages#home'
 
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:index, :edit, :update]
 
-  resources :orders, only: [:edit, :update] do
+  resources :orders, only: [:edit, :update, :destroy] do
     resources :order_items, only: [:create]
     resources :payments, only: [:new, :create]
   end

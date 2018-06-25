@@ -3,9 +3,11 @@
 
 
 <% @bills.each do |bill| %>
-<%=  bill.user_id%>
-<%#= bill.order.user_id %>
-
+<%=  bill.total_price%>
+<%=  bill.number_of_people%>
+<%=  bill.status%>
+<%=  bill.date%>
 <% end %>
+
 
 

@@ -21,9 +21,11 @@ class OrdersController < ApplicationController
 
 
   def destroy
-    restaurant = Restaurant.find(params[:restaurant_id])
+    @order = Order.find(params[:id])
+    @order.order_items.destroy_all
     authorize @order
     @order.destroy
+
     # if it cannont redirect back, it goes to root_path
     redirect_back(fallback_location: root_path)
   end

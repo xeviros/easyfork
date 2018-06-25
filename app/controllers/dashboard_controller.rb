@@ -5,7 +5,7 @@ skip_after_action :verify_authorized
     @restaurants = policy_scope(Restaurant).where(user: current_user)
   end
 
-  def my_orders_resquests
+  def my_orders_requests
     @bills = current_user.bills
   end
 

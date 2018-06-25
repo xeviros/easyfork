@@ -38,6 +38,7 @@ class BillsController < ApplicationController
     # end
   end
 
+
   # def update
   #   @bill = Bill.find(params[:id])
   # end
