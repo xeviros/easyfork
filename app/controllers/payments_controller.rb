@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :set_order
+  skip_after_action :verify_authorized
+
 
   def new
   end
