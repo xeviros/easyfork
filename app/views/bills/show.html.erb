@@ -94,6 +94,32 @@
         <% end %>
       </div>
 
+      <div class="">
+        <p>Invite friends: </p>
+
+        <div class="container-form">
+          <%= simple_form_for [@bill, @users] do |f| %>
+            <% if @restaurant.errors.any? %>
+              <div class="errors-container">
+                <ul>
+                  <% @restaurant.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <%= f.input :email %>
+            <div class="text-center"> <%= f.button :submit, class: 'btn btn-blue' %> </div>
+          <% end %>
+        </div>
+
+
+
+
+
+
+
+      </div>
 
       <div class= "label-tp"> Total price: </div>
 
