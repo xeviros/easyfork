@@ -90,6 +90,8 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -266,6 +268,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass (~> 5.0.9)
+  friendly_id (~> 5.1.0)
   geocoder
   jbuilder (~> 2.0)
   listen (~> 3.0.5)

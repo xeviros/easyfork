@@ -4,7 +4,11 @@
 </div>
 
 
-<h1>Here are the restaurants we found for you, <%=  current_user.first_name %></h1>
+<% if current_user.first_name != nil %>
+    <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you, <%= current_user.first_name.capitalize %>. </h2>
+  <% else %>
+    <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you. </h2>
+  <% end %>
 <div class="main-container">
 
 

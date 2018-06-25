@@ -15,6 +15,8 @@ gem 'money-rails'
 gem 'stripe'
 gem "pundit"
 
+gem 'friendly_id', '~> 5.1.0'
+
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem "geocoder"
