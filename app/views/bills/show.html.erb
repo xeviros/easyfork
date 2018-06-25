@@ -87,55 +87,46 @@
       <h3 class="text-center">Your order</h3>
       <div class= "overflow-bill" style="overflow:scroll">
         <% @bill.orders.each do |order| %>
-        <% order.order_item.each do |order_item| %>
-        <p> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }%> <span class="order-i"><%= order_item.item.name %><span class= "price-i"> <%= order_item.item.price%> € </span></span> </p>
-
-        <% end %>
+          <% order.order_item.each do |order_item| %>
+          <p> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }%> <span class="order-i"><%= order_item.item.name %><span class= "price-i"> <%= order_item.item.price%> € </span></span> </p>
+          <% end %>
         <% end %>
       </div>
+
+      <br>
 
       <div class="">
         <p>Invite friends: </p>
-        <p>Show the next link with your friends and they will be able to pay they order!</p>
-
-        <script type="text/javascript">
-            function Copy()
-            {
-                var Url = document.createElement("textarea");
-                var UrlCopied = document.getElementById("url");
-                urlCopied.innerHTML = window.location.href;
-                Copied = Url.createTextRange();
-                Copied.execCommand("Copy");
-            }
-        </script>
-
-        <div>
-
-            <input type="button" value="Show link" onclick="Copy();" />
-            <br />
-
-            <textarea id="urlCopied" rows="1" cols="30"></textarea>
-        </div>
-
+        <p>Share this link with your friends for them to place an order!</p>
+        <a href="whatsapp://send?text=<%= request.original_url %>"> <%= '<i class="fa fa-whatsapp"></i>'.html_safe %> Whatsapp</a>
+        <br>
+        <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>"> <%= '<i class="fa fa-whatsapp"></i>'.html_safe %> Email</a>
       </div>
 
-      <a href="whatsapp://send?text=<%= request.original_url %>"> <%= '<i class="fa fa-whatsapp"></i>'.html_safe %> Whatsapp</a>
+      <br>
 
-      <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">Send Email</a>
+      <div class="total-price-bill-show">
 
-      <div class= "label-tp"> Total price: </div>
+        <div class="total-price-bill-show-text">
+          Total price:
+        </div>
 
-      <% sum = 0 %>
-      <% @bill.orders.each do |order| %>
-      <% order.order_item.each do |order_item| %>
-      <% sum += order_item.item.price%>
-      <% end %>
-      <% end %>
+        <% sum = 0 %>
+        <% @bill.orders.each do |order| %>
+          <% order.order_item.each do |order_item| %>
+            <% sum += order_item.item.price%>
+          <% end %>
+        <% end %>
 
-      <div class="total-pricebill"><%= sum %>€ </div>
+        <div class="total-price-bill-show-sum">
+          <%= sum %>€
+        </div>
+      </div>
 
-      <h3 class="text-center btn-validate"> <%= link_to 'FINISH ORDER', edit_bill_path(@bill), class: 'btn btn-blue'%>
-      </h3>
+      <br>
+
+      <%= link_to 'FINISH ORDER', edit_bill_path(@bill), class: 'btn btn-blue'%>
+
 
     </div>
   </div>
