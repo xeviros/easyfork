@@ -5,11 +5,13 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    authorize @restaurant
   end
 
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
+      @restaurants = policy_scope(Restaurant).order(created_at: :desc)
       @restaurants = Restaurant.all.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
 
       @markers = @restaurants.map do |restaurant|
@@ -20,7 +22,7 @@ class RestaurantsController < ApplicationController
         }
       end
     else
-      @restaurants = Restaurant.all
+      @restaurants = policy_scope(Restaurant).order(created_at: :desc)
       @restaurants = @restaurants.where.not(latitude: nil, longitude: nil)
       @markers = @restaurants.map do |restaurant|
         {
@@ -36,7 +38,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     # calls for the same method within restaurant_policy
-    # authorize @restaurant
+    authorize @restaurant
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
@@ -46,6 +48,7 @@ class RestaurantsController < ApplicationController
 
   def show
     # calls for the same method within restaurant_policy
+    authorize @restaurant
     @markers = [{lat: @restaurant.latitude, lng: @restaurant.longitude}]
     if params[:query].present?
       sql_query = "category ILIKE :query"

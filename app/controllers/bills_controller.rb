@@ -1,9 +1,12 @@
 class BillsController < ApplicationController
   def new
+    authorize @bill
   end
 
   def show
+
     @bill = Bill.find(params[:id])
+    authorize @bill
     if @order = @bill.has_ordered?(current_user)
         @order
       else
@@ -22,17 +25,34 @@ class BillsController < ApplicationController
     # Creating a bill after clicking on "start order"
     @restaurant = Restaurant.find(params[:restaurant_id])
     @bill = Bill.create(restaurant: @restaurant)
+    authorize @bill
     # redirect to the show path of the newly created bill
     redirect_to bill_path(@bill)
   end
 
   def edit
     @bill = Bill.find(params[:id])
+    authorize @bill
     # @bill.orders.each do |order|
     #   order.update(status: "Accepted")
     # end
   end
 
+ def update
+    restaurant = Restaurant.find(params[:restaurant_id])
+    @bill.update(bill_params)
+    authorize @bill
+    if @bill.save
+      redirect_to my_orders_requests_path
+    else
+      render :edit
+    end
+  end
+
+
+ def bill_params
+    params.require(:booking).permit(:number_of_people, :total_price, :date, :restaurant_id, :user_id, :status)
+  end
   # def update
   #   @bill = Bill.find(params[:id])
   # end
