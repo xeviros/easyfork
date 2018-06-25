@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def create
     @item = @order.order_items.new(item_params)
     @restaurant = Restaurant.find(params[:restaurant_id])
+    authorize @order
     if @order.save
       redirect_to :back
     else
@@ -11,10 +12,20 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    authorize @order
   end
 
   def update
     @order.update
+  end
+
+
+  def destroy
+    restaurant = Restaurant.find(params[:restaurant_id])
+    authorize @order
+    @order.destroy
+    # if it cannont redirect back, it goes to root_path
+    redirect_back(fallback_location: root_path)
   end
 
 

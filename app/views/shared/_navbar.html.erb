@@ -10,8 +10,10 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "My order requests ", my_orders_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My orders", my_orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "All restaurants", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My restaurants", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My restaurants", my_restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%#= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
 <!--

@@ -1,0 +1,8 @@
+<h1>Dashboard#my_orders</h1>
+<p>Find me in app/views/dashboard/my_orders.html.erb</p>
+
+<% @orders.each do |order| %>
+<p> Bill n° :<%= order.bill_id %> </p>
+<p> <%= order.amount_cents %> € </p>
+<p> Status : <%= order.status %> </p>
+<% end %>

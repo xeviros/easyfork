@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/my_orders_requests'
+  get 'dashboard/my_orders'
   devise_for :users
   root to: 'pages#home'
 
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
 
   get '/my-orders', to: "dashboard#my_orders"
   get '/my-restaurants', to: "dashboard#my_restaurants"
-  get '/order-requests', to: "dashboard#order_requests"
+  get '/my-orders-requests', to: "dashboard#my_orders_requests"
   get '/my-profile', to: "user#edit"
 
 end
