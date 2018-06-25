@@ -1,36 +1,27 @@
 <div class="search-time-box">
   <div class="box-category">
      <div class="dropdown">
-        <button id="js-trigger" class="btn btn-grey"><%= params[:category] ? params[:category] : "category"  %></button>
+        <button id="js-trigger" class="btn btn-grey"><%= params[:query] ? params[:query] : "category"  %></button>
         <div id="myDropdown" class="dropdown-content">
           <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
           <a href="restaurants">All restaurants</a>
-          <a href="restaurants?utf8=✓&category=French">French</a>
-          <a href="restaurants?utf8=✓&category=Italian">Italian</a>
-          <a href="restaurants?utf8=✓&category=Japonese">Japonese</a>
-          <a href="restaurants?utf8=✓&category=Spanish">Spanish</a>
+          <a href="restaurants?utf8=✓&query=French">French</a>
+          <a href="restaurants?utf8=✓&query=Italian">Italian</a>
+          <a href="restaurants?utf8=✓&query=Japonese">Japonese</a>
+          <a href="restaurants?utf8=✓&query=Spanish">Spanish</a>
         </div>
       </div>
   </div>
 
-
-
   <div class="box-date">
-
-
-        <input type="date" id="start" name="trip"
-         value="<%= Date.today.strftime("%m/%d/%Y") %>"
-         min="2018-01-01" max="2018-12-31" />
-
-
-
+    <input type="date" id="start" name="trip"
+      value="<%= Date.today.strftime("%m/%d/%Y") %>"
+      min="2018-01-01" max="2018-12-31" />
   </div>
 
 
   <div class="box-time">
-
-                <input type="text" name="timepicker" class="timepicker"/>
-
+    <input type="text" name="timepicker" class="timepicker"/>
   </div>
 
 
@@ -47,9 +38,7 @@
           <a href="restaurants?utf8=✓&people=6 persons">6 persons</a>
         </div>
       </div>
-
   </div>
-
 
   <div class="box-search">
         <%= form_tag restaurants_path, method: :get do %>
