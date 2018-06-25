@@ -9,8 +9,9 @@
 .container-order{
   display: flex;
   align-self: flex-start;
+  flex-grow: 1;
   flex-direction: column;
-  height: 550px;
+  max-height: 550px;
   width: 30%;
   background-color: white;
   box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
@@ -74,4 +75,9 @@ font-weight: 500;
 .total-price-bill-show {
   display: flex;
   justify-content: space-between;
+}
+
+.your-order {
+  margin: 10px;
+  margin-bottom: 25px;
 }

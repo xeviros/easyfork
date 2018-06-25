@@ -60,17 +60,17 @@
     ->(item){ "
       <div class='menu-all'>
       <div class='menu-picture'>
-      <img src='#{categories[item.category]}' height='65'/>
+      <img src='#{categories[item.category]}' height='42'/>
       </div>
       <div class='menu-description'>
-      <h3>#{ item.name }</h3>
+      <h3>#{ item.name.capitalize }</h3>
       <p>#{ item.description }</p>
       </div>
       <div class='menu-price'>
       #{ item.price } €
       </div>
       <div class='menu-add'>
-      <img src='#{add}' height='45'>
+      <img src='#{add}' height='18'>
       </div>
       </div>
       ".html_safe } %>
@@ -84,7 +84,7 @@
     </div>
 
     <div class="container-order">
-      <h3 class="text-center">Your order</h3>
+      <h2 class="text-center your-order">Your order</h2>
       <div class= "overflow-bill" style="overflow:scroll">
         <% @bill.orders.each do |order| %>
           <% order.order_items.each do |order_item| %>
@@ -118,7 +118,7 @@
 
         <% sum = 0 %>
         <% @bill.orders.each do |order| %>
-          <% order.order_item.each do |order_item| %>
+          <% order.order_items.each do |order_item| %>
             <% sum += order_item.item.price%>
           <% end %>
         <% end %>
