@@ -1,24 +1,65 @@
-<h1 class= "text-center">All orders</h1>
+<% if @bill.restaurant.photo.file.nil? %>
+
+  <div class="banner banner-bill" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
+    <h1 class= "text-center">
+      <br>
+      <%= @bill.restaurant.name %>
+      - <%= @bill.restaurant.address %>
+      <br>
+      <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
+      <% if @bill.id < 2 %>
+      <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
+        All orders: (<%= @bill.id %> person)
+      <% else %>
+      <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
+        All orders: (<%= @bill.id %> people)
+      <% end %>
+      <br>
+    </h1>
+  </div>
+
+<% else %>
+
+<div class="banner banner-bill" style="background-image: url(('<%= cl_image_path @bill.restaurant.photo %>')">
+    <h1 class= "text-center">
+      <br>
+      <%= @bill.restaurant.name %>
+      - <%= @bill.restaurant.address %>
+      <br>
+       <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
+      <% if @bill.id < 2 %>
+       <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
+        All orders: (<%= @bill.id %> person)
+      <% else %>
+       <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
+        All orders: (<%= @bill.id %> people)
+      <% end %>
+      <br>
+    </h1>
+  </div>
+
+<% end %>
+
 <div class="container">
   <div class="row">
     <% @bill.orders.each do |order| %>
+
     <div class="col-xs-12 col-sm-4">
 
       <div class="order">
+        <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }%>
         <div class="order-infos">
           <p class= "order-name"> Order of <%= order.user.email.capitalize %></p>
           <div class="order-items" style="overflow:scroll">
-            <% order.order_item.each do |order_item| %>
-              <p> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }%> <span class="item-name"><%= order_item.item.name.capitalize %> <span class="order-price"> <%= order_item.item.price%> €</span> </span></p>
+            <% order.order_items.each do |order_item| %>
+              <p> - <span class="item-name"><%= order_item.item.name.capitalize %> <span class="order-price"> <%= order_item.item.price%> €</span> </span></p>
             <% end %>
           </div>
-
-
 
           <p class="total-price"> Total price:
             <% sum = 0 %>
             <% @bill.orders.each do |order| %>
-              <% order.order_item.each do |order_item| %>
+              <% order.order_items.each do |order_item| %>
                 <% sum += order_item.item.price%>
               <% end %>
             <%= sum %> € </p>
@@ -32,9 +73,7 @@
         </div>
       </div>
 
-<!--
-      <h1 class="text-center"> <%= link_to 'VALIDATE BILL', restaurants_path, class: 'btn btn-blue'%>
-      </h1> -->
+<h1 class="text-center"> <%= link_to 'VALIDATE BILL', restaurants_path, class: 'btn btn-blue'%> </h1>
 
 
 

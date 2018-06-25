@@ -13,6 +13,7 @@ gem 'redis'
 #add a gem
 gem 'money-rails'
 gem 'stripe'
+gem "pundit"
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'

@@ -8,4 +8,13 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   mount_uploader :picture, PhotoUploader
 
+
+  has_many :bills
+  has_many :restaurants
+
+
+  def bills
+  restaurants.map { |restaurant| restaurant.bills }.flatten
+  end
+
 end

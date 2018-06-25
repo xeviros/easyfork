@@ -25,7 +25,9 @@
 
 
 <div class="button-order-container">
+  <% if @restaurant.user_id != @current_user.id %>
   <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
+  <% end %>
 </div>
 
 
