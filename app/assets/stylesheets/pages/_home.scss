@@ -15,11 +15,34 @@
   font-size: 25px;
 }
 
+.container-home h2{
+  color: #00253C;
+  font-family: Rubik;
+  font-weight: 600;
+  margin: 20px;
+  margin-bottom: 30px;
+}
 
 .container-home p{
-  padding-top: 40px;
+  font-family: Open Sans;
+  color: grey;
+  font-size: 20px;
 }
 
 .row-how-it-works {
   display: flex;
+}
+
+.card-how-it-works{
+  margin: 30px;
+}
+
+
+
+
+.home-icons{
+ font-size: 70px;
+  color: #2E6C7D;
+  opacity: 0.8;
+  margin-bottom: 30px;
 }
