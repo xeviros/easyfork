@@ -7,13 +7,14 @@
 </div>
 
 <% else %>
-<div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
+<div class="banner-resto" style="background-image: url('<%= cl_image_path @bill.restaurant.photo %>')">
   <div class="resto-infos">
     <h3 ><%= @bill.restaurant.name %></h3>
     <div class= "text-box"> <p>  <%= @bill.restaurant.address  %></p> </div>
   </div>
 </div>
 <% end %>
+
 
 <br>
 <br>
@@ -93,6 +94,34 @@
         <% end %>
       </div>
 
+      <div class="">
+        <p>Invite friends: </p>
+        <p>Show the next link with your friends and they will be able to pay they order!</p>
+
+        <script type="text/javascript">
+            function Copy()
+            {
+                var Url = document.createElement("textarea");
+                var UrlCopied = document.getElementById("url");
+                urlCopied.innerHTML = window.location.href;
+                Copied = Url.createTextRange();
+                Copied.execCommand("Copy");
+            }
+        </script>
+
+        <div>
+
+            <input type="button" value="Show link" onclick="Copy();" />
+            <br />
+
+            <textarea id="urlCopied" rows="1" cols="30"></textarea>
+        </div>
+
+      </div>
+
+      <a href="whatsapp://send?text=<%= request.original_url %>"> <%= '<i class="fa fa-whatsapp"></i>'.html_safe %> Whatsapp</a>
+
+      <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">Send Email</a>
 
       <div class= "label-tp"> Total price: </div>
 

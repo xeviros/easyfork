@@ -10,6 +10,7 @@ class OrderItemsController < ApplicationController
     @order_item.save
 
     # sum all the item price in order.amount_cents
+    @order.amount_cents = 0
     @order.items.each do |item|
       @order.amount_cents += item.price_cents
     end
@@ -25,7 +26,13 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find(params[:id])
     authorize @order_item
     @bill = @order_item.order.bill
+
+    @order = @order_item.order
+    @order.amount_cents -= @order_item.item.price_cents
+    @order.save
+
     @order_item.destroy
+
     redirect_to bill_path(@bill)
   end
 
