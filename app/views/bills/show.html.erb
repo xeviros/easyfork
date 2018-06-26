@@ -151,19 +151,3 @@
 
 
       <br>
-
-
-
-    </div>
-    <%= form_for @bill do |f| %>
-    <%= f.label :number_of_people %>
-    <%= f.select :number_of_people, 1..20 %>
-    <p>
-      <%= f.label :Time_for_booking %>
-      <%= f.datetime_select :date , :default => Time.now %>
-      <p><%= f.submit %></p>
-      <% end %>
-  </div>
-
-
-
