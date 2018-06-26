@@ -18,8 +18,12 @@ class OrderItemsController < ApplicationController
 
     @order.user = current_user
     @order.save
+
+    respond_to do |format|
+      format.html { redirect_to bill_path(@bill) }
+      format.js
+    end
     # redirect to bill show page
-    redirect_to bill_path(@bill)
   end
 
   def destroy
