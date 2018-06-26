@@ -11,7 +11,7 @@
   align-self: flex-start;
   flex-grow: 1;
   flex-direction: column;
-  max-height: 550px;
+  // max-height: 1000px;
   width: 30%;
   background-color: white;
   box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
@@ -108,65 +108,42 @@ font-weight: 500;
   color: $dblue-easyfork;
   background-color: white;
   border: none;
-  margin: 10px;
-  width: 90px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 3px $orange-easyfork;
+  box-shadow: 2px 2px 3px #0e2c40;
 }
 
 #bill_date_1i{
-  color: $dblue-easyfork;
   background-color: white;
   border: none;
-  margin: 10px;
-  width: 90px;
-  text-align: center;
-
+  box-shadow: 2px 2px 3px #0e2c40
 }
 
 #bill_date_2i{
-  color: $dblue-easyfork;
   background-color: white;
   border: none;
-  margin: 10px;
-  width: 90px;
-  text-align: center;
-
+  box-shadow: 2px 2px 3px #0e2c40;
+  width: 70px;
 }
 
 #bill_date_3i{
-  color: $dblue-easyfork;
   background-color: white;
   border: none;
-  margin: 10px;
-  width: 90px;
-  text-align: center;
-
+  box-shadow: 2px 2px 3px #0e2c40;
 }
 
 #bill_date_4i{
-  color: $dblue-easyfork;
   background-color: white;
   border: none;
-  margin: 40px;
-  width: 120px;
-  text-align: center;
   box-shadow: 2px 2px 3px $orange-easyfork;
-  font-size: 30px;
-  border-radius: 8%;
-
 }
 
-#bill_date_5i{
-  color: $dblue-easyfork;
+#bill_date_5i {
   background-color: white;
   border: none;
-  margin: 40px;
-  width: 120px;
-  text-align: center;
-  font-size: 30px;
   box-shadow: 2px 2px 3px $orange-easyfork;
-  border-radius: 8%;
+}
+
+#user-orders {
+  flex-grow: 1;
+  max-height: 200px;
 
 }
