@@ -23,6 +23,18 @@
   margin-bottom: 30px;
 }
 
+.background{
+  background-color:#F6F9FC;
+}
+
+.container-home{
+  background-color: #F3F7F6;
+}
+
+.container{
+  background-color: #F3F7F6;
+}
+
 .container-home p {
   font-family: Open Sans;
   color: grey;
@@ -39,6 +51,26 @@
 
 .card-how-it-works{
   margin: 30px;
+  background: white;
+  padding-top: 40px;
+  padding-bottom: 70px;
+
+}
+
+
+.card-how-it-works i{
+margin-bottom: 10px;
+}
+.card-how-it-works p{
+  font-family: Open Sans;
+  color: #4D4C4C;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.card-how-it-works h3{
+  font-size: 23px;
+  margin-top: 20px;
 }
 
 .home-icons{
@@ -47,3 +79,23 @@
   opacity: 0.8;
   margin-bottom: 30px;
 }
+
+
+.card-home-category p{
+  font-weight: 500;
+  color: #4D4C4C;
+  font-family: Open Sans;
+  font-size: 15px;
+}
+
+
+.card-home-description p {
+  font-weight: 300;
+  color: #4D4C4C;
+  font-family: Open Sans;
+  font-size: 15px;
+  }
+
+
+
+
