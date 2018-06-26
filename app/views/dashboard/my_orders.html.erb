@@ -12,22 +12,34 @@
       <%= cl_image_tag current_user.picture, class: "avatar-small" %>
       <% end %>
 
-      <div class="message-name">
-        <p> Bill n°: <%= order.bill_id %> </p>
-        <p> <%= order.bill.status.capitalize %></p>
-      </div>
+
       <div class="message-body">
-        <p><strong> <%=  order.bill.restaurant.name %></strong></p>
+        <h3> <%=  order.bill.restaurant.name %></h3>
 
       </div>
       <div >
-        <%= order.status %>
-        <p class="price"> <%= order.amount_cents/100 %> € </p>
+        <div class="message-name">
+          <h3 class="m-price"> <%= order.amount_cents/100 %> € </h3>
+
+          <% if order.status == "Paid" %>
+          <p class= "m-order-<%=order.status.downcase%>"> <%= order.status %> </p>
+          <% else %>
+          <p class= "m-order-<%=order.status.downcase%>"> <%= link_to "Pay order" '<i class="fas fa-credit-card"></i>'.html_safe, new_order_payment_path(order), class: "pay-order" %> </p>
+          <% end %>
+        </div>
       </div>
-      <div>
+      <div class= "message-order-status">
         <% if order.status == "Pending" %>
+        <p class= "order-bill-<%=order.bill.status.downcase%>"> <%= order.bill.status.capitalize %> </p>
         <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel-order" %>
+        <% else  %>
+        <p class= "order-bill-<%=order.bill.status.downcase%>"><%= order.bill.status.capitalize %> </p>
         <% end %>
+      </div>
+
+      <div class= "see-reservation">
+        <%= link_to "See reservation" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(order), class: "pay-order" %> </p>
+
       </div>
     </div>
     <% end %>
