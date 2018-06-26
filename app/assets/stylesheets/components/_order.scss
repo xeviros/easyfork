@@ -22,14 +22,10 @@
   }
 }
 
-
 .order-price{
   font-size: 13px;
   font-weight: 100;
-  position: absolute;
-  left: 400px;
-  width: 200px;
-   color: #434343;
+  color: #434343;
 }
 
 .order-name{
@@ -52,12 +48,6 @@
   margin-left: -100px;
   font-weight: 300;
   margin-top: 30px;
-}
-
-.order-items{
-  height: 70px;
-  position:relative;
-  width:460px;
 }
 
 .order-paid{
