@@ -7,13 +7,17 @@
       - <%= @bill.restaurant.address %>
       <br>
       <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
-      <% if @bill.id < 2 %>
+      <% if @bill.number_of_people < 2 %>
       <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
-        All orders: (<%= @bill.id %> person)
+        All orders: (<%= @bill.number_of_people %> person)
       <% else %>
       <!-- CHANGE BILL.ID TO BILL.NUMBER_OF_PEOPLE ONCE IMPLEMENTED -->
-        All orders: (<%= @bill.id %> people)
+        All orders: (<%= @bill.number_of_people %> people)
       <% end %>
+      <br>
+      <br>
+      <%= @bill.date.strftime("%d %B %Y")   %>
+      <%= @bill.date.strftime("at %H:%M")  %>
       <br>
     </h1>
   </div>

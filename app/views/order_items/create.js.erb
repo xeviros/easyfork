@@ -1,0 +1,9 @@
+// SELECT ITEM
+// MODIFY
+
+function addOrder(htmlPartial) {
+  const userOrders = document.getElementById('user-orders')
+  userOrders.insertAdjacentHTML("beforeend", htmlPartial)
+}
+
+addOrder("<%= j render 'order_item', order_item: @order_item %>");

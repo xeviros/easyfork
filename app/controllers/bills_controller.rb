@@ -44,7 +44,7 @@ class BillsController < ApplicationController
     @bill.update(bill_params)
     authorize @bill
     if @bill.save
-      redirect_to my_orders_requests_path
+      redirect_to edit_bill_path(@bill)
     else
       render :edit
     end
