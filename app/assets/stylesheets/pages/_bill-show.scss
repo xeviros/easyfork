@@ -83,6 +83,13 @@ font-weight: 500;
 }
 
 
+/* input[type=submit] {
+   border: none;
+   background-repeat: no-repeat;
+    background-size: 300px 100px;
+}
+*/
+
 .submit-plus {
   box-shadow: none;
   border: none;
@@ -95,7 +102,6 @@ font-weight: 500;
 .submit-plus.active{
   box-shadow: none;
   border: none;
-
 }
 
 #bill_number_of_people{
@@ -106,8 +112,7 @@ font-weight: 500;
   width: 90px;
   text-align: center;
   font-size: 30px;
-   box-shadow: 2px 2px 3px $orange-easyfork;
-
+  box-shadow: 2px 2px 3px $orange-easyfork;
 }
 
 #bill_date_1i{
@@ -163,4 +168,5 @@ font-weight: 500;
   font-size: 30px;
   box-shadow: 2px 2px 3px $orange-easyfork;
   border-radius: 8%;
+
 }
