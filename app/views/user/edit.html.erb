@@ -3,8 +3,8 @@
     <%= image_tag "#{@user.picture}", height: 100 %>
   </div>
   <div class="profile-info">
-    <h3> First Name: </h3>  <%=  "Luca" %>
-    <h3> Last Name: </h3>  <%=  "de Montis" %>
+    <h3> First Name: </h3>  <%= @user.first_name %>
+    <h3> Last Name: </h3>  <%= @user.last_name %>
     <h3> Email: </h3>  <%=  @user.email  %>
   </div>
 </div>
