@@ -15,7 +15,7 @@
       <% @restaurants.each do |restaurant| %>
         <% if restaurant.photo.file.nil? %>
           <div class="col-xs-12 col-md-4 col-sm-6">
-              <div class="card-home">
+              <div class="card-home" data-restaurant-id="<%= restaurant.id %>">
                 <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')"> </div>
                 <div class="card-home-title">
                   <h4> <%= restaurant.name.capitalize %> </h4>
@@ -31,7 +31,7 @@
             </div>
         <% else %>
           <div class="col-xs-12 col-md-4 col-sm-6">
-            <div class="card-home">
+            <div class="card-home" data-restaurant-id="<%= restaurant.id %>">
               <div class="card-home-picture",style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')"> </div>
               <div class="card-home-title">
                 <h4> <%= restaurant.name.capitalize %> </h4>
@@ -65,3 +65,7 @@
 <div class="banner banner-show-rest">
   <%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-blue" %>
 </div>
+
+<script>
+
+</script>
