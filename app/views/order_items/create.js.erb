@@ -7,3 +7,12 @@ function addOrder(htmlPartial) {
 }
 
 addOrder("<%= j render 'order_item', order_item: @order_item %>");
+
+function updatePrice() {
+  // SELECT PRICE
+  // UPDATE THE PRICE
+  const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>']");
+  updatePrice.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+}
+
+updatePrice()

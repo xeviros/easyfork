@@ -1,14 +1,60 @@
 .card-home{
-  color:green;
-  height: 100px;
+
+  margin-top: 20px;
+  height: 270px;
+  width: 300px;
+  background: white;
+  position: relative;
+  &:hover{
+  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+}}
+
+.card-home p{
+  font-weight: 100;
+  color: black;
+  font-family: Avenir;
+  font-size: 15px;
+}
+
+.card-home-picture{
+  height: 180px;
+  width: 300px;
+  background-size: cover;
+}
+
+.card-home-title{
+  position: absolute;
+  top: 200px;
+  padding-left: 10px;
+}
+
+.card-home-title h4{
+  font-weight:600;
+  font-family: Open Sans;
+  color: #2E6C7D;
+  font-size: 18px;
+}
+
+.card-home-category{
+  position: absolute;
+  top: 190px;
+  padding-left: 10px;
+}
+
+.card-home-description{
+  position: absolute;
+  top: 235px;
+  padding-left: 5px;
+}
+
+.card-home-description i{
+  font-size: 15px;
 }
 
 .card-how-it-works {
   height: 250px;
-
   background-size: cover !important;
   background-position: center;
-
   position: relative;
 
 }
@@ -35,5 +81,4 @@ div.how-icon{
 
 .arrow{
 position: relative;
-
 }

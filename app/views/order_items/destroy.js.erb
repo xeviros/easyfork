@@ -1,0 +1,21 @@
+// SELECT ITEM
+// MODIFY
+
+function deleteOrderItem() {
+  let deleteOrderItem = document.querySelector("[data-order-item-id='<%= @order_item.id %>']");
+  // userOrderItems.insertAdjacentHTML("beforeend", htmlPartial)
+deleteOrderItem.remove();
+}
+
+deleteOrderItem()
+
+// addOrder("<%= j render 'order_item', order_item: @order_item %>");
+
+function updatePrice() {
+  // SELECT PRICE
+  // UPDATE THE PRICE
+  const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>']");
+  updatePrice.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+}
+
+updatePrice()
