@@ -37,7 +37,10 @@ class OrderItemsController < ApplicationController
 
     @order_item.destroy
 
-    redirect_to bill_path(@bill)
+    respond_to do |format|
+      format.html { redirect_to bill_path(@bill) }
+      format.js
+    end
   end
 
   private

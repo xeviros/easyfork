@@ -82,6 +82,11 @@ font-weight: 500;
   margin-bottom: 25px;
 }
 
+
+.submit-plus {
+  box-shadow: none;
+  border: none;
+
 #bill_number_of_people{
   color: $dblue-easyfork;
   background-color: white;
@@ -147,5 +152,4 @@ font-weight: 500;
   font-size: 30px;
   box-shadow: 2px 2px 3px $orange-easyfork;
   border-radius: 8%;
-
 }
