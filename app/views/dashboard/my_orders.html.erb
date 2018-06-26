@@ -2,27 +2,35 @@
 
 
 <div class="container">
-  <h2 class="text-center">My orders</h2>
-  <% @orders.each do |order| %>
+  <div class="order-container">
+    <h2 class="text-center">My orders</h2>
+    <% @orders.each do |order| %>
     <div class="message">
-      <img class="avatar-small" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+      <% if current_user.picture.file.nil? %>
+      <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small"%>
+      <% else %>
+      <%= cl_image_tag current_user.picture, class: "avatar-small" %>
+      <% end %>
+
       <div class="message-name">
-      <p> Bill n°: <%= order.bill_id %> </p>
-      <p> <%= order.bill.status.capitalize %></p>
-    </div>
-    <div class="message-body">
-      <p><strong> <%=  order.bill.restaurant.name %></strong></p>
+        <p> Bill n°: <%= order.bill_id %> </p>
+        <p> <%= order.bill.status.capitalize %></p>
+      </div>
+      <div class="message-body">
+        <p><strong> <%=  order.bill.restaurant.name %></strong></p>
 
-    </div>
-    <div >
+      </div>
+      <div >
         <%= order.status %>
-        <p class="price"> <%= order.amount_cents %> € </p>
+        <p class="price"> <%= order.amount_cents/100 %> € </p>
+      </div>
+      <div>
+        <% if order.status == "Pending" %>
+        <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel-order" %>
+        <% end %>
+      </div>
     </div>
-    <div>
-
-    </div>
+    <% end %>
   </div>
-<% end %>
-
 </div>
 

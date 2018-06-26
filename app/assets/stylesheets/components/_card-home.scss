@@ -1,6 +1,5 @@
 .card-home{
-
-  margin-top: 20px;
+  margin-top: 10px;
   height: 270px;
   width: 300px;
   background: white;
@@ -18,7 +17,6 @@
 
 .card-home-picture{
   height: 180px;
-  width: 300px;
   background-size: cover;
 }
 
@@ -56,6 +54,7 @@
   background-size: cover !important;
   background-position: center;
   position: relative;
+  padding: 0px 20px;
 
 }
 
