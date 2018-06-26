@@ -66,7 +66,7 @@
           <%= item.price %> €
         </div>
         <%#= f.submit %>
-      <input type="submit" value="" class="menu-add submit-plus" style="background:url(<%= image_path "add.png" %>) no-repeat;" />
+      <input type="submit" value="" class="menu-add submit-plus" style="height: 10" "background:url(<%= image_path "add.png" %>) no-repeat;" />
     </div>
     <% end %>
   <% end %>
@@ -159,8 +159,8 @@
     <%= f.label :number_of_people %>
     <%= f.select :number_of_people, 1..20 %>
     <p>
-      <%= f.label :date %>
-      <%= f.datetime_select :date %>
+      <%= f.label :Time_for_booking %>
+      <%= f.datetime_select :date , :default => Time.now %>
       <p><%= f.submit %></p>
       <% end %>
   </div>
