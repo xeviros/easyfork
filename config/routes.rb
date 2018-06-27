@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   root to: 'pages#home'
 
@@ -10,13 +11,14 @@ Rails.application.routes.draw do
 
   resources :bills, only: [:edit, :show, :update] do
     resources :orders, only: [:new, :create, :index]
-    resources :reviews, only: [:new, :create]
+
   end
   resources :reviews, only: [:index, :edit, :update]
 
   resources :orders, only: [:edit, :update, :destroy] do
     resources :order_items, only: [:create]
     resources :payments, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
 
   resources :order_items, only: [:edit, :update, :destroy]

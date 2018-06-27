@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   mount_uploader :picture, PhotoUploader
 
-
+  has_many :reviews
   has_many :bills
   has_many :restaurants
 
