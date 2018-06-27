@@ -21,7 +21,7 @@ class Restaurant < ApplicationRecord
     end
     av_rating = nominator / denominator
     self.average_rating = av_rating
-    self.save
+    self.save!
   end
 
 end

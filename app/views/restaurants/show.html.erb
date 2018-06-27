@@ -4,8 +4,12 @@
     <div class="resto-infos">
       <h3><%= @restaurant.name %></h3>
 
-
-<p> <%= @restaurant.average_rating %></p>
+    <% @restaurant.average_rating.times do %>
+       <span> <i class="fas fa-star"></i> </span>
+    <% end %>
+    <% (5 - @restaurant.average_rating).times do %>
+        <span><i class="far fa-star"></i> </span>
+    <% end %>
       <p>  French food home made<%#= @restaurant.description %></p>
       <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @restaurant.address %></p> </div>
     </div>

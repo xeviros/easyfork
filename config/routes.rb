@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :items
     resources :bills, only: [:new, :create]
-    resources :reviews, only: [:new, :create]
   end
 
   resources :bills, only: [:edit, :show, :update] do
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:edit, :update, :destroy] do
     resources :order_items, only: [:create]
     resources :payments, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
 
   resources :order_items, only: [:edit, :update, :destroy]
