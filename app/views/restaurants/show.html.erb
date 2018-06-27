@@ -1,96 +1,123 @@
 <% if @restaurant.photo.file.nil? %>
 
-  <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
-    <div class="resto-infos">
-      <h3><%= @restaurant.name %></h3>
-      <% if @restaurant.average_rating == nil %>
-                     <p>  </p>
-                  <% else %>
+<div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
+  <div class="resto-infos">
+    <h3><%= @restaurant.name %></h3>
+    <% if @restaurant.average_rating == nil %>
+    <p>  </p>
+    <% else %>
 
     <% @restaurant.average_rating.times do %>
-       <span> <i class="fas fa-star"></i> </span>
+    <span> <i class="fas fa-star"></i> </span>
     <% end %>
     <% (5 - @restaurant.average_rating).times do %>
-        <span><i class="far fa-star"></i> </span>
+    <span><i class="far fa-star"></i> </span>
     <% end %>
     <% end %>
-      <p>  French food home made<%#= @restaurant.description %></p>
-      <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @restaurant.address %></p> </div>
-    </div>
+    <p> <%= @restaurant.description %></p>
+    <div class= "text-box"> <p></p> </div> <div class= "text-box"> <p> <%= @restaurant.address %></p> </div>
   </div>
+</div>
 </div>
 
 <% else %>
 
-  <div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
-    <div class="resto-infos">
-      <h3 ><%= @restaurant.name %></h3>
-      <div class= "text-box"> <p> @restaurant.address</p> </div>
-    </div>
+<div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
+  <div class="resto-infos">
+    <h3 ><%= @restaurant.name %></h3>
+    <div class= "text-box"> <p> @restaurant.address</p> </div>
   </div>
+
+</div>
+</div>
+
 <% end %>
 
 <div class="button-order-container">
   <% if @current_user != nil %>
-    <% if @restaurant.user_id != @current_user.id %>
-      <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
-    <% end %>
+  <% if @restaurant.user_id != @current_user.id %>
+  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
+  <% end %>
   <% else %>
-    <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
+  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
   <% end %>
 </div>
 
-<div class="cont-pills-menus">
-  <div class="container-pills">
-    <div class="col-md-12">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="btn-menu"><a href="#">Menu</a></li>
-        <li><a href="?utf8=✓&query=starters">Starters</a></li>
-        <li><a href="?utf8=✓&query=mains">Mains</a></li>
-        <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
-        <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
-        <br>
-        <% if @current_user != nil %>
+
+<div class="cont-pills-menus-order">
+  <div class="cont-pills-menus">
+    <div class="container-pills">
+      <div class="col-md-12">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="btn-menu"><a href="#">Menu</a></li>
+          <li><a href="?utf8=✓&query=starters">Starters</a></li>
+          <li><a href="?utf8=✓&query=mains">Mains</a></li>
+          <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
+          <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
+          <br>
+          <% if @current_user != nil %>
           <% if @restaurant.user_id == @current_user.id %>
           <%= link_to "Add images",  new_restaurant_image_path(@restaurant), class: "btn-add-images btn btn-blue" %>
           <% end %>
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
+
+      </div>
 
     </div>
 
-  </div>
-
-  <div class="container-show" style="overflow:scroll;">
-    <div class="menu-title">
-      <% if @restaurant.items[0].nil? %>
-      <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
-      <% else %>
-
+    <div class="container-show" style="overflow:scroll;">
+      <div class="menu-title">
+        <% if @restaurant.items[0].nil? %>
+        <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
+        <% else %>
         <h4>  <%= @restaurant.items[0].category.upcase %>: </h4>
-      <% end %>
-
-      <% @restaurant.items.each do |item| %>
-          <div class="menu-all">
-            <div class="menu-picture"><%= image_tag "food-#{item.category}.png" , height: 60%></div>
-            <div class="menu-description">
-              <h3><%= item.name.capitalize %></h3>
-              <p><%= item.description %></p>
-            </div>
-            <div class="menu-price">      <%= item.price %> € </div>
-            <div class="menu-add"></div>
+        <% end %>
+        <% @restaurant.items.each do |item| %>
+        <div class="menu-all">
+          <div class="menu-picture"><%= image_tag "food-#{item.category}.png" , height: 60%></div>
+          <div class="menu-description">
+            <h3><%= item.name.capitalize %></h3>
+            <p><%= item.description %></p>
+          </div>
+          <div class="menu-price">      <%= item.price %> € </div>
+          <div class="menu-add"></div>
         </div>
 
-      <% end %>
+        <% end %>
 
-    </div>
-    <br>
-  </div>
-    </div>
+          </div>
+          <br>
+        </div>
+      </div>
+            <div class="container-reviews text-center", style="overflow:scroll;">
+              <h4 class="text-center">About <strong> <%=  @restaurant.name %>  </strong> </h4>
+              <br>
+              <br>
+              <% if @restaurant.reviews.count < 1%>
+              No reviews yet
+              <% else %>
+                <% @restaurant.reviews.order('created_at DESC').each do |review| %>
+                  <p> <% if review.user.picture.file.nil? %>
+                    <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small" %>
+                  <% else %>
+                    <%= cl_image_tag review.user.picture, class: "avatar-small" %>
+                  <% end %> <%= review.user.first_name %></p>
+                 <% review.rating.times do %>
+                  <span> <i class="fas fa-star"></i> </span>
+                  <% end %>
+                  <% (5 - review.rating).times do %>
+                  <span><i class="far fa-star"></i> </span>
+                  <% end %>
+                   <div class= "review-content"> <p> "<%= review.content.capitalize %> " </p> </div>
+                <% end %>
+                <%end %>
+            </div>
+
   </div>
 </div>
 
-
+</div>
 <div class="container">
   <div
   id="map"
@@ -102,44 +129,51 @@
 
 
 <br>
+
+
 <br>
 <% if @restaurant.images[0] != nil %>
 <div class="container">
   <h2>Restaurant images</h2>
+  <div class="c-wrapper">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+           <% @restaurant.images.each_with_index do |image, n| %>
+             <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+           <% end %>
+        </ol>
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-       <% @restaurant.images.each_with_index do |image, n| %>
-         <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
-       <% end %>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-           <%= cl_image_tag @restaurant.images.last.content %>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+               <%= cl_image_tag @restaurant.images.first.content %>
+            </div>
+                <% if @restaurant.images.count > 1 %>
+                <% @restaurant.images.drop(1).each do |image| %>
+               <div class="item">
+                  <%= cl_image_tag image.content %>
+               </div>
+                <% end %>
+                <% end %>
+          </div>
         </div>
-            <% @restaurant.images.drop(1).each do |image| %>
-           <div class="item">
-              <%= cl_image_tag image.content %>
-           </div>
-            <% end %>
-      </div>
-    </div>
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+    <% end %>
   </div>
 </div>
-<% end %>
+
 
 

@@ -1,22 +1,34 @@
 <% if @bill.restaurant.photo.file.nil? %>
+
   <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
     <div class="resto-infos">
-      <h3 ><%= @bill.restaurant.name %></h3>
-      <div class= "text-box"> <p>€€€ </p> </div>
-      <div class= "text-box"> <p> <%= @bill.restaurant.address  %></p> </div>
+      <h3><%= @bill.restaurant.name %></h3>
+      <% if @bill.restaurant.average_rating == nil %>
+                     <p>  </p>
+                  <% else %>
+
+    <% @bill.restaurant.average_rating.times do %>
+       <span> <i class="fas fa-star"></i> </span>
+    <% end %>
+    <% (5 - @bill.restaurant.average_rating).times do %>
+        <span><i class="far fa-star"></i> </span>
+    <% end %>
+    <% end %>
+      <p>  <%= @bill.restaurant.description %></p>
+      <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @bill.restaurant.address %></p> </div>
     </div>
   </div>
+</div>
 
 <% else %>
 
-  <div class="banner-resto" style="background-image: url('<%= cl_image_path @bill.restaurant.photo %>')">
+  <div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>')">
     <div class="resto-infos">
       <h3 ><%= @bill.restaurant.name %></h3>
-      <div class= "text-box">
-        <p>  <%= @bill.restaurant.address  %></p>
-      </div>
+      <div class= "text-box"> <p> @bill.restaurant.address</p> </div>
     </div>
   </div>
+</div>
 <% end %>
 
 <br>
@@ -25,84 +37,17 @@
   <div class="container-pills">
     <div class="col-md-12">
       <ul class="nav nav-pills nav-stacked">
-        <li class="btn-menu"><a href="#">Menu</a></li>
-        <li><a href="?utf8=✓&query=starters">Starters</a></li>
-        <li><a href="?utf8=✓&query=mains">Main</a></li>
-        <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
-        <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
+        <li class="btn-menu"><%= link_to "Menu", bill_path(@bill, query: ""), remote: true  %></li>
+        <li><%= link_to "Starters", bill_path(@bill, query: "starters"), remote: true %></li>
+        <li><%= link_to "Mains", bill_path(@bill, query: "mains"), remote: true %></li>
+        <li><%= link_to "Desserts", bill_path(@bill, query: "desserts"), remote: true %></li>
+        <li><%= link_to "Drinks", bill_path(@bill, query: "drinks"), remote: true %></li>
       </ul>
     </div>
   </div>
-
-  <div class="container-show" style="overflow:scroll;">
-
-    <div class="menu-title">
-      <% if @bill.restaurant.items[0].nil? %>
-        <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
-      <% else %>
-        <h2>  <%= @bill.restaurant.items[0].category.upcase %>: </h2>
-      <% end %>
-    </div>
-
-    <% add = image_path("add.png") %>
-    <% categories = {
-      "mains" => image_path("food-mains.png"),
-      "starters" => image_path("food-starters.png"),
-      "desserts" => image_path("food-desserts.png"),
-      "drinks" => image_path("food-drinks.png"),
-    }  %>
-
-    <% @bill.restaurant.items.each do |item| %>
-      <%= simple_form_for [@order, @order_item], remote: true do |f| %>
-        <%= f.input :item_id, input_html: {value: item.id} , as: 'hidden' %>
-
-          <div class='menu-all'>
-            <div class='menu-picture'>
-              <img src="<%= image_path "food-#{item.category}" %>" height='42'/>
-            </div>
-            <div class='menu-description'>
-              <h3><%= item.name.capitalize %></h3>
-              <p><%= item.description %></p>
-            </div>
-            <div class='menu-price'>
-              <%= item.price %> €
-            </div>
-            <%#= f.submit %>
-            <input type="submit" value="" class="menu-add submit-plus" style="background:url(<%= image_path "littleadd.png" %>) no-repeat; "/>
-          </div>
-      <% end %>
-
-    <% end %>
-
-    <%#= simple_form_for [@order, @order_item], remote: true do |f| %>
-    <%#= f.association :item,
-    collection: @bill.restaurant.items,
-    as: :radio_buttons,
-    item_wrapper_class: '',
-    label_method:
-    ->(item){ "
-      <div class='menu-all'>
-      <div class='menu-picture'>
-      <img src='#{categories[item.category]}' height='42'/>
-      </div>
-      <div class='menu-description'>
-      <h3>#{ item.name.capitalize }</h3>
-      <p>#{ item.description }</p>
-      </div>
-      <div class='menu-price'>
-      #{ item.price } €
-      </div>
-      <div class='menu-add'>
-      <img src='#{add}' height='18'>
-      </div>
-      </div>
-      ".html_safe } %>
-      <%#= f.button :submit %>
-      <%# end %>
-
-      <br>
-    </div>
-
+<div class="container-show menu-items" style="overflow:scroll;">
+  <%= render "items/menu-items", bill: @bill, order: @order, order_item: @order_item %>
+</div>
     <div class="container-order">
       <h2 class="text-center your-order">Your order</h2>
       <%= form_for @bill do |f| %>
@@ -187,3 +132,30 @@
   </div>
 </div>
 
+
+
+    <%#= simple_form_for [@order, @order_item], remote: true do |f| %>
+    <%#= f.association :item,
+    collection: @bill.restaurant.items,
+    as: :radio_buttons,
+    item_wrapper_class: '',
+    label_method:
+    ->(item){ "
+      <div class='menu-all'>
+      <div class='menu-picture'>
+      <img src='#{categories[item.category]}' height='42'/>
+      </div>
+      <div class='menu-description'>
+      <h3>#{ item.name.capitalize }</h3>
+      <p>#{ item.description }</p>
+      </div>
+      <div class='menu-price'>
+      #{ item.price } €
+      </div>
+      <div class='menu-add'>
+      <img src='#{add}' height='18'>
+      </div>
+      </div>
+      ".html_safe } %>
+      <%#= f.button :submit %>
+      <%# end %>

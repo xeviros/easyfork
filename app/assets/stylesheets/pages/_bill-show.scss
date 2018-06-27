@@ -22,6 +22,32 @@
   font-weight: 300;
 }
 
+
+.container-reviews{
+  // max-height: 1000px;
+  flex-grow: 1;
+  width: 400px;
+  background-color: #FAFAFA;
+
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 20px;
+  position: relative;
+  font-weight: 300;
+}
+
+.container-reviews h4{
+color: $lblue-easyfork;
+}
+
+.review-content p{
+  font-weight: 300;
+  font-family: Open Sans;
+  font-style: italic;
+  padding-bottom: 30px;
+}
+
+
 .container-order h3{
   color: $lblue-easyfork;
   font-weight: 500;
