@@ -15,8 +15,6 @@
   justify-content: center;
 }
 
-
-
 .banner h3 {
   font-size: 30px;
   font-weight: 100;
@@ -30,14 +28,24 @@
   color: $dgrey-easyfork;
 }
 
+.banner h1{
+  color: #555454;
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 40px;
+  margin: 0px;
+}
+
 .banner h4{
-  color: $dblue-easyfork;
+  color: $orange-easyfork;
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 45px;
   text-align: center;
 }
 
 .row h2{
   color: $lblue-easyfork;
-
 }
 
 .bannernew{
@@ -89,6 +97,4 @@ font-weight:100;
   text-align: center;
   font-weight: 100;
 }
-
-
 
