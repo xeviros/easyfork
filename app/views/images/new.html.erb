@@ -1,0 +1,11 @@
+<h1>Upload your pictures</h1>
+
+
+<div class="container-form">
+  <%= simple_form_for [@restaurant, @image] do |f| %>
+
+  <%= f.input :content, input_html: { multiple: true } %>
+  <%= f.input :content_cache, as: :hidden%>
+    <div class="text-center"> <%= f.button :submit, class: 'btn btn-blue' %> </div>
+  <% end %>
+</div>

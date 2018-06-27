@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :items
+    resources :images
     resources :bills, only: [:new, :create]
   end
 

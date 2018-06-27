@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 2018_06_27_101622) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "content"
+    t.index ["restaurant_id"], name: "index_images_on_restaurant_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -126,6 +134,7 @@ ActiveRecord::Schema.define(version: 2018_06_27_101622) do
   end
 
   add_foreign_key "bills", "restaurants"
+  add_foreign_key "images", "restaurants"
   add_foreign_key "items", "restaurants"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"

@@ -1,9 +1,12 @@
 class Restaurant < ApplicationRecord
   belongs_to :user
   has_many :items
+  has_many :images
   has_many :bills
   has_many :reviews, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+
+
 
   validates :name, presence: true, uniqueness: true
 
