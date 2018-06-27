@@ -123,15 +123,11 @@
             <% end %>
           </div>
           <hr>
-        <div>
-          <p>Invite friends: </p>
-          <p>Share this link with your friends for them to place an order!</p>
-          <span>
-            <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp</a>
-            <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
+        <div class="text-center">
+            <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#myModal">
+              Invite your friends!
+            </button>
 
-            <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a>
-          </span>
         </div>
 
         <hr>
@@ -164,5 +160,29 @@
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Invite your friends!</h4>
+      </div>
+      <div class="modal-body">
+          <p>Share this link with your friends for them to place an order!</p>
+            <div>
+              <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp  </a>
+            </div>
+            <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
+            <div>
+              <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %> Send Email  </a>
+            </div>
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
