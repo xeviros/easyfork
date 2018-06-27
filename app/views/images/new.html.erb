@@ -6,6 +6,12 @@
 
   <%= f.input :content %>
   <%= f.input :content_cache, as: :hidden%>
-    <div class="text-center"> <%= f.button :submit, class: 'btn btn-blue' %> </div>
+  <div class="text-center">  <%= f.button :submit, class: 'btn btn-blue' %> </div>
   <% end %>
+</div>
+<div class="button-order-container">
+<h2>Add a new image?</h2>
+   <%= link_to "Yes",  new_restaurant_image_path(@restaurant), class: "btn-add-images btn btn-blue" %>
+
+  <%= link_to "No",  restaurant_path(@restaurant), class: "btn-add-images btn btn-blue" %>
 </div>
