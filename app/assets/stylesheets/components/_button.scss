@@ -10,9 +10,9 @@
   }
 }
 
-
 .show .dropdown-content {
   display: block !important;
+  z-index: 100;
 }
 
 .btn-menu{
@@ -24,8 +24,6 @@
 
   }
 }
-
-
 
 .btn-grey{
 background: #FAFAFA;

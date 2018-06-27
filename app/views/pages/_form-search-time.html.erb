@@ -1,6 +1,16 @@
-<div class="search-time-box">
+<div class="windows-search">
 
-  <div class="windows-search">
+    <div id="js-trigger" class="btn btn-grey"><%= params[:query] ? 'Category <i class="fas fa-caret-down"></i>'.html_safe : 'Category <i class="fas fa-caret-down"></i>'.html_safe %> </div>
+    <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+      <a href="restaurants">All restaurants</a>
+      <a href="restaurants?utf8=✓&query=French">French</a>
+      <a href="restaurants?utf8=✓&query=Italian">Italian</a>
+      <a href="restaurants?utf8=✓&query=Japanese">Japonese</a>
+      <a href="restaurants?utf8=✓&query=Spanish">Spanish</a>
+      <a href="restaurants?utf8=✓&query=Spanish">Chinese</a>
+  </div>
+
     <%= form_tag restaurants_path, method: :get, class: 'form-inline', style: 'display:inline !important' do %>
       <%= text_field_tag :query,
         params[:query],
@@ -10,5 +20,3 @@
         <input type="submit" value="Search" id="button-search-home" class="btn btn-blue">
     <% end %>
   </div>
-
-</div>
