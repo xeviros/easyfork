@@ -51,10 +51,14 @@
   opacity: 0.8;
 }
 
-  .menu-all:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
+.menu-all:hover {
+  opacity: 1;
+}
+
+.menu-add:hover {
+  cursor: pointer;
+}
+
 
 .menu-picture {
   display: flex;

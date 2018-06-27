@@ -4,24 +4,17 @@
     <div class="message">
       <img class="avatar-small" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
       <div class="message-name">
-
-
         <p> <%= bill.number_of_people %> people </p>
       </div>
       <div class="message-body">
         <p><strong> <%=  bill.restaurant.name %></strong></p>
-        <p>
-         From  <%= bill.date %>
-        </p>
+        <p>From  <%= bill.date %> </p>
       </div>
-        <p class="price"> <%= bill.total_price %> € </p>
+      <p class="price"> <%= bill.total_price %> € </p>
       <div class="message-status text-center">
         <div class="form-group">
           <%= render 'form', bill: bill %>
         </div>
-      </div>
-      <div>
-
       </div>
     </div>
   <% end %>

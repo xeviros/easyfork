@@ -7,46 +7,20 @@
           <a href="restaurants">All restaurants</a>
           <a href="restaurants?utf8=✓&query=French">French</a>
           <a href="restaurants?utf8=✓&query=Italian">Italian</a>
-          <a href="restaurants?utf8=✓&query=Japonese">Japonese</a>
+          <a href="restaurants?utf8=✓&query=Japanese">Japonese</a>
           <a href="restaurants?utf8=✓&query=Spanish">Spanish</a>
         </div>
       </div>
   </div>
 
-  <div class="box-date">
-    <input type="date" id="start" name="trip"
-      value="<%= Date.today.strftime("%m/%d/%Y") %>"
-      min="2018-01-01" max="2018-12-31" />
-  </div>
-
-
-  <div class="box-time">
-    <input type="text" name="timepicker" class="timepicker"/>
-  </div>
-
-
-  <div class="box-nb-people">
-      <div class="dropdown">
-        <button id="js-nbpersons" class="btn btn-grey"><%= params[:people] ? params[:people] : "Number of people"  %></button>
-        <div id="myDropdown" class="dropdown-content">
-          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-          <a href="restaurants?utf8=✓&people=1 person<%=  %>">1 person</a>
-          <a href="restaurants?utf8=✓&people=2 persons">2 persons</a>
-          <a href="restaurants?utf8=✓&people=3 persons">3  perons</a>
-          <a href="restaurants?utf8=✓&people=4 persons">4 persons</a>
-          <a href="restaurants?utf8=✓&people=5 persons">5 persons</a>
-          <a href="restaurants?utf8=✓&people=6 persons">6 persons</a>
-        </div>
-      </div>
-  </div>
-
-  <div class="box-search">
-        <%= form_tag restaurants_path, method: :get do %>
-                    <%= text_field_tag :query,
-                      params[:query],
-                      class: "form-control",
-                      placeholder: " Find a restaurant or category"
-                    %>
+  <div class="windows-search">
+    <%= form_tag restaurants_path, method: :get, class: 'form-inline', style: 'display:inline !important' do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Type the name of a restaurant or category"
+      %>
+        <input type="submit" id="button-search-home">
     <% end %>
   </div>
 

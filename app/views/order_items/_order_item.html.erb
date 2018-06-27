@@ -1,1 +1,1 @@
-<p> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, data: { confirm: "Are you sure?" }%> <span class="order-i"><%= order_item.item.name %><span class= "price-i"> <%= order_item.item.price%> € </span></span> </p>
+<p data-order-item-id="<%= order_item.id %>"> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, order_item_path(order_item), method: :delete, remote: true %> <span class="order-i"><%= order_item.item.name %><span class= "price-i"> <%= order_item.item.price%> € </span></span> </p>

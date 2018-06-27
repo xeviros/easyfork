@@ -1,4 +1,4 @@
-class OrderPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     # the resolve method defines the scope
     def resolve

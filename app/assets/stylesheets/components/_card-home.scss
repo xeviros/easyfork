@@ -1,8 +1,6 @@
 .card-home{
-
-  margin-top: 20px;
+  margin-top: 10px;
   height: 270px;
-  width: 300px;
   background: white;
   position: relative;
   &:hover{
@@ -18,7 +16,6 @@
 
 .card-home-picture{
   height: 180px;
-  width: 300px;
   background-size: cover;
 }
 
@@ -39,6 +36,8 @@
   position: absolute;
   top: 190px;
   padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-home-description{
@@ -56,6 +55,7 @@
   background-size: cover !important;
   background-position: center;
   position: relative;
+  padding: 0px 20px;
 
 }
 

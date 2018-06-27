@@ -15,11 +15,11 @@ class RestaurantsController < ApplicationController
       sql_query = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
       @restaurants = policy_scope(Restaurant).order(created_at: :desc)
       @restaurants = Restaurant.all.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-
       @markers = @restaurants.map do |restaurant|
         {
           lat: restaurant.latitude,
-          lng: restaurant.longitude#,
+          lng: restaurant.longitude,
+          restaurantId: restaurant.id#,
           # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
         }
       end
@@ -29,7 +29,8 @@ class RestaurantsController < ApplicationController
       @markers = @restaurants.map do |restaurant|
         {
           lat: restaurant.latitude,
-          lng: restaurant.longitude#,
+          lng: restaurant.longitude,
+          restaurantId: restaurant.id#,
           # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
         }
       end

@@ -2,27 +2,47 @@
 
 
 <div class="container">
-  <h2 class="text-center">My orders</h2>
-  <% @orders.each do |order| %>
+  <div class="order-container">
+    <h2 class="text-center">My orders</h2>
+    <% @orders.order('created_at DESC').each do |order|%>
     <div class="message">
-      <img class="avatar-small" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-      <div class="message-name">
-      <p> Bill n°: <%= order.bill_id %> </p>
-      <p> <%= order.bill.status.capitalize %></p>
-    </div>
-    <div class="message-body">
-      <p><strong> <%=  order.bill.restaurant.name %></strong></p>
+      <% if current_user.picture.file.nil? %>
+      <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small"%>
+      <% else %>
+      <%= cl_image_tag current_user.picture, class: "avatar-small" %>
+      <% end %>
 
-    </div>
-    <div >
-        <%= order.status %>
-        <p class="price"> <%= order.amount_cents %> € </p>
-    </div>
-    <div>
 
+      <div class="message-body">
+        <h3> <%=  order.bill.restaurant.name %></h3>
+      </div>
+      <div >
+        <div class="message-name">
+          <h3 class="m-price"> <%= order.amount_cents/100 %> € </h3>
+
+          <% if order.status == "Paid" %>
+          <p class= "m-order-<%=order.status.downcase%>"> <%= order.status %> </p>
+          <% else %>
+          <p class= "m-order-<%=order.status.downcase%>"> <%= link_to "Pay order" '<i class="fas fa-credit-card"></i>'.html_safe, new_order_payment_path(order), class: "pay-order" %> </p>
+          <% end %>
+        </div>
+      </div>
+      <div class= "message-order-status">
+        <% if order.status == "Pending" %>
+        <p class= "order-bill-<%=order.bill.status.downcase%>"> <%= order.bill.status.capitalize %> </p>
+        <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel-order" %>
+        <% else  %>
+        <p class= "order-bill-<%=order.bill.status.downcase%>"><%= order.bill.status.capitalize %> </p>
+        <%= link_to "Leave a review" '<i class="far fa-star"></i>'.html_safe, new_order_review_path(order), class: "pay-order" %>
+        <% end %>
+      </div>
+
+      <div class= "see-reservation">
+        <%= link_to "See reservation" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(order), class: "pay-order" %> </p>
+
+      </div>
     </div>
+    <% end %>
   </div>
-<% end %>
-
 </div>
 

@@ -8,4 +8,9 @@ class Order < ApplicationRecord
   #   if @item.nil?
   #   end
   # end
+
+  def set_total_price
+    self.amount_cents = items.pluck(:price_cents).sum
+    self.save
+  end
 end

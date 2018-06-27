@@ -1,22 +1,23 @@
 <% if @bill.restaurant.photo.file.nil? %>
-<div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
-  <div class="resto-infos">
-    <h3 ><%= @bill.restaurant.name %></h3>
-    <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @bill.restaurant.address  %></p> </div>
+  <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
+    <div class="resto-infos">
+      <h3 ><%= @bill.restaurant.name %></h3>
+      <div class= "text-box"> <p>€€€ </p> </div>
+      <div class= "text-box"> <p> <%= @bill.restaurant.address  %></p> </div>
+    </div>
   </div>
-</div>
 
 <% else %>
-<div class="banner-resto" style="background-image: url('<%= cl_image_path @bill.restaurant.photo %>')">
-  <div class="resto-infos">
-    <h3 ><%= @bill.restaurant.name %></h3>
-    <div class= "text-box"> <p>  <%= @bill.restaurant.address  %></p> </div>
+
+  <div class="banner-resto" style="background-image: url('<%= cl_image_path @bill.restaurant.photo %>')">
+    <div class="resto-infos">
+      <h3 ><%= @bill.restaurant.name %></h3>
+      <div class= "text-box">
+        <p>  <%= @bill.restaurant.address  %></p>
+      </div>
+    </div>
   </div>
-</div>
 <% end %>
-
-
-
 
 <br>
 
@@ -37,9 +38,9 @@
 
     <div class="menu-title">
       <% if @bill.restaurant.items[0].nil? %>
-      <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
+        <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
       <% else %>
-      <h2>  <%= @bill.restaurant.items[0].category.upcase %>: </h2>
+        <h2>  <%= @bill.restaurant.items[0].category.upcase %>: </h2>
       <% end %>
     </div>
 
@@ -51,27 +52,27 @@
       "drinks" => image_path("food-drinks.png"),
     }  %>
 
-<% @bill.restaurant.items.each do |item| %>
-  <%= simple_form_for [@order, @order_item], remote: true do |f| %>
-    <%= f.input :item_id, input_html: {value: item.id} , as: 'hidden' %>
-      <div class='menu-all'>
-        <div class='menu-picture'>
-          <img src="<%= image_path "food-#{item.category}" %>" height='42'/>
-        </div>
-        <div class='menu-description'>
-          <h3><%= item.name.capitalize %></h3>
-          <p><%= item.description %></p>
-        </div>
-        <div class='menu-price'>
-          <%= item.price %> €
-        </div>
-        <%#= f.submit %>
-      <input type="submit" value="" class="menu-add submit-plus" style="background:url(<%= image_path "add.png" %>) no-repeat;" />
-    </div>
+    <% @bill.restaurant.items.each do |item| %>
+      <%= simple_form_for [@order, @order_item], remote: true do |f| %>
+        <%= f.input :item_id, input_html: {value: item.id} , as: 'hidden' %>
+
+          <div class='menu-all'>
+            <div class='menu-picture'>
+              <img src="<%= image_path "food-#{item.category}" %>" height='42'/>
+            </div>
+            <div class='menu-description'>
+              <h3><%= item.name.capitalize %></h3>
+              <p><%= item.description %></p>
+            </div>
+            <div class='menu-price'>
+              <%= item.price %> €
+            </div>
+            <%#= f.submit %>
+            <input type="submit" value="" class="menu-add submit-plus" style="background:url(<%= image_path "littleadd.png" %>) no-repeat; "/>
+          </div>
+      <% end %>
+
     <% end %>
-  <% end %>
-
-
 
     <%#= simple_form_for [@order, @order_item], remote: true do |f| %>
     <%#= f.association :item,
@@ -102,68 +103,87 @@
       <br>
     </div>
 
-
     <div class="container-order">
-
       <h2 class="text-center your-order">Your order</h2>
-      <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
-        <% @bill.orders.each do |order| %>
-        <% if order.user_id == current_user.id %>
-          <% order.order_items.each do |order_item| %>
-            <%= render "order_items/order_item", order_item: order_item %>
+      <%= form_for @bill do |f| %>
+        <div class="text-center"> <%= f.label :number_of_people %>
+          <%= f.select :number_of_people, 1..20 %></div>
+          <br>
+          <div class="text-center"><%= f.label :Time_for_booking %>
+            <br>
+            <%= f.datetime_select :date, :default => Time.now %>
+          </div>
+          <hr>
+          <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
+            <% @bill.orders.each do |order| %>
+              <% if order.user_id == current_user.id %>
+                <% order.order_items.each do |order_item| %>
+                  <%= render "order_items/order_item", order_item: order_item %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          <hr>
+        <div class="text-center">
+            <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#myModal">
+              Invite your friends!
+            </button>
+
+        </div>
+
+        <hr>
+
+        <div class="total-price-bill-show">
+          <div class="total-price-bill-show-text">
+            <u> Total price: </u>
+          </div>
+
+          <% sum = 0 %>
+            <% @bill.orders.each do |order| %>
+              <% order.order_items.each do |order_item| %>
+                <% sum += order_item.item.price%>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
 
-      <br>
-
-      <div class="">
-        <p>Invite friends: </p>
-        <p>Share this link with your friends for them to place an order!</p>
-        <span>
-          <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp</a>
-<!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
-
-          <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a>
-        </span>
-      </div>
-
-      <br>
-
-      <div class="total-price-bill-show">
-
-        <div class="total-price-bill-show-text">
-          Total price:
+          <div data-order-price-id="<%= @order.id %>" class="total-price-bill-show-sum">
+            <u> <%= sum %>€ </u>
+          </div>
         </div>
 
-        <% sum = 0 %>
-        <% @bill.orders.each do |order| %>
-          <% order.order_items.each do |order_item| %>
-            <% sum += order_item.item.price%>
-          <% end %>
+        <br>
+
+       <div class="text-center">
+          <input type="submit" name="commit" value="Confirm Order" data-disable-with="Confirm Order"  class="btn btn-blue btn-lg">
+       </div>
         <% end %>
-
-        <div class="total-price-bill-show-sum">
-          <%= sum %>€
-        </div>
       </div>
-
-
-      <br>
-
-
-
     </div>
-    <%= form_for @bill do |f| %>
-    <%= f.label :number_of_people %>
-    <%= f.select :number_of_people, 1..20 %>
-    <p>
-      <%= f.label :Time_for_booking %>
-      <%= f.datetime_select :date , :default => Time.now %>
-      <p><%= f.submit %></p>
-      <% end %>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Invite your friends!</h4>
+      </div>
+      <div class="modal-body">
+          <p>Share this link with your friends for them to place an order!</p>
+            <div>
+              <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp  </a>
+            </div>
+            <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
+            <div>
+              <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %> Send Email  </a>
+            </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
-
-
+</div>
 

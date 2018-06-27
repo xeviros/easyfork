@@ -1,4 +1,5 @@
 import "bootstrap";
+import $ from "jquery";
 import autocomplete from "../components/autocomplete"
 import { myFunction } from "../components/dropbox"
 import { nbPersons } from "../components/nbpersons"
@@ -8,3 +9,8 @@ import add_order_items_bill from "../components/add_order_items_bill"
 myFunction();
 nbPersons();
 time();
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
