@@ -1,5 +1,7 @@
-<%= simple_form_for [@order, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating, :collection => [1, 2, 3, 4, 5] %>
-  <%= f.submit "add a review", class: "btn btn-blue" %>
-<% end %>
+
+
+
+<div class="bannernew" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 50%), url('<%= image_path 'melissa-walker-horn-552003-unsplash.jpg' %>');">
+ <h1 class="text-center"> Leave a review</h1>
+ <%= render 'form' %>
+</div>
