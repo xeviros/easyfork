@@ -4,7 +4,7 @@
 <div class="container">
   <div class="order-container">
     <h2 class="text-center">My orders</h2>
-    <% @orders.each do |order| %>
+    <% @orders.order('created_at DESC').each do |order|%>
     <div class="message">
       <% if current_user.picture.file.nil? %>
       <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small"%>
