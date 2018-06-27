@@ -61,11 +61,23 @@
       <% if restaurant.photo.file.nil? %>
       <div class="card-home"> <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
         <div class="card-home-title">
-          <h4> <%= restaurant.name.capitalize %> </h4>
-        </div>
-        <div class="card-home-category">
-         <p> <%= restaurant.category.upcase %> </p>
-        </div>
+                  <h4> <%= restaurant.name.capitalize %> </h4>
+                </div>
+                <div class="card-home-category">
+                 <p class="category-name"> <%= restaurant.category.upcase %> </p>
+                 <div class="card-home-rating">
+                  <% if restaurant.average_rating == nil %>
+                     <p>  </p>
+                  <% else %>
+                    <% restaurant.average_rating.times do %>
+                      <span> <i class="fas fa-star"></i> </span>
+                    <% end %>
+                    <% (5 - restaurant.average_rating).times do %>
+                     <span><i class="far fa-star"></i> </span>
+                    <% end %>
+                  <% end %>
+                  </div>
+                </div>
         <div class="card-home-description">
           <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
         </div>
@@ -79,11 +91,24 @@
     <div class="col-xs-12 col-md-4 col-sm-6">
       <div class="card-home"> <div class="card-home-picture",style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
         <div class="card-home-title">
-          <h4> <%= restaurant.name.capitalize %> </h4>
-        </div>
-        <div class="card-home-category">
-         <p>  <%= restaurant.category.upcase %> </p>
-        </div>
+          <div class="card-home-title">
+                  <h4> <%= restaurant.name.capitalize %> </h4>
+                </div>
+                <div class="card-home-category">
+                 <p class="category-name"> <%= restaurant.category.upcase %> </p>
+                 <div class="card-home-rating">
+                  <% if restaurant.average_rating == nil %>
+                     <p>  </p>
+                  <% else %>
+                    <% restaurant.average_rating.times do %>
+                      <span> <i class="fas fa-star"></i> </span>
+                    <% end %>
+                    <% (5 - restaurant.average_rating).times do %>
+                     <span><i class="far fa-star"></i> </span>
+                    <% end %>
+                  <% end %>
+                  </div>
+                </div>
         <div class="card-home-description">
           <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
         </div>
