@@ -18,7 +18,13 @@ class BillsController < ApplicationController
     else
       @bill.restaurant.items = Item.all
     end
+
     @order_item = OrderItem.new
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def create
