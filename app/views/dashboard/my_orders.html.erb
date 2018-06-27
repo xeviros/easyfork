@@ -15,7 +15,6 @@
 
       <div class="message-body">
         <h3> <%=  order.bill.restaurant.name %></h3>
-
       </div>
       <div >
         <div class="message-name">
@@ -34,6 +33,7 @@
         <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel-order" %>
         <% else  %>
         <p class= "order-bill-<%=order.bill.status.downcase%>"><%= order.bill.status.capitalize %> </p>
+        <%= link_to "Leave a review" '<i class="far fa-star"></i>'.html_safe, new_restaurant_review_path(order.bill.restaurant), class: "pay-order" %>
         <% end %>
       </div>
 

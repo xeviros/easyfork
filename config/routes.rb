@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   root to: 'pages#home'
 
   resources :restaurants do
     resources :items
     resources :bills, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
 
   resources :bills, only: [:edit, :show, :update] do
     resources :orders, only: [:new, :create, :index]
-    resources :reviews, only: [:new, :create]
+
   end
   resources :reviews, only: [:index, :edit, :update]
 
