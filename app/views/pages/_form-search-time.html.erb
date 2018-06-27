@@ -1,17 +1,4 @@
 <div class="search-time-box">
-  <div class="box-category">
-     <div class="dropdown">
-        <button id="js-trigger" class="btn btn-grey"><%= params[:query] ? params[:query] : "category"  %></button>
-        <div id="myDropdown" class="dropdown-content">
-          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-          <a href="restaurants">All restaurants</a>
-          <a href="restaurants?utf8=✓&query=French">French</a>
-          <a href="restaurants?utf8=✓&query=Italian">Italian</a>
-          <a href="restaurants?utf8=✓&query=Japanese">Japonese</a>
-          <a href="restaurants?utf8=✓&query=Spanish">Spanish</a>
-        </div>
-      </div>
-  </div>
 
   <div class="windows-search">
     <%= form_tag restaurants_path, method: :get, class: 'form-inline', style: 'display:inline !important' do %>
@@ -20,7 +7,7 @@
         class: "form-control",
         placeholder: "Type the name of a restaurant or category"
       %>
-        <input type="submit" id="button-search-home">
+        <input type="submit" value="Search" id="button-search-home" class="btn btn-blue">
     <% end %>
   </div>
 
