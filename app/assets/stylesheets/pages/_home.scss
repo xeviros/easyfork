@@ -1,20 +1,5 @@
 // Specific CSS for your home-page
 
-.banner h1{
-  color: #555454;
-  font-family: Rubik;
-  font-weight: 700;
-  font-size: 40px;
-  margin-top: -30px;
-}
-
-.banner h4{
-  color: #F15025;
-  font-family: Rubik;
-  font-weight: 700;
-  font-size: 25px;
-}
-
 .container-home h2{
   color: #00253C;
   font-family: Rubik;
@@ -97,6 +82,13 @@ margin-bottom: 10px;
   font-size: 15px;
   }
 
+#button-search-home {
+  height: 39px;
+  margin-left: -3px;
+}
 
+#query {
+  width: 42%;
+}
 
 

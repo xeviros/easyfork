@@ -22,6 +22,16 @@
                 </div>
                 <div class="card-home-category">
                  <p> <%= restaurant.category.upcase %> </p>
+                  <% if restaurant.average_rating == nil %>
+                     <p>  </p>
+                  <% else %>
+                    <% restaurant.average_rating.times do %>
+                      <span> <i class="fas fa-star"></i> </span>
+                    <% end %>
+                    <% (5 - restaurant.average_rating).times do %>
+                     <span><i class="far fa-star"></i> </span>
+                    <% end %>
+                  <% end %>
                 </div>
                 <div class="card-home-description">
                   <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
@@ -38,6 +48,16 @@
               </div>
               <div class="card-home-category">
                 <p>  <%= restaurant.category.upcase %> </p>
+                <% if restaurant.average_rating == nil %>
+                   <p>  </p>
+                <% else %>
+                  <% restaurant.average_rating.times do %>
+                    <span> <i class="fas fa-star"></i> </span>
+                  <% end %>
+                  <% (5 - restaurant.average_rating).times do %>
+                    <span><i class="far fa-star"></i> </span>
+                  <% end %>
+                <% end %>
               </div>
               <div class="card-home-description">
                 <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>

@@ -3,6 +3,13 @@
   <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
     <div class="resto-infos">
       <h3><%= @restaurant.name %></h3>
+
+    <% @restaurant.average_rating.times do %>
+       <span> <i class="fas fa-star"></i> </span>
+    <% end %>
+    <% (5 - @restaurant.average_rating).times do %>
+        <span><i class="far fa-star"></i> </span>
+    <% end %>
       <p>  French food home made<%#= @restaurant.description %></p>
       <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @restaurant.address %></p> </div>
     </div>
@@ -45,8 +52,16 @@
         <li><a href="?utf8=✓&query=mains">Mains</a></li>
         <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
         <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
+        <br>
+        <% if @current_user != nil %>
+          <% if @restaurant.user_id == @current_user.id %>
+          <%= link_to "Add images",  new_restaurant_image_path(@restaurant), class: "btn-add-images btn btn-blue" %>
+          <% end %>
+        <% end %>
       </ul>
+
     </div>
+
   </div>
 
   <div class="container-show" style="overflow:scroll;">
@@ -70,6 +85,7 @@
         </div>
 
       <% end %>
+
     </div>
     <br>
   </div>
@@ -86,5 +102,47 @@
   data-markers="<%= @markers.to_json %>"
   ></div>
 </div>
+
+
+<br>
+<br>
+
+<div class="container">
+  <h2>Restaurant images</h2>
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+       <% @restaurant.images.each_with_index do |image, n| %>
+         <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+       <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+           <%= cl_image_tag @restaurant.images.last.content %>
+        </div>
+            <% @restaurant.images.drop(1).each do |image| %>
+           <div class="item">
+              <%= cl_image_tag image.content %>
+           </div>
+            <% end %>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
 
 

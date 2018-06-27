@@ -1,3 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="inviteFriends" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Invite your friends!</h4>
+      </div>
+      <div class="modal-body">
+          <p>Share this link with your friends for them to place an order!</p>
+            <div>
+              <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url.gsub("edit", "") %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp  </a>
+            </div>
+            <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
+            <div>
+              <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url.gsub("edit", "") %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %> Send Email  </a>
+            </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <% if @bill.restaurant.photo.file.nil? %>
 
   <div class="banner banner-bill" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
@@ -39,9 +66,13 @@
 <% end %>
 
 <div class="container">
-  <button type="button" class="btn btn-blue btn-lg text-center" data-toggle="modal" data-target="#myModal">
+  <div class="container text-center">
+  <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#inviteFriends">
     Invite your friends!
   </button>
+
+  </div>
+  <br>
   <div class="row">
     <% @bill.orders.each do |order| %>
       <div class="col-md-6">
@@ -71,45 +102,26 @@
               <%= sum %>€
             </div>
           </div>
-          <p class="text-center"> <%= link_to 'PAY ORDER', new_order_payment_path(order), class: 'btn btn-blue'%></p>
+          <p class="text-center"> <%= link_to 'PAY ORDER',new_order_payment_path(order), class: 'btn btn-blue'%></p>
         </div>
       </div>
     <% end %>
   </div>
 </div>
 
+
+
 <h1 class="text-center"> <%= link_to 'VALIDATE BILL', restaurants_path, class: 'btn btn-blue'%> </h1>
 
 <div class="container">
 
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Invite your friends!</h4>
-      </div>
-      <div class="modal-body">
-          <p>Share this link with your friends for them to place an order!</p>
-            <div>
-              <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp  </a>
-            </div>
-            <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
-            <div>
-              <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %> Send Email  </a>
-            </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+  <p>Current status of your global order: <span class= "bill-<%=@bill.status.downcase%>"> <%= @bill.status %> </span> </p>
+  <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order.</p>
 </div>
+
+
+
+
 
 
 
