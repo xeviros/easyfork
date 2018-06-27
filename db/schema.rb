@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_25_162520) do
+ActiveRecord::Schema.define(version: 2018_06_27_094804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 2018_06_25_162520) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "content"
+    t.index ["restaurant_id"], name: "index_images_on_restaurant_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -112,6 +120,7 @@ ActiveRecord::Schema.define(version: 2018_06_25_162520) do
   end
 
   add_foreign_key "bills", "restaurants"
+  add_foreign_key "images", "restaurants"
   add_foreign_key "items", "restaurants"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"

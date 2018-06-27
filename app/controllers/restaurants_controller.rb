@@ -5,7 +5,9 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @image = Image.new
     authorize @restaurant
+
   end
 
   def index
