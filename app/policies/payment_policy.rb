@@ -27,6 +27,4 @@ class PaymentPolicy < ApplicationPolicy
     !@user.nil?
   end
 
-  private
-
 end

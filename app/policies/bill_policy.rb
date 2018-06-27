@@ -26,9 +26,4 @@ class BillPolicy < ApplicationPolicy
   def destroy?
     !@user.nil?
   end
-
-  private
-
-
-
 end

@@ -27,8 +27,4 @@ class OrderItemPolicy < ApplicationPolicy
     !@user.nil?
   end
 
-  private
-
-
-
 end
