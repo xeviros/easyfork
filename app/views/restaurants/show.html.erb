@@ -27,13 +27,11 @@
     <h3 ><%= @restaurant.name %></h3>
     <div class= "text-box"> <p> @restaurant.address</p> </div>
   </div>
+
 </div>
-</div>
-<% end %>
-<div class="search-index">
-  <%= render :partial => 'pages/form-search-time' %>
 </div>
 
+<% end %>
 
 <div class="button-order-container">
   <% if @current_user != nil %>
@@ -44,7 +42,6 @@
   <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
   <% end %>
 </div>
-
 
 
 <div class="cont-pills-menus-order">

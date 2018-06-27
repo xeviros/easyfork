@@ -1,8 +1,7 @@
 
-<div class="search-index">
+<div class="search-index text-center">
   <%= render :partial => 'pages/form-search-time' %>
 </div>
-
 
 <% if current_user != nil %>
     <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you, <%= current_user.first_name.capitalize %>. </h2>
