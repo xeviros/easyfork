@@ -3,5 +3,5 @@
 meta_product_name: "EasyFork"
 meta_title: "EasyFork - Order your food and save time"
 meta_description: "EasyFork enables you to book table in a restaurant and order the food in advance, so when you arrive, you don't have to wait!"
-meta_image: "easyfork_cover_image.png"                       # should exist in `app/assets/images/`
+meta_image: "easyfork_cover_image.jpg"                       # should exist in `app/assets/images/`
 twitter_account: "@easyfork_ES"   # required for Twitter Cards
