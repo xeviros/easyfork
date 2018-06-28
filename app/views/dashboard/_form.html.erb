@@ -2,5 +2,6 @@
 <%= simple_form_for [bill] do |f| %>
 
   <%= f.input :status, collection: ["pending", "accepted", "declined"] %>
+  <%= f.button :submit, class: 'btn btn-blue' %> </div>
 <% end %>
 </div>
