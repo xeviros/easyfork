@@ -1,14 +1,3 @@
-<div class="menu-title">
-  <% if params[:query].present? %>
-    <% if bill.restaurant.items[0].nil? %>
-      <h4>This restaurant doesn't have any item in this category 🤷‍ </h4>
-    <% else %>
-      <h2>  <%= bill.restaurant.items[0].category.upcase %>: </h2>
-    <% end %>
-  <% else %>
-   <h4>ALL MEALS:</h4>
-  <% end %>
-</div>
 
 <% add = image_path("add.png") %>
 <% categories = {
