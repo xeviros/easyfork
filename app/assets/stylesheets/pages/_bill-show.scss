@@ -4,6 +4,7 @@
   justify-content: space-between;
   height: 1000px;
   width: 100%;
+  margin-top: -25px;
 }
 
 .container-order{
@@ -22,23 +23,6 @@
   font-weight: 300;
 }
 
-
-.container-reviews{
-  // max-height: 1000px;
-  flex-grow: 1;
-  width: 400px;
-  background-color: #FAFAFA;
-
-  margin-left: 50px;
-  margin-right: 50px;
-  padding: 20px;
-  position: relative;
-  font-weight: 300;
-}
-
-.container-reviews h4{
-color: $lblue-easyfork;
-}
 
 .review-content p{
   font-weight: 300;

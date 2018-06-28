@@ -55,10 +55,10 @@
 <div class="button-order-container">
   <% if @current_user != nil %>
   <% if @restaurant.user_id != @current_user.id %>
-  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
+  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-order btn-blue btn-lg'%>
   <% end %>
   <% else %>
-  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'button-order'%>
+  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-order btn-blue btn-lg'%>
   <% end %>
 </div>
 
