@@ -13,9 +13,9 @@ anna = User.create(email: "anna@anna.com", password: "123456", first_name: "Anna
 xavi = User.create(email: "xavi@xavi.com", password: "123456", first_name: "Xavi", last_name: "Ros")
 ben = User.create(email: "ben@ben.com", password: "123456", first_name: "Ben", last_name: "De Boissieu")
 
-resto1 = Restaurant.create!(name: "Bella Italia", address: "Carrer Arago 390, Barcelona", category: "Italian", user: luca, popularity: 3)
-resto2 = Restaurant.create!(name: "Xavi's place", address: "Carrer Casanova 20, Barcelona", category: "Spanish", user: xavi, popularity: 1)
-resto3 = Restaurant.create!(name: "Vive la France", address: "Carrer d'en Grassot 101, Barcelona", category: "French", user: anna, popularity: 2)
+resto1 = Restaurant.create!(name: "Bella Italia", address: "Carrer Arago 390, Barcelona", category: "Italian", user: luca, popularity: 3, opening_time: 10:30, closing_time: 19:30)
+resto2 = Restaurant.create!(name: "Xavi's place", address: "Carrer Casanova 20, Barcelona", category: "Spanish", user: xavi, popularity: 1, opening_time: 10:30, closing_time: 19:30)
+resto3 = Restaurant.create!(name: "Vive la France", address: "Carrer d'en Grassot 101, Barcelona", category: "French", user: anna, popularity: 2, opening_time: 10:30, closing_time: 19:30)
 
 Item.create!(category: "mains", name: "Pizza", description: "Pizza woodden cooked", price: 9, restaurant: resto1)
 Item.create!(category: "mains", name: "Pasta", description: "Pasta with cream and tomatos", price: 12, restaurant: resto2)
