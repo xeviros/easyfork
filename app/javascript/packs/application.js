@@ -6,11 +6,14 @@ import { nbPersons } from "../components/nbpersons"
 import time from "../components/time"
 import add_order_items_bill from "../components/add_order_items_bill"
 
+
 myFunction();
 nbPersons();
 time();
 
 
+
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
+

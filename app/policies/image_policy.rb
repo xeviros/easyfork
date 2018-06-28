@@ -19,6 +19,10 @@ class ImagePolicy < ApplicationPolicy
    !@user.nil?
   end
 
+  def show?
+   !@user.nil?
+  end
+
   def edit?
     !@user.nil?
   end
