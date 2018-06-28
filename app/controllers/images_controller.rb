@@ -12,8 +12,11 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
     @image.restaurant = @restaurant
      authorize @image
-
-     @image.save
+    if      @image.save
+      new_restaurant_image_path(@restaurant)
+    else
+      render :new
+    end
 
     flash[:notice] = "Image created"
 
