@@ -1,4 +1,4 @@
-export default function billconfirm() {
+// export default function billconfirm() {
 
 // if (document.querySelector(".edit_bill")) {
 //   let editForms = document.querySelectorAll(".edit_bill")
