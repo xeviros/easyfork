@@ -51,13 +51,20 @@
     <div class="container-order">
       <h2 class="text-center your-order">Your order</h2>
       <%= form_for @bill do |f| %>
-        <div class="text-center"> <%= f.label :number_of_people %>
+        <div class="spaced-between"> <%= f.label :number_of_people %>
           <%= f.select :number_of_people, 1..20 %></div>
           <br>
-          <div class="text-center"><%= f.label :Time_for_booking %>
-            <br>
-            <%= f.datetime_select :date, :default => Time.now %>
-          </div>
+
+
+              <div class="form-wrapper" id="super_form">
+
+                <%= simple_form_for :search, method: "get" do |f| %>
+                  <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                  <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+
+
+
+
           <hr>
           <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
             <% @bill.orders.each do |order| %>
@@ -99,6 +106,8 @@
 
        <div class="text-center">
           <input type="submit" name="commit" value="Confirm Order" data-disable-with="Confirm Order"  class="btn btn-blue btn-lg">
+       </div>
+       <% end %>
        </div>
         <% end %>
       </div>

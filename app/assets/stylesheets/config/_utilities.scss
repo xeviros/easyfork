@@ -1,0 +1,26 @@
+.spaced-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.light-form {
+  border: none;
+  box-shadow: 0.5px 0.5px 0.1px lightgrey;
+
+}
+
+#super_form {
+  .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+      input {
+      border: none;
+      box-shadow: 0.5px 0.5px 0.1px lightgrey;
+      width: 58%;
+      background-color: white;
+    }
+
+  }
+}
