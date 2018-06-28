@@ -4,7 +4,7 @@
   justify-content: space-between;
   height: 1000px;
   width: 100%;
-  margin-top: -25px;
+  padding-top: 40px;
 }
 
 .container-order{
@@ -13,7 +13,7 @@
   flex-grow: 1;
   flex-direction: column;
   // max-height: 1000px;
-  width: 30%;
+  width: 43%;
   background-color: white;
   box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
   margin-left: 50px;
@@ -21,6 +21,7 @@
   padding: 20px;
   position: relative;
   font-weight: 300;
+  margin-top: 8px;
 }
 
 
@@ -115,7 +116,7 @@ font-weight: 500;
 }
 
 #bill_number_of_people{
-  background-color: #eceaea;
+  background-color: #fffdfd;
   box-shadow: 4px 3px 11.8px -2px $lblue-easyfork;
   border: none;
   width: 49px;
