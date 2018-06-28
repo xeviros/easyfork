@@ -71,8 +71,8 @@ color: $lblue-easyfork;
 
 .price-i{
 position: absolute;
-left: 200px;
-width: 200px;
+left: 140px;
+width: 65px;
 font-weight: 500;
 }
 
@@ -131,8 +131,10 @@ font-weight: 500;
 }
 
 #bill_number_of_people{
-  background-color: white;
+  background-color: #eceaea;
+  box-shadow: 4px 3px 11.8px -2px $lblue-easyfork;
   border: none;
+  width: 49px;
 }
 
 #bill_date_1i{
