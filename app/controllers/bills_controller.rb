@@ -9,10 +9,10 @@ class BillsController < ApplicationController
     authorize @bill
     if @order = @bill.has_ordered?(current_user)
         @order
-      else
+    else
         @order = Order.create(bill: @bill, user: current_user)
     end
-   if params[:query].present?
+    if params[:query].present?
       sql_query = "category ILIKE :query"
       @bill.restaurant.items = Item.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
     else
@@ -38,10 +38,8 @@ class BillsController < ApplicationController
 
   def edit
     @bill = Bill.find(params[:id])
+    @bill_completed = bill_completed(@bill)
     authorize @bill
-    # @bill.orders.each do |order|
-    #   order.update(status: "Accepted")
-    # end
   end
 
  def update
@@ -57,12 +55,15 @@ class BillsController < ApplicationController
   end
 
 
- def bill_params
+  def bill_completed(bill)
+    @orders_paid = bill.orders.select { |order| order.status == "Paid"}
+    @orders_paid.size == bill.orders.size
+  end
+
+
+  def bill_params
     params.require(:bill).permit(:number_of_people, :total_price, :date, :restaurant_id, :user_id, :status)
   end
-  # def update
-  #   @bill = Bill.find(params[:id])
-  # end
 
 end
 
