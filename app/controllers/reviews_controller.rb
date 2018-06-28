@@ -13,7 +13,8 @@ class ReviewsController < ApplicationController
     @review.restaurant = order.bill.restaurant
     @review.user = current_user
     @review.save
-    redirect_to my_orders_path
+    redirect_to restaurant_path(order.bill.restaurant)
+    flash[:notice] = "Thanks for your review!"
 
   end
 

@@ -3,10 +3,23 @@
   border-radius: 5px;
   color:white;
   background: #2E6C7D;
-  opacity: 0.8;
+  opacity: 1;
   &:hover{
     background:#0E2C40;
     color:white;
+  }
+}
+
+.btn-orange{
+  margin: 10px;
+  border-radius: 5px;
+  color:white;
+  background: $orange-easyfork;
+  opacity: 0.8;
+  &:hover{
+    background: $orange-easyfork;
+    color:white;
+    opacity:1;
   }
 }
 

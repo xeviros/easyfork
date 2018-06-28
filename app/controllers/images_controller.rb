@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
 
      @image.save
 
-    flash[:notice] = "image created"
+    flash[:notice] = "Image created"
 
 
   end
