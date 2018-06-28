@@ -73,15 +73,27 @@
   padding: 10px;
   margin-right: 50px;
   background-color: $light-gray;
+  opacity: 0.9;
+}
+
+.resto-infos-edit-bill{
+  height: 280px;
+  width: 400px;
+  background: rgba(250,250,250,1);
+  border-radius: 5px;
+  margin-left: 50px;
+  color: black;
+  font-weight:100;
+  padding: 10px;
+  margin-right: 50px;
+  background-color: $light-gray;
+  opacity: 0.9;
 }
 
 
 .resto-infos-order{
- height: 120px;
-
-  width: 300px;
-
-
+  height: 120px;
+  width: 350px;
   background: rgba(250,250,250,1);
   border-radius: 5px;
   margin-left: 50px;
@@ -90,7 +102,9 @@
   padding: 10px;
   margin-right: 100px;
   background-color: $light-gray;
+  opacity: 0.9;
 }
+
 .resto-infos h3{
   font-weight: 300;
 }
