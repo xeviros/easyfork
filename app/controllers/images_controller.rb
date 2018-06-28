@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
-  before_action :set_restaurant, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:show]
+  before_action :set_restaurant, only: [:new, :create, :show]
 
   def new
 
@@ -20,6 +21,10 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @restaurant.images = Image.all
+    @image = @restaurant.images
+
+    authorize @image
   end
 
   def index

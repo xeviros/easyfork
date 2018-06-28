@@ -59,6 +59,11 @@ class RestaurantsController < ApplicationController
     else
       @restaurant.items = Item.all
     end
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def edit
@@ -80,7 +85,7 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :description, :address, :category, :photo, :latitude, :longitude, :user_id )
+    params.require(:restaurant).permit(:name, :description, :address, :category, :photo, :latitude, :longitude, :user_id, :opening_time, :closing_time )
   end
 
 end
