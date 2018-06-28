@@ -1,12 +1,14 @@
 
 OrderItem.destroy_all
+Image.destroy_all
+Review.destroy_all
 Order.destroy_all
 Item.destroy_all
 Bill.destroy_all
 Restaurant.destroy_all
 User.destroy_all
-Review.destroy_all
-Image.destroy_all
+
+
 
 puts "Creating new database..."
 

@@ -14,7 +14,7 @@
       <% @restaurants.each do |restaurant| %>
         <div class="col-xs-12 col-md-4 col-sm-6">
       <% if restaurant.photo.file.nil? %>
-      <div class="card-home"> <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
+      <div class="card-home" data-restaurant-id="<%= restaurant.id %>"> <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
         <div class="card-home-title">
                   <h4> <%= restaurant.name.capitalize %> </h4>
                 </div>
