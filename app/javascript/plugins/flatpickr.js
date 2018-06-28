@@ -6,7 +6,7 @@ const picker = document.querySelector(".datepicker");
 // it selects with the selector
 if (picker) {
   flatpickr(".datepicker", {
-    defaultDate: Date.parse(picker.value),
+    defaultDate: Date.now(),
     enableTime: true,
   })
 }
