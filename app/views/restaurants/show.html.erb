@@ -22,7 +22,7 @@
         <div id="wrapper"> <p><a class="button" href="#popup1">More Pictures</a></p> </div>
       </div>
     </div>
-      <div class="resto-infos">
+  <div class="resto-infos">
     <div class= "text-box">
       <p style="margin-top: 20%;">The restaurant opens at <span style="color: #32B796;"><%= @restaurant.opening_time.strftime("%H:%M") %></span></p>
       <p>The restaurant closes at <span style="color: #EE5F5B;"><%= @restaurant.closing_time.strftime("%H:%M") %></span></p>
@@ -63,11 +63,11 @@
     <div class="container-pills">
       <div class="col-md-12">
         <ul class="nav nav-pills nav-stacked">
-          <li class="btn-menu"><a href="#">Menu</a></li>
-          <li><a href="?utf8=✓&query=starters">Starters</a></li>
-          <li><a href="?utf8=✓&query=mains">Mains</a></li>
-          <li><a href="?utf8=✓&query=desserts">Desserts</a></li>
-          <li><a href="?utf8=✓&query=drinks">Drinks</a></li>
+          <li class="btn-menu"><%= link_to "Menu", restaurant_path(@restaurant, query: ""), remote: true  %></li>
+          <li><%= link_to "Starters", restaurant_path(@restaurant, query: "starters"), remote: true %></li>
+          <li><%= link_to "Mains", restaurant_path(@restaurant, query: "mains"), remote: true %></li>
+          <li><%= link_to "Desserts", restaurant_path(@restaurant, query: "desserts"), remote: true %></li>
+          <li><%= link_to "Drinks", restaurant_path(@restaurant, query: "drinks"), remote: true %></li>
           <br>
           <% if @current_user != nil %>
           <% if @restaurant.user_id == @current_user.id %>
@@ -80,29 +80,10 @@
 
     </div>
 
-    <div class="container-show" style="overflow:scroll;">
-      <div class="menu-title">
-        <% if @restaurant.items[0].nil? %>
-        <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
-        <% else %>
-        <h4>  <%= @restaurant.items[0].category.upcase %>: </h4>
-        <% end %>
-        <% @restaurant.items.each do |item| %>
-        <div class="menu-all">
-          <div class="menu-picture"><%= image_tag "food-#{item.category}.png" , height: 60%></div>
-          <div class="menu-description">
-            <h3><%= item.name.capitalize %></h3>
-            <p><%= item.description %></p>
-          </div>
-          <div class="menu-price">      <%= item.price %> € </div>
-          <div class="menu-add"></div>
-        </div>
+    <div class="container-show menu-items" style="overflow:scroll;">
+      <%= render "items/restaurant-items", restaurant: @restaurant, bill: @bill, order: @order, order_item: @order_item %>
+    </div>
 
-        <% end %>
-
-          </div>
-          <br>
-        </div>
       </div>
             <div class="container-reviews text-center", style="overflow:scroll;">
               <h4 class="text-center">About <strong> <%=  @restaurant.name %>  </strong> </h4>

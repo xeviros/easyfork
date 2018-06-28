@@ -17,6 +17,12 @@
       <p>  <%= @bill.restaurant.description %></p>
       <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @bill.restaurant.address %></p> </div>
     </div>
+  <div class="resto-infos">
+    <div class= "text-box">
+      <p style="margin-top: 20%;">The restaurant opens at <span style="color: #32B796;"><%= @bill.restaurant.opening_time.strftime("%H:%M") %></span></p>
+      <p>The restaurant closes at <span style="color: #EE5F5B;"><%= @bill.restaurant.closing_time.strftime("%H:%M") %></span></p>
+    </div>
+  </div>
   </div>
 </div>
 

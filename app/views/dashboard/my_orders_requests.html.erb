@@ -1,14 +1,23 @@
 <div class="container">
+  <div class="order-container">
   <div class="form-group">
+    <% if @bills.count < 1 %>
+        <h1 class="text-center"> You have no orders yet </h1>
+      <% else %>
+
     <h1 class="text-center">My order requests</h1>
     <% @bills.each do |bill| %>
     <div class="message">
-      <img class="avatar-small" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+      <% if current_user.picture.file.nil? %>
+      <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small"%>
+      <% else %>
+      <%= cl_image_tag current_user.picture, class: "avatar-small" %>
+      <% end %>
       <div class="message-name">
         <p> <%= bill.number_of_people %> people </p>
       </div>
       <div class="message-body">
-        <p><strong> <%=  bill.restaurant.name %></strong></p>
+        <h3><strong> <%=  bill.restaurant.name %></strong></h3>
         <p>From  <%= bill.date %> </p>
       </div>
       <p class="price"> <%= bill.total_price %> € </p>
@@ -16,9 +25,16 @@
         <div class="form-group">
           <%= render 'form', bill: bill %>
         </div>
+        </div>
+        <div class= "see-reservation">
+        <%= link_to "See details" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(bill), class: "pay-order" %> </p>
+
+
       </div>
     </div>
     <% end %>
+    <% end %>
+  </div>
   </div>
 </div>
 
