@@ -3,6 +3,9 @@
 
 <div class="container">
   <div class="order-container">
+    <% if @orders.count < 1 %>
+    <h1 class="text-center"> You have no orders yet </h1>
+    <% else %>
     <h2 class="text-center">My orders</h2>
     <% @orders.order('created_at DESC').each do |order|%>
     <div class="message">
@@ -38,10 +41,11 @@
       </div>
 
       <div class= "see-reservation">
-        <%= link_to "See reservation" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(order), class: "pay-order" %> </p>
+        <%= link_to "See details" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(order), class: "pay-order" %> </p>
 
       </div>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
