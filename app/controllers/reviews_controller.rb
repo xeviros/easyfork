@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
     @review.restaurant = order.bill.restaurant
     @review.user = current_user
     @review.save
+    redirect_to my_orders_path
 
   end
 

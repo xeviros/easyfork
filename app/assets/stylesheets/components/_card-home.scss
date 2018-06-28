@@ -1,7 +1,7 @@
 .card-home{
   margin-top: 10px;
-  height: 270px;
-  background: white;
+  height: 290px;
+  background: #F8F8F8;
   position: relative;
   &:hover{
   box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
@@ -21,8 +21,9 @@
 
 .card-home-title{
   position: absolute;
-  top: 200px;
+  top: 195px;
   padding-left: 10px;
+  padding-top: 5px;
 }
 
 .card-home-title h4{
@@ -32,18 +33,25 @@
   font-size: 18px;
 }
 
+
 .card-home-category{
   position: absolute;
   top: 190px;
   padding-left: 10px;
-  display: flex;
-  justify-content: space-between;
+}
+
+.card-home-rating{
+  font-size: 12px;
+  top: 230px;
+  color: grey;
+  padding-top: 10px;
 }
 
 .card-home-description{
   position: absolute;
-  top: 235px;
+  top: 245px;
   padding-left: 5px;
+  padding-top: 5px;
 }
 
 .card-home-description i{
@@ -52,9 +60,6 @@
 
 .card-how-it-works {
   height: 250px;
-  background-size: cover !important;
-  background-position: center;
-  position: relative;
   padding: 0px 20px;
 
 }

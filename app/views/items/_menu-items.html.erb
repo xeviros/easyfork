@@ -1,0 +1,41 @@
+<div class="menu-title">
+  <% if params[:query].present? %>
+    <% if bill.restaurant.items[0].nil? %>
+      <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
+    <% else %>
+      <h2>  <%= bill.restaurant.items[0].category.upcase %>: </h2>
+    <% end %>
+  <% else %>
+   <h2>Menu:</h2>
+  <% end %>
+</div>
+
+<% add = image_path("add.png") %>
+<% categories = {
+  "mains" => image_path("food-mains.png"),
+  "starters" => image_path("food-starters.png"),
+  "desserts" => image_path("food-desserts.png"),
+  "drinks" => image_path("food-drinks.png"),
+}  %>
+
+<% bill.restaurant.items.each do |item| %>
+  <%= simple_form_for [order, order_item], remote: true do |f| %>
+    <%= f.input :item_id, input_html: {value: item.id} , as: 'hidden' %>
+
+      <div class='menu-all'>
+        <div class='menu-picture'>
+          <img src="<%= image_path "food-#{item.category}.png" %>" height='42'/>
+        </div>
+        <div class='menu-description'>
+          <h3><%= item.name.capitalize %></h3>
+          <p><%= item.description %></p>
+        </div>
+        <div class='menu-price'>
+          <%= item.price %> €
+        </div>
+        <%#= f.submit %>
+        <input type="submit" value="" class="menu-add submit-plus" style="background:url(<%= image_path "littleadd.png" %>) no-repeat; "/>
+      </div>
+  <% end %>
+<% end %>
+

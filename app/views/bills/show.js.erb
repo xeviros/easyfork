@@ -1,0 +1,5 @@
+function updateItems() {
+  const container = document.querySelector(".menu-items");
+  container.innerHTML = "<%= j render 'items/menu-items', order: @order, order_item: @order_item, bill: @bill %>"
+}
+updateItems();
