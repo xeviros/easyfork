@@ -3,10 +3,10 @@
     <% if restaurant.items[0].nil? %>
       <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
     <% else %>
-      <h2>  <%= restaurant.items[0].category.upcase %>: </h2>
+      <h4>  <%= restaurant.items[0].category.upcase %>: </h4>
     <% end %>
   <% else %>
-   <h2>ALL MEALS:</h2>
+   <h4>ALL MEALS:</h4>
   <% end %>
 </div>
 

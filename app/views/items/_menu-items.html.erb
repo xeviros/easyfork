@@ -1,12 +1,12 @@
 <div class="menu-title">
   <% if params[:query].present? %>
     <% if bill.restaurant.items[0].nil? %>
-      <h2>This restaurant doesn't have any item in this category 🤷‍ </h2>
+      <h4>This restaurant doesn't have any item in this category 🤷‍ </h4>
     <% else %>
       <h2>  <%= bill.restaurant.items[0].category.upcase %>: </h2>
     <% end %>
   <% else %>
-   <h2>ALL MEALS:</h2>
+   <h4>ALL MEALS:</h4>
   <% end %>
 </div>
 
@@ -28,7 +28,6 @@
         </div>
         <div class='menu-description'>
           <h3><%= item.name.capitalize %></h3>
-          <p><%= item.description %></p>
         </div>
         <div class='menu-price'>
           <%= item.price %> €
