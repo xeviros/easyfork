@@ -1,4 +1,7 @@
 <!-- Modal -->
+
+
+
 <div class="modal fade" id="inviteFriends" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -7,14 +10,14 @@
         <h4 class="modal-title" id="myModalLabel">Invite your friends!</h4>
       </div>
       <div class="modal-body">
-          <p>Share this link with your friends for them to place an order!</p>
-            <div>
-              <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url.gsub("edit", "") %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp  </a>
-            </div>
-            <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
-            <div>
-              <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url.gsub("edit", "") %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %> Send Email  </a>
-            </div>
+        <p>Share this link with your friends for them to place an order!</p>
+        <div>
+          <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url.gsub("edit", "") %>" target="_blank"> <%= '<i class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp  </a>
+        </div>
+        <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
+        <div>
+          <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url.gsub("edit", "") %>" target="_blank">  <%= '<i class="far fa-envelope"></i>'.html_safe %> Send Email  </a>
+        </div>
 
       </div>
       <div class="modal-footer">
@@ -27,102 +30,124 @@
 
 <% if @bill.restaurant.photo.file.nil? %>
 
-  <div class="banner banner-bill" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
-    <h1 class= "text-center">
-      <br>
-      <%= @bill.restaurant.name %>
-      - <%= @bill.restaurant.address %>
-      <br>
-      <% if @bill.number_of_people < 2 %>
-        All orders: (<%= @bill.number_of_people %> person)
-      <% else %>
-        All orders: (<%= @bill.number_of_people %> people)
-      <% end %>
-      <br>
-      <br>
-      <%= @bill.date.strftime("You book for %A %d %B %Y") %>
-      <%= @bill.date.strftime("at %H:%M")  %>
-      <br>
-    </h1>
+<div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
+  <div class="resto-infos">
+      <h3> <%= @bill.restaurant.name %></h3>
+       <p> <%=  @bill.restaurant.address  %> </p>
+    <% if @bill.number_of_people < 2 %>
+    <p> All orders: (<%= @bill.number_of_people %> person) </p>
+    <% else %>
+    <p> All orders: (<%= @bill.number_of_people %> people) </p>
+    <% end %>
+    <h4> <%= @bill.date.strftime("Booking for %A %d %B %Y") %> </h4>
+    <h4> <%= @bill.date.strftime("at %H:%M")  %> </h4>
+    <br>
+    </div>
+    </div>
   </div>
+</div>
 
 <% else %>
 
-<div class="banner banner-bill" style="background-image: url(('<%= cl_image_path @bill.restaurant.photo %>')">
-    <h1 class= "text-center">
-      <br>
-      <%= @bill.restaurant.name %>
-      - <%= @bill.restaurant.address %>
-      <br>
-      <% if @bill.id < 2 %>
-        All orders: (<%= @bill.id %> person)
-      <% else %>
-        All orders: (<%= @bill.id %> people)
-      <% end %>
-      <br>
-    </h1>
+<div class="banner-resto" style="background-image: url(('<%= cl_image_path @bill.restaurant.photo %>')">
+  <div class="resto-infos">
+      <h3 ><%= @bill.restaurant.name %></h3>
+      <p> @bill.restaurant.address</p>
+    <% if @bill.id < 2 %>
+    All orders: (<%= @bill.id %> person)
+    <% else %>
+    All orders: (<%= @bill.id %> people)
+    <% end %>
+    <br>
+    </div>
   </div>
+  </div>
+</div>
 
 <% end %>
 
 <div class="container">
   <div class="container text-center">
-  <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#inviteFriends">
-    Invite your friends!
-  </button>
+    <% if @bill_completed %>
+    <p> </p>
+    <% else %>
+    <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#inviteFriends">
+      Invite your friends!
+    </button>
+    <% end %>
 
   </div>
   <br>
   <div class="row">
     <% @bill.orders.each do |order| %>
-      <div class="col-md-6">
-        <div class="card-order">
-          <div class="card-order-status-info">
-            <p class= "order-<%=order.status.downcase%>"><%= order.status %> </p>
-            <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }%>
-          </div>
-          <div class="order-infos">
-            <p class= "order-name text-center"> Order of <%= order.user.email.capitalize %></p>
-            <div class="order-items" style="overflow:scroll">
-              <% sum = 0 %>
-              <% order.order_items.each do |order_item| %>
-                <div class="order-item-inline">
-                  <div class="order-item-inline-food"><i class="fas fa-utensils"></i> <%= order_item.item.name.capitalize %></div>
-                  <div class="order-price"> <%= order_item.item.price%> €</div>
-                </div>
-                  <% sum += order_item.item.price%>
-              <% end %>
-            </div>
-          </div>
-          <div class="total-price-edit">
-            <div class="total-price-bill-edit-text">
-              Total price:
-            </div>
-            <div class="total-price-bill-edit-sum">
-              <%= sum %>€
-            </div>
-          </div>
-          <p class="text-center"> <%= link_to 'PAY ORDER',new_order_payment_path(order), class: 'btn btn-blue'%></p>
+    <div class="col-md-6">
+      <div class="card-order">
+        <div class="card-order-status-info">
+          <p class= "order-<%=order.status.downcase%>"><%= order.status %> </p>
+          <% if @bill_completed %>
+          <p> </p>
+          <% else %>
+          <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }%>
+          <% end %>
         </div>
+        <div class="order-infos">
+          <p class= "order-name text-center"> Order of <%= order.user.email.capitalize %></p>
+          <div class="order-items" style="overflow:scroll">
+            <% sum = 0 %>
+            <% order.order_items.each do |order_item| %>
+            <div class="order-item-inline">
+              <div class="order-item-inline-food"><i class="fas fa-utensils"></i> <%= order_item.item.name.capitalize %></div>
+              <div class="order-price"> <%= order_item.item.price%> €</div>
+            </div>
+            <% sum += order_item.item.price%>
+            <% end %>
+          </div>
+        </div>
+        <div class="total-price-edit">
+          <div class="total-price-bill-edit-text">
+            Total price:
+          </div>
+          <div class="total-price-bill-edit-sum">
+            <%= sum %>€
+          </div>
+        </div>
+        <% if order.status =! "Paid" %>
+        <p class="text-center"> <%= link_to 'PAY ORDER',new_order_payment_path(order), class: 'btn btn-blue'%></p>
+        <% end %>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
+<!-- Javascript give make button disabled
+after each payment we check if button should be status paid
+we check in the controller if all the bills have status paid for specific bill
+if so, we update the bill -->
+<br>
 
-
-
-<h1 class="text-center"> <%= link_to 'VALIDATE BILL', restaurants_path, class: 'btn btn-blue'%> </h1>
 
 <div class="container">
 
-  <p>Current status of your global order: <span class= "bill-<%=@bill.status.downcase%>"> <%= @bill.status %> </span> </p>
-  <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order.</p>
-</div>
 
 
+  <div class= "text-center">
 
+      <% if @bill_completed %>
+        <% if @bill.status != "accepted" %>
+          <p class= "text-center order-validated"> GLOBAL ORDER VALIDATED!</p>
+          <p>Current status of the global order: <span class= "bill-<%=@bill.status.downcase%>"> <%= @bill.status.capitalize %> </span> </p>
+            <% if current_user.id != @bill.restaurant_id %>
+              <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order!</p>
+            <% else %>
+              ""
+            <% end %>
+            <% else %>
+            <p class= "text-center order-accepted"> GLOBAL ORDER ACCEPTED!</p>
+            <p>See you at the restaurant!</p>
+        <% end %>
+      <% end %>
+    </div>
+      </div>
 
-
-
-
+    </div>
 

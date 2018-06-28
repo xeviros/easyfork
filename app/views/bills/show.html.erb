@@ -17,6 +17,12 @@
       <p>  <%= @bill.restaurant.description %></p>
       <div class= "text-box"> <p>€€€ </p> </div> <div class= "text-box"> <p> <%= @bill.restaurant.address %></p> </div>
     </div>
+  <div class="resto-infos">
+    <div class= "text-box">
+      <p style="margin-top: 20%;">The restaurant opens at <span style="color: #32B796;"><%= @bill.restaurant.opening_time.strftime("%H:%M") %></span></p>
+      <p>The restaurant closes at <span style="color: #EE5F5B;"><%= @bill.restaurant.closing_time.strftime("%H:%M") %></span></p>
+    </div>
+  </div>
   </div>
 </div>
 
@@ -51,13 +57,16 @@
     <div class="container-order">
       <h2 class="text-center your-order">Your order</h2>
       <%= form_for @bill do |f| %>
-        <div class="text-center"> <%= f.label :number_of_people %>
+        <div class="spaced-between"> <%= f.label :number_of_people %>
           <%= f.select :number_of_people, 1..20 %></div>
           <br>
-          <div class="text-center"><%= f.label :Time_for_booking %>
-            <br>
-            <%= f.datetime_select :date, :default => Time.now %>
-          </div>
+
+
+            <div class="form-wrapper" id="super_form">
+              <div class="form-group">
+                <label for="bill_date">Date</label>
+                <input type="text" name="bill[date]" class="datepicker" id="bill_date" value="<%= @bill.date.strftime('%A %d %B %Y') if @bill.date %>">
+              </div>
           <hr>
           <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
             <% @bill.orders.each do |order| %>
@@ -100,7 +109,8 @@
        <div class="text-center">
           <input type="submit" name="commit" value="Confirm Order" data-disable-with="Confirm Order"  class="btn btn-blue btn-lg">
        </div>
-        <% end %>
+       <% end %>
+       </div>
       </div>
     </div>
 
