@@ -19,13 +19,18 @@
     <% end %>
       <p> <%#= @restaurant.description %></p>
       <div class= "text-box"> <p> <%= @restaurant.address %></p>
-        <div id="wrapper"> <p><a class="button" href="#popup1">More Pictures</a></p> </div>
+
       </div>
     </div>
   <div class="resto-infos">
     <div class= "text-box">
-      <p style="margin-top: 20%;">The restaurant opens at <span style="color: #32B796;"><%= @restaurant.opening_time.strftime("%H:%M") %></span></p>
-      <p>The restaurant closes at <span style="color: #EE5F5B;"><%= @restaurant.closing_time.strftime("%H:%M") %></span></p>
+      <div class= "open-time">
+      <h4>Opening hours</h4>
+      <p> <span style="font-size:130%;"><%= @restaurant.opening_time.strftime("%Hh%M") %></span>
+      and <span style="font-size:130%; "><%= @restaurant.closing_time.strftime("%Hh%M") %></span></p>
+
+       <div id="wrapper"> <p><a class="btn-add-images" href="#popup1">More Pictures</a></p> </div>
+     </div>
     </div>
   </div>
 </div>
