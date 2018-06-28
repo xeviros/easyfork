@@ -31,7 +31,7 @@
 <% if @bill.restaurant.photo.file.nil? %>
 
 <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
-  <div class="resto-infos">
+  <div class="resto-infos-edit-bill">
       <h3> <%= @bill.restaurant.name %></h3>
        <p> <%=  @bill.restaurant.address  %> </p>
     <% if @bill.number_of_people < 2 %>

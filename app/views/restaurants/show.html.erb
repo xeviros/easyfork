@@ -26,8 +26,8 @@
     <div class= "text-box">
       <div class= "open-time">
       <h4>Opening hours</h4>
-      <p> <span style="font-size:130%;"><%= @restaurant.opening_time.strftime("%Hh%M") %></span>
-      and <span style="font-size:130%; "><%= @restaurant.closing_time.strftime("%Hh%M") %></span></p>
+      <p>from <span style="font-size:130%;"><%= @restaurant.opening_time.strftime("%H:%Mh") %></span>
+      to <span style="font-size:130%; "><%= @restaurant.closing_time.strftime("%H:%Mh") %></span></p>
 
        <div id="wrapper"> <p><a class="btn-add-images" href="#popup1">More Pictures</a></p> </div>
      </div>
