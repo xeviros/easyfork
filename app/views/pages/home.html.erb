@@ -17,108 +17,113 @@
 </div>
 
 <div class="background">
-<div class="container container-home">
+  <div class="container container-home">
+
+    <div class="row" style="margin-top: 70px">
+      <h2 class="text-center"> How it works?</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <div class="card-how-it-works text-center">
+           <i class="text-center fas fa-calendar home-icons"></i>
+           <div class="how-text">
+            <h3>Book</h3>
+            <p>Choose a time and a restaurant in our selection.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <div class="card-how-it-works text-center">
+          <i class="text-center  fas fa-mobile home-icons"></i>
+          <div class="how-text">
+            <h3>Order</h3>
+            <p>Order your meal in the restaurant menu in advance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <div class="card-how-it-works text-center">
+          <i class="text-center fas fa-clock home-icons"></i>
+          <div class="how-text">
+            <h3>Save time</h3>
+            <p>Go there and enjoy your meal without waiting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   <div class="row" style="margin-top: 70px">
-    <h2 class="text-center"> How it works?</h2>
+    <h2 class="text-center"> Most popular restaurants</h2>
   </div>
+  <div>
+    <div class="row">
+      <% @restaurants.each do |restaurant| %>
 
-  <div class="row-how-it-works" style="margin-top: 10px">
-    <div class="text-center card-how-it-works">
-     <i class="fas fa-calendar home-icons"></i>
-     <div class="how-text">
-      <h3>Book</h3>
-      <p>Choose a time and a restaurant in our selection.</p>
-    </div>
-  </div>
-
-
-  <div class=" text-center card-how-it-works">
-    <i class="fas fa-mobile home-icons"></i>
-    <div class="how-text">
-      <h3>Order</h3>
-      <p>Order your meal in the restaurant menu in advance.</p>
-    </div>
-  </div>
-
-  <div class="text-center  card-how-it-works">
-    <i class="fas fa-clock home-icons"></i>
-    <div class="how-text">
-      <h3>Save time</h3>
-      <p>Go there and enjoy your meal without waiting</p>
-    </div>
-  </div>
-</div>
-
-<div class="row" style="margin-top: 70px">
-  <h2 class="text-center"> Most popular restaurants</h2>
-</div>
-<div>
-  <div class="row">
-    <% @restaurants.each do |restaurant| %>
-
-    <div class="col-xs-12 col-md-4 col-sm-6">
-      <% if restaurant.photo.file.nil? %>
-      <div class="card-home"> <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
-        <div class="card-home-title">
-                  <h4> <%= restaurant.name.capitalize %> </h4>
-                </div>
-                <div class="card-home-category">
-                 <p class="category-name"> <%= restaurant.category.upcase %> </p>
-                 <div class="card-home-rating">
-                  <% if restaurant.average_rating == nil %>
-                     <p>  </p>
-                  <% else %>
-                    <% restaurant.average_rating.times do %>
-                      <span> <i class="fas fa-star"></i> </span>
-                    <% end %>
-                    <% (5 - restaurant.average_rating).times do %>
-                     <span><i class="far fa-star"></i> </span>
-                    <% end %>
-                  <% end %>
-                  </div>
-                </div>
-        <div class="card-home-description">
-          <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
-        </div>
-        <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
-      </div>
-    </div>
-  </div>
-
-    <% else %>
-
-    <div class="col-xs-12 col-md-4 col-sm-6">
-      <div class="card-home"> <div class="card-home-picture",style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
-        <div class="card-home-title">
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <% if restaurant.photo.file.nil? %>
+        <div class="card-home"> <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
           <div class="card-home-title">
-                  <h4> <%= restaurant.name.capitalize %> </h4>
-                </div>
-                <div class="card-home-category">
-                 <p class="category-name"> <%= restaurant.category.upcase %> </p>
-                 <div class="card-home-rating">
-                  <% if restaurant.average_rating == nil %>
-                     <p>  </p>
-                  <% else %>
-                    <% restaurant.average_rating.times do %>
-                      <span> <i class="fas fa-star"></i> </span>
-                    <% end %>
-                    <% (5 - restaurant.average_rating).times do %>
-                     <span><i class="far fa-star"></i> </span>
-                    <% end %>
-                  <% end %>
-                  </div>
-                </div>
+            <h4> <%= restaurant.name.capitalize %> </h4>
+          </div>
+          <div class="card-home-category">
+           <p class="category-name"> <%= restaurant.category.upcase %> </p>
+           <div class="card-home-rating">
+            <% if restaurant.average_rating == nil %>
+            <p>  </p>
+            <% else %>
+            <% restaurant.average_rating.times do %>
+            <span> <i class="fas fa-star"></i> </span>
+            <% end %>
+            <% (5 - restaurant.average_rating).times do %>
+            <span><i class="far fa-star"></i> </span>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
         <div class="card-home-description">
           <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
         </div>
         <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
       </div>
     </div>
-    <% end %>
-    <% end %>
   </div>
+
+  <% else %>
+
+  <div class="col-xs-12 col-md-4 col-sm-6">
+    <div class="card-home"> <div class="card-home-picture",style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
+      <div class="card-home-title">
+        <h4> <%= restaurant.name.capitalize %> </h4>
+      </div>
+      <div class="card-home-category">
+       <p class="category-name"> <%= restaurant.category.upcase %> </p>
+       <div class="card-home-rating">
+        <% if restaurant.average_rating == nil %>
+        <p>  </p>
+        <% else %>
+        <% restaurant.average_rating.times do %>
+        <span> <i class="fas fa-star"></i> </span>
+        <% end %>
+        <% (5 - restaurant.average_rating).times do %>
+        <span><i class="far fa-star"></i> </span>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-home-description">
+      <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
+    </div>
+    <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
   </div>
+</div>
+<% end %>
+<% end %>
+</div>
+</div>
 </div>
 
 <br>

@@ -1,6 +1,7 @@
 <div class="container">
-  <h2 class="text-center">My order requests</h2>
-  <% @bills.each do |bill| %>
+  <div class="form-group">
+    <h1 class="text-center">My order requests</h1>
+    <% @bills.each do |bill| %>
     <div class="message">
       <img class="avatar-small" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
       <div class="message-name">
@@ -17,7 +18,8 @@
         </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 
