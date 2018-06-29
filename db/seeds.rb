@@ -23,6 +23,13 @@ ben = User.create(email: "ben@ben.com", password: "123456", first_name: "Ben", l
 
 
 ramenbcn = Restaurant.create!(name: "Ramen BCN", address: "Calle Girona, 108, Barcelona", category: "Japanse", user: ben, opening_time: "13:00", closing_time: "00:00", popularity: 4.3 )
+
+
+image_src = File.join(Rails.root, "/app/assets/images/Japanese/ramen-main.jpg")
+src_file = File.new(image_src)
+ramenbcn.photo = src_file
+ramenbcn.save
+
 Item.create!(category: "starters", name: "Fried Tofu with soja sauce", price: 4, restaurant: ramenbcn)
 Item.create!(category: "starters", name: "Seaweed Salad", price: 3.50, restaurant: ramenbcn)
 Item.create!(category: "starters", name: "Salmon Tatar", price: 8.95, restaurant: ramenbcn)
