@@ -50,13 +50,14 @@
 <% else %>
 
 <div class="banner-resto" style="background-image: url(('<%= cl_image_path @bill.restaurant.photo %>')">
+
   <div class="resto-infos">
       <h3 ><%= @bill.restaurant.name %></h3>
-      <p> @bill.restaurant.address</p>
-    <% if @bill.id < 2 %>
-    All orders: (<%= @bill.id %> person)
+      <p> <%= @bill.restaurant.address  %> </p>
+    <% if @bill.number_of_people < 2 %>
+    All orders: (<%= @bill.number_of_people %> person)
     <% else %>
-    All orders: (<%= @bill.id %> people)
+    All orders: (<%= @bill.number_of_people %> people)
     <% end %>
     <br>
     </div>
