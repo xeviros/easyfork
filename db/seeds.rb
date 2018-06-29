@@ -45,8 +45,63 @@ Item.create!(category: "drinks", name: "Cafe", price: 1.30, restaurant: ramenbcn
 Item.create!(category: "drinks", name: "Heineken", price: 2, restaurant: ramenbcn)
 
 
+komakishushi = Restaurant.create!(name: "Komaki Sushi", address: "Carrer de Còrsega, 416, 08037, Barcelona", category: "Japanese", user: xavi, opening_time: "12:00", closing_time: "22:00", popularity: 3.3 )
+
+
+
+image_src = File.join(Rails.root, "/app/assets/images/Japanese/sushi.jpg")
+src_file = File.new(image_src)
+komakishushi.photo = src_file
+komakishushi.save
+
+Item.create!(category: "starters", name: "Sopa de Miso Tofu con Cebolleta", price: 3.10, restaurant: komakishushi)
+Item.create!(category: "starters", name: "Ensalada con mixto de algas con salsa de Miso", price: 7.10, restaurant: komakishushi)
+Item.create!(category: "starters", name: "Arroz blanco", price: 1.85, restaurant: komakishushi)
+
+Item.create!(category: "mains", name: "Sake Uramaki (salmón, aguacate, mayonesa, sésamo blanco/negro) ", price: 7.65, restaurant: komakishushi)
+Item.create!(category: "mains", name: "Arroz frito con verduras, gambas, calamares y aceite de sesamo", price: 8.10, restaurant: komakishushi)
+Item.create!(category: "mains", name: "Yakisoba (fideos con verduras, shitake, pollo con salsa japonesa y katsuobushi", description:"Rice noodles with miso sauce and toppings", price: 7.80, restaurant: komakishushi)
+Item.create!(category: "desserts", name: "Pastel de queso con frutos del bosque", price: 4.75, restaurant: komakishushi)
+Item.create!(category: "desserts", name: "Trufas japonesas de té verde, sake y cava", price: 4.70, restaurant: komakishushi)
+Item.create!(category: "drinks", name: "Water", price: 1.75, restaurant: komakishushi)
+Item.create!(category: "drinks", name: "Wine", price: 8, restaurant: komakishushi)
+Item.create!(category: "drinks", name: "Cafe", price: 1.30, restaurant: komakishushi)
+Item.create!(category: "drinks", name: "Heineken", price: 2, restaurant: komakishushi)
+
+
+lokalbar = Restaurant.create!(name: "LOKAL BAR", address: "Calle Bruc, 118, Barcelona", category: "Spanish", user: xavi, opening_time: "11:00", closing_time: "22:00", popularity: 4 )
+
+
+
+image_src = File.join(Rails.root, "/app/assets/images/tapas.jpg")
+src_file = File.new(image_src)
+lokalbar.photo = src_file
+lokalbar.save
+
+Item.create!(category: "starters", name: "Gazpacho", price: 4.90, restaurant: lokalbar)
+Item.create!(category: "starters", name: "Patatas Bravas", price: 4.20, restaurant: lokalbar)
+Item.create!(category: "starters", name: "Nachos con Guacamole", price: 5.90, restaurant: lokalbar)
+
+Item.create!(category: "mains", name: "Ensaladilla Rusa", price: 4.90, restaurant: lokalbar)
+Item.create!(category: "mains", name: "Ensalada Verde con Mandarina, Uva y Nueces", price:7.50, restaurant: lokalbar)
+Item.create!(category: "mains", name: "Burger La Brava (allioli y salsa picante)", price: 10 , restaurant: lokalbar)
+Item.create!(category: "desserts", name: "Crema Catalana con Carquiñolis", price: 4.90, restaurant: lokalbar)
+Item.create!(category: "desserts", name: "Mel y Mató con Músico", price: 4.50, restaurant: lokalbar)
+Item.create!(category: "drinks", name: "Water", price: 1.75, restaurant: lokalbar)
+Item.create!(category: "drinks", name: "Wine", price: 8, restaurant: lokalbar)
+Item.create!(category: "drinks", name: "Cafe", price: 1.30, restaurant: lokalbar)
+Item.create!(category: "drinks", name: "Heineken", price: 2, restaurant: lokalbar)
+
 
 tipicicatala = Restaurant.create!(name: "Típic i Català", address: "Carrer Sicília, 217, Barcelona", category: "Catalan", user: xavi, opening_time: "13:00", closing_time: "00:00", popularity: 3.9 )
+
+image_src = File.join(Rails.root, "/app/assets/images/burger.jpg")
+src_file = File.new(image_src)
+lokalbar.photo = src_file
+lokalbar.save
+
+
+
 Item.create!(category: "starters", name: "Snails of sea in brine", price: 5, restaurant: tipicicatala)
 Item.create!(category: "starters", name: "Mussels in pickled sauce", price: 5, restaurant: tipicicatala)
 Item.create!(category: "starters", name: "Olives arbequines", price: 2, restaurant: tipicicatala)
@@ -61,6 +116,12 @@ Item.create!(category: "desserts", name: "Yogurt", price: 3.60, restaurant: tipi
 
 
 nuvol = Restaurant.create!(name: "Núvol", address: "Carrer de Sant Antoni Maria Claret, 92,Barcelona", category: "Spanish", user: anna, opening_time: "7:00", closing_time: "21:00", popularity: 4.2)
+
+image_src = File.join(Rails.root, "/app/assets/images/catalan.jpg")
+src_file = File.new(image_src)
+lokalbar.photo = src_file
+lokalbar.save
+
 Item.create!(category: "starters", name: "Hummus", description: "Hummus with row vegetables and slices of toasted bread", price: 5.50, restaurant: nuvol)
 Item.create!(category: "starters", name: "Nachos", description: "Nachos with Guacamole and pico de gallo with cream cheese cashew", price: 6.25, restaurant: nuvol)
 Item.create!(category: "starters", name: "Patatas bravas and homemade allioli", price: 4.10, restaurant: nuvol)
@@ -72,7 +133,7 @@ Item.create!(category: "mains", name: "Luna Burger menu", description:"Menu with
 
 resto1 = Restaurant.create!(name: "Bella Italia", address: "Carrer Arago 390, Barcelona", category: "Italian", user: luca, popularity: 3, opening_time: "10:30", closing_time: "19:30")
 resto2 = Restaurant.create!(name: "Xavi's place", address: "Carrer Casanova 20, Barcelona", category: "Spanish", user: xavi, popularity: 1, opening_time: "10:30", closing_time: "19:30")
-resto3 = Restaurant.create!(name: "Vive la France", address: "Carrer d'en Grassot 101, Barcelona", category: "French", user: anna, popularity: 2, opening_time: "10:30", closing_time: "19:30")
+resto3 = Restaurant.create!(name: "Vive la France", address: "Carrer d'en Grassot 101, Barcelona", category: "French", user: ben, popularity: 2, opening_time: "10:30", closing_time: "19:30")
 
 Item.create!(category: "mains", name: "Pizza", description: "Pizza woodden cooked", price: 9, restaurant: resto1)
 Item.create!(category: "mains", name: "Pasta", description: "Pasta with cream and tomatos", price: 12, restaurant: resto2)
