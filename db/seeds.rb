@@ -95,8 +95,8 @@ tipicicatala = Restaurant.create!(name: "Típic i Català", address: "Carrer Sic
 
 image_src = File.join(Rails.root, "/app/assets/images/burger.jpg")
 src_file = File.new(image_src)
-lokalbar.photo = src_file
-lokalbar.save
+tipicicatala.photo = src_file
+tipicicatala.save
 
 
 
@@ -117,8 +117,13 @@ nuvol = Restaurant.create!(name: "Núvol", address: "Carrer de Sant Antoni Maria
 
 image_src = File.join(Rails.root, "/app/assets/images/catalan.jpg")
 src_file = File.new(image_src)
-lokalbar.photo = src_file
-lokalbar.save
+nuvol.photo = src_file
+nuvol.save
+
+
+
+
+
 
 # Item.create!(category: "starters", name: "Hummus", description: "Hummus with row vegetables and slices of toasted bread", price: 5.50, restaurant: nuvol)
 # Item.create!(category: "starters", name: "Nachos", description: "Nachos with Guacamole and pico de gallo with cream cheese cashew", price: 6.25, restaurant: nuvol)
@@ -129,26 +134,39 @@ lokalbar.save
 # Item.create!(category: "mains", name: "Luna Burger menu", description:"Menu with potatoes, drink and dessert", price: 10.95, restaurant: nuvol)
 
 
-resto1 = Restaurant.create!(name: "Bella Italia", address: "Carrer Arago 390, Barcelona", category: "Italian", user: luca, popularity: 3, opening_time: "10:30", closing_time: "19:30")
-resto2 = Restaurant.create!(name: "Xavi's place", address: "Carrer Casanova 20, Barcelona", category: "Spanish", user: xavi, popularity: 1, opening_time: "10:30", closing_time: "19:30")
+# resto1 = Restaurant.create!(name: "Bella Italia", address: "Carrer Arago 390, Barcelona", category: "Italian", user: luca, popularity: 3, opening_time: "10:30", closing_time: "19:30")
+# resto2 = Restaurant.create!(name: "Xavi's place", address: "Carrer Casanova 20, Barcelona", category: "Spanish", user: xavi, popularity: 1, opening_time: "10:30", closing_time: "19:30")
 resto3 = Restaurant.create!(name: "Vive la France", address: "Carrer d'en Grassot 101, Barcelona", category: "French", user: ben, popularity: 2, opening_time: "10:30", closing_time: "19:30")
+resto5 = Restaurant.create!(name: "Han In", address: "Calle Aribau, 32 Barcelona", category: "Chinese", user: ben, popularity: 5, opening_time: "11:00", closing_time: "23:30")
+resto6 = Restaurant.create!(name: "Chao Yue", address: "Calle Arago, 360, Barcelona", category: "Chinese", user: anna, popularity: 4, opening_time: "12:00", closing_time: "22:30")
+
+
+image_src = File.join(Rails.root, "/app/assets/images/chinese.jpg")
+src_file = File.new(image_src)
+resto5.photo = src_file
+resto5.save
+
+image_src = File.join(Rails.root, "/app/assets/images/chine2.jpg")
+src_file = File.new(image_src)
+resto6.photo = src_file
+resto6.save
 
 Item.create!(category: "starters", name: "Hummus", price: 5.50, restaurant: resto3)
 Item.create!(category: "starters", name: "Nachos", price: 6.25, restaurant: resto3)
 Item.create!(category: "starters", name: "Patatas bravas and homemade allioli", price: 4.10, restaurant: resto3)
 
-Item.create!(category: "mains", name: "Pizza margarita", description: "Pizza woodden cooked", price: 9.5, restaurant: resto1)
-Item.create!(category: "mains", name: "Pasta carbonara", description: "Pasta with cream and tomatos", price: 8.3, restaurant: resto2)
+Item.create!(category: "mains", name: "Pizza margarita", description: "Pizza woodden cooked", price: 9.5, restaurant: resto3)
+Item.create!(category: "mains", name: "Pasta carbonara", description: "Pasta with cream and tomatos", price: 8.3, restaurant: resto3)
 Item.create!(category: "mains", name: "Home Burger", price: 11.9, restaurant: resto3)
-Item.create!(category: "mains", name: "Steak Tartar", price: 15.9, restaurant: resto1)
+Item.create!(category: "mains", name: "Steak Tartar", price: 15.9, restaurant: resto3)
 
-Item.create!(category: "drinks", name: "Juice", price: 3, restaurant: resto1)
-Item.create!(category: "drinks", name: "Cappuccino", price: 1.5, restaurant: resto2)
+Item.create!(category: "drinks", name: "Juice", price: 3, restaurant: resto3)
+Item.create!(category: "drinks", name: "Cappuccino", price: 1.5, restaurant: resto3)
 Item.create!(category: "drinks", name: "Tea", price: 1.5, restaurant: resto3)
-Item.create!(category: "drinks", name: "Mojito", price: 7, restaurant: resto2)
+Item.create!(category: "drinks", name: "Mojito", price: 7, restaurant: resto3)
 
-Item.create!(category: "desserts", name: "Chocolat cake", price: 5, restaurant: resto1)
-Item.create!(category: "desserts", name: "Creme brule", price: 5.5, restaurant: resto2)
+Item.create!(category: "desserts", name: "Chocolat cake", price: 5, restaurant: resto3)
+Item.create!(category: "desserts", name: "Creme brule", price: 5.5, restaurant: resto3)
 Item.create!(category: "desserts", name: "Ice-cream", description: "lemon, mint, vanilla", price: 3.9, restaurant: resto3)
 Item.create!(category: "desserts", name: "Fruits", price: 4.5, restaurant: resto3)
 
