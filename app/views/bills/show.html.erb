@@ -37,6 +37,7 @@
       <div class= "text-box"> <p> @bill.restaurant.address</p> </div>
     </div>
       <div class="resto-infos-order">
+<<<<<<< HEAD
     <div class= "text-box">
      <div class= "open-time">
       <h4>Opening hours</h4>
@@ -45,8 +46,18 @@
      </div>
     </div>
   </div>
+=======
+        <div class= "text-box">
+         <div class= "open-time">
+          <h4>Opening hours</h4>
+          <p>from <span style="font-size:130%;"><%= @bill.restaurant.opening_time.strftime("%H:%Mh") %></span>
+          to <span style="font-size:130%; "><%= @bill.restaurant.closing_time.strftime("%H:%Mh") %></span></p>
+         </div>
+        </div>
+      </div>
+    </div>
+>>>>>>> 477a6d23fb0c3a847ee6fba2edc13d8fd7e590d9
   </div>
-</div>
 <% end %>
 
 <div class="cont-pills-menus-order">
