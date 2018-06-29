@@ -46,7 +46,17 @@
     <h3 ><%= @restaurant.name %></h3>
     <div class= "text-box"> <p> @restaurant.address</p> </div>
   </div>
+      <div class="resto-infos">
+    <div class= "text-box">
+      <div class= "open-time">
+      <h4>Opening hours</h4>
+      <p>from <span style="font-size:130%;"><%= @restaurant.opening_time.strftime("%H:%Mh") %></span>
+      to <span style="font-size:130%; "><%= @restaurant.closing_time.strftime("%H:%Mh") %></span></p>
 
+       <div id="wrapper"> <p><a class="btn-add-images" href="#popup1">More Pictures</a></p> </div>
+     </div>
+    </div>
+  </div>
 </div>
 </div>
 
