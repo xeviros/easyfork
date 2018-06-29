@@ -68,6 +68,7 @@
                 <input type="text" name="bill[date]" class="datepicker" id="bill_date" value="<%= @bill.date.strftime('%A %d %B %Y') if @bill.date %>">
               </div>
           <hr>
+
           <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
             <% @bill.orders.each do |order| %>
               <% if order.user_id == current_user.id %>
@@ -77,6 +78,8 @@
               <% end %>
             <% end %>
           </div>
+
+
           <hr>
         <div class="text-center">
             <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#myModal">
