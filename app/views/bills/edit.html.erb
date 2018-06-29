@@ -49,7 +49,7 @@
 
 <% else %>
 
-<div class="banner-resto" style="background-image: url(('<%= cl_image_path @bill.restaurant.photo %>')">
+<div class="banner-resto" style="background-image: url('<%= cl_image_path @bill.restaurant.photo %>'); background-position-y: center">
 
   <div class="resto-infos">
       <h3 ><%= @bill.restaurant.name %></h3>
