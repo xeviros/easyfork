@@ -43,8 +43,8 @@
 
     <% else %>
 
-    <div class="col-xs-12 col-md-4 col-sm-6">
-      <div class="card-home"> <div class="card-home-picture",style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
+
+      <div class="card-home"> <div class="card-home-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
           <div class="card-home-title">
                   <h4> <%= restaurant.name.capitalize %> </h4>
                 </div>
@@ -71,7 +71,7 @@
     </div>
     <% end %>
     <% end %>
-  </div>
+
   </div>
 
 
