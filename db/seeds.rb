@@ -52,6 +52,15 @@ src_file = File.new(image_src)
 komakishushi.photo = src_file
 komakishushi.save
 
+
+chinese = Restaurant.create!(name: "Hai Cheng", address: "Carrer Girona, 170, Barcelona", category: "Chinese", user: xavi, opening_time: "10:00", closing_time: "21:00", popularity: 4 )
+
+image_src = File.join(Rails.root, "/app/assets/images/chinese3.jpg")
+src_file = File.new(image_src)
+chinese.photo = src_file
+chinese.save
+
+
 # Item.create!(category: "starters", name: "Sopa de Miso Tofu con Cebolleta", price: 3.10, restaurant: komakishushi)
 # Item.create!(category: "starters", name: "Ensalada con mixto de algas con salsa de Miso", price: 7.10, restaurant: komakishushi)
 # Item.create!(category: "starters", name: "Arroz blanco", price: 1.85, restaurant: komakishushi)
