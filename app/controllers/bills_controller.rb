@@ -14,9 +14,9 @@ class BillsController < ApplicationController
     end
     if params[:query].present?
       sql_query = "category ILIKE :query"
-      @bill.restaurant.items = Item.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+      @bill.restaurant.items = @bill.restaurant.items.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
     else
-      @bill.restaurant.items = Item.all
+      @bill.restaurant.items = @bill.restaurant.items
     end
 
     @order_item = OrderItem.new
