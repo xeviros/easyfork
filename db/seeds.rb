@@ -164,20 +164,20 @@ Item.create!(category: "starters", name: "Hummus", price: 5.50, restaurant: rest
 Item.create!(category: "starters", name: "Nachos", price: 6.25, restaurant: resto3)
 Item.create!(category: "starters", name: "Patatas bravas and homemade allioli", price: 4.10, restaurant: resto3)
 
-Item.create!(category: "mains", name: "Pizza margarita", description: "Pizza woodden cooked", price: 9.5, restaurant: resto3)
-Item.create!(category: "mains", name: "Pasta carbonara", description: "Pasta with cream and tomatos", price: 8.3, restaurant: resto3)
-Item.create!(category: "mains", name: "Home Burger", price: 11.9, restaurant: resto3)
-Item.create!(category: "mains", name: "Steak Tartar", price: 15.9, restaurant: resto3)
+Item.create!(category: "mains", name: "Pizza margarita", description: "Pizza woodden cooked", price: 9.5, restaurant: nuvol)
+Item.create!(category: "mains", name: "Pasta carbonara", description: "Pasta with cream and tomatos", price: 8.3, restaurant: nuvol)
+Item.create!(category: "mains", name: "Home Burger", price: 11.9, restaurant: nuvol)
+Item.create!(category: "mains", name: "Steak Tartar", price: 15.9, restaurant: nuvol)
 
-Item.create!(category: "drinks", name: "Juice", price: 3, restaurant: resto3)
-Item.create!(category: "drinks", name: "Cappuccino", price: 1.5, restaurant: resto3)
-Item.create!(category: "drinks", name: "Tea", price: 1.5, restaurant: resto3)
-Item.create!(category: "drinks", name: "Mojito", price: 7, restaurant: resto3)
+# Item.create!(category: "drinks", name: "Juice", price: 3, restaurant: resto3)
+# Item.create!(category: "drinks", name: "Cappuccino", price: 1.5, restaurant: resto3)
+# Item.create!(category: "drinks", name: "Tea", price: 1.5, restaurant: resto3)
+# Item.create!(category: "drinks", name: "Mojito", price: 7, restaurant: resto3)
 
-Item.create!(category: "desserts", name: "Chocolat cake", price: 5, restaurant: resto3)
-Item.create!(category: "desserts", name: "Creme brule", price: 5.5, restaurant: resto3)
-Item.create!(category: "desserts", name: "Ice-cream", description: "lemon, mint, vanilla", price: 3.9, restaurant: resto3)
-Item.create!(category: "desserts", name: "Fruits", price: 4.5, restaurant: resto3)
+# Item.create!(category: "desserts", name: "Chocolat cake", price: 5, restaurant: resto3)
+# Item.create!(category: "desserts", name: "Creme brule", price: 5.5, restaurant: resto3)
+# Item.create!(category: "desserts", name: "Ice-cream", description: "lemon, mint, vanilla", price: 3.9, restaurant: resto3)
+# Item.create!(category: "desserts", name: "Fruits", price: 4.5, restaurant: resto3)
 
 puts "Finished!"
 
