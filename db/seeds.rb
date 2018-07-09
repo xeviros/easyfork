@@ -169,10 +169,10 @@ Item.create!(category: "mains", name: "Pasta carbonara", description: "Pasta wit
 Item.create!(category: "mains", name: "Home Burger", price: 11.9, restaurant: nuvol)
 Item.create!(category: "mains", name: "Steak Tartar", price: 15.9, restaurant: nuvol)
 
-# Item.create!(category: "drinks", name: "Juice", price: 3, restaurant: resto3)
-# Item.create!(category: "drinks", name: "Cappuccino", price: 1.5, restaurant: resto3)
-# Item.create!(category: "drinks", name: "Tea", price: 1.5, restaurant: resto3)
-# Item.create!(category: "drinks", name: "Mojito", price: 7, restaurant: resto3)
+Item.create!(category: "drinks", name: "Juice", price: 3, restaurant: resto3)
+Item.create!(category: "drinks", name: "Cappuccino", price: 1.5, restaurant: resto3)
+Item.create!(category: "drinks", name: "Tea", price: 1.5, restaurant: resto3)
+Item.create!(category: "drinks", name: "Mojito", price: 7, restaurant: resto3)
 
 # Item.create!(category: "desserts", name: "Chocolat cake", price: 5, restaurant: resto3)
 # Item.create!(category: "desserts", name: "Creme brule", price: 5.5, restaurant: resto3)

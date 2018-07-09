@@ -80,7 +80,7 @@
     <div class="container-pills">
       <div class="col-md-12">
         <ul class="nav nav-pills nav-stacked">
-          <li class="btn-menu"><%= link_to "Menu", restaurant_path(@restaurant, query: ""), remote: true  %></li>
+          <li class="btn-menu"><%= link_to "Menu", restaurant_path(@restaurant, query: ""), remote: true %></li>
           <li><%= link_to "Starters", restaurant_path(@restaurant, @item, query: "starters"), remote: true %></li>
           <li><%= link_to "Mains", restaurant_path(@restaurant, @item, query: "mains"), remote: true %></li>
           <li><%= link_to "Desserts", restaurant_path(@restaurant, @item, query: "desserts"), remote: true %></li>

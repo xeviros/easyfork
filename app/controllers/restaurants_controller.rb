@@ -55,8 +55,7 @@ class RestaurantsController < ApplicationController
     @markers = [{lat: @restaurant.latitude, lng: @restaurant.longitude}]
     if params[:query].present?
       sql_query = "category ILIKE :query"
-      @restaurant.items = Item.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-
+      @restaurant.items.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
     else
       @restaurant.items = @restaurant.items
     end
