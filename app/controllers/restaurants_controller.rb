@@ -23,10 +23,26 @@ class RestaurantsController < ApplicationController
           # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
         }
       end
+      @markers2 = @restaurants.map do |restaurant|
+        {
+          lat: restaurant.latitude,
+          lng: restaurant.longitude,
+          restaurantId: restaurant.id#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
+      end
     else
       @restaurants = policy_scope(Restaurant).order(created_at: :desc)
       @restaurants = @restaurants.where.not(latitude: nil, longitude: nil)
       @markers = @restaurants.map do |restaurant|
+        {
+          lat: restaurant.latitude,
+          lng: restaurant.longitude,
+          restaurantId: restaurant.id#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
+      end
+      @markers2 = @restaurants.map do |restaurant|
         {
           lat: restaurant.latitude,
           lng: restaurant.longitude,
