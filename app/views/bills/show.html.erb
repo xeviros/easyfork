@@ -31,13 +31,13 @@
 
 <% else %>
 
-  <div class="banner-resto" style="background-image: url('<%= cl_image_path @bill.restaurant.photo %>')">
+  <div class="banner-resto" style="background-image: url('<%= cl_image_path @bill.restaurant.photo %>'); background-position-y: center">
     <div class="resto-infos">
       <h3 ><%= @bill.restaurant.name %></h3>
-      <div class= "text-box"> <p> @bill.restaurant.address</p> </div>
+      <div class= "text-box"> <p> <%= @bill.restaurant.address  %> </p> </div>
     </div>
-      <div class="resto-infos-order">
-<<<<<<< HEAD
+  <div class="resto-infos-order">
+
     <div class= "text-box">
      <div class= "open-time">
       <h4>Opening hours</h4>
@@ -46,17 +46,7 @@
      </div>
     </div>
   </div>
-=======
-        <div class= "text-box">
-         <div class= "open-time">
-          <h4>Opening hours</h4>
-          <p>from <span style="font-size:130%;"><%= @bill.restaurant.opening_time.strftime("%H:%Mh") %></span>
-          to <span style="font-size:130%; "><%= @bill.restaurant.closing_time.strftime("%H:%Mh") %></span></p>
-         </div>
-        </div>
-      </div>
-    </div>
->>>>>>> 477a6d23fb0c3a847ee6fba2edc13d8fd7e590d9
+
   </div>
 <% end %>
 
@@ -72,9 +62,11 @@
       </ul>
     </div>
   </div>
+
 <div class="container-show menu-items" style="overflow:scroll;">
   <%= render "items/menu-items", bill: @bill, order: @order, order_item: @order_item %>
 </div>
+
     <div class="container-order">
       <h2 class="text-center your-order">Your order</h2>
       <%= form_for @bill do |f| %>
