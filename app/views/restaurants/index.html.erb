@@ -8,6 +8,18 @@
   <% else %>
     <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you. </h2>
   <% end %>
+
+ <div class="map-container-XS">
+
+      <div
+        id="map2"
+        style="width: 100%;
+        height: 500px;"
+        data-markers2="<%= @markers2.to_json %>"
+        >
+      </div>
+</div>
+
 <div class="main-container">
   <div class="card-container">
     <div class="row">
@@ -86,7 +98,12 @@
         >
       </div>
     </div>
+
 </div>
 
+
+
+
 <br>
+
 

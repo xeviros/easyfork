@@ -3,14 +3,37 @@
   width: 100%;
 }
 
-.card-container {
+
+
+@media screen and (min-width: 601px) {
+  .map-container {
+    display: flex;
+    width: 30%;
+    justify-content: center;
+  }
+  .card-container {
   width: 70%;
+  }
+  .map-container-XS{
+    display: none;
+  }
+
 }
 
-.map-container {
-  display: flex;
-  width: 30%;
-  justify-content: center;
+@media screen and (max-width: 601px) {
+   .map-container {
+    display: none;
+  }
+  .card-container {
+  width: 100%;
+  }
+  .map-container-XS{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin: 10px auto;
+  }
+
 }
 
   #map {
