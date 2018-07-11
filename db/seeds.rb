@@ -122,7 +122,7 @@ tipicicatala.save
 # Item.create!(category: "desserts", name: "Yogurt", price: 3.60, restaurant: tipicicatala)
 
 
-nuvol = Restaurant.create!(name: "Núvol", address: "Carrer de Sant Antoni Maria Claret, 92,Barcelona", category: "Spanish", user: anna, opening_time: "7:00", closing_time: "21:00", popularity: 4.2)
+nuvol = Restaurant.create!(name: "Núvol", address: "Carrer de Sant Antoni Maria Claret, 92, Barcelona", category: "Spanish", user: anna, opening_time: "7:00", closing_time: "21:00", popularity: 4.2)
 
 image_src = File.join(Rails.root, "/app/assets/images/catalan.jpg")
 src_file = File.new(image_src)
