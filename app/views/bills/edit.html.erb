@@ -135,22 +135,24 @@ if so, we update the bill -->
 
 
   <div class= "text-center">
-
-      <% if @bill_completed %>
-        <% if @bill.status != "accepted" %>
-          <p class= "text-center order-validated"> GLOBAL ORDER VALIDATED!</p>
-          <p>Current status of the global order: <span class= "bill-<%=@bill.status.downcase%>"> <%= @bill.status.capitalize %> </span> </p>
-            <% if current_user.id != @bill.restaurant_id %>
-              <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order!</p>
-            <% else %>
-              <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order!</p>
-            <% end %>
-            <% else %>
-            <p class= "text-center order-accepted"> GLOBAL ORDER ACCEPTED!</p>
-            <p>See you at the restaurant!</p>
-        <% end %>
+    <% if @bill_completed %>
+      <% if @bill.status != "accepted" %>
+        <p class= "text-center order-validated"> GLOBAL ORDER VALIDATED!</p>
+        <p>Current status of the global order: <span class= "bill-<%=@bill.status.downcase%>"> <%= @bill.status.capitalize %> </span> </p>
+          <% if current_user.id != @bill.restaurant_id %>
+            <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order!</p>
+          <% else %>
+            <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order!</p>
+          <% end %>
+          <% else %>
+          <p class= "text-center order-accepted"> GLOBAL ORDER ACCEPTED!</p>
+          <p>See you at the restaurant!</p>
       <% end %>
-    </div>
+    <% else %>
+    <br>
+    <p>In order to complete your order you have to pay first!</p>
+    <% end %>
+  </div>
       </div>
 
     </div>
