@@ -143,7 +143,7 @@ if so, we update the bill -->
             <% if current_user.id != @bill.restaurant_id %>
               <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order!</p>
             <% else %>
-              ""
+              <p>You will receive a message to your email with the confirmation details when the restaurant confirms the order!</p>
             <% end %>
             <% else %>
             <p class= "text-center order-accepted"> GLOBAL ORDER ACCEPTED!</p>
