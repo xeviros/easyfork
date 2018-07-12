@@ -174,6 +174,11 @@ Item.create!(category: "drinks", name: "Cappuccino", price: 1.5, restaurant: res
 Item.create!(category: "drinks", name: "Tea", price: 1.5, restaurant: resto3)
 Item.create!(category: "drinks", name: "Mojito", price: 7, restaurant: resto3)
 
+Item.create!(category: "desserts", name: "Chocolat cake", price: 5, restaurant: nuvol)
+Item.create!(category: "desserts", name: "Creme brule", price: 5.5, restaurant: nuvol)
+Item.create!(category: "desserts", name: "Ice-cream", description: "lemon, mint, vanilla", price: 3.9, restaurant: nuvol)
+Item.create!(category: "desserts", name: "Fruits", price: 4.5, restaurant: nuvol)
+
 
 puts "Finished!"
 
