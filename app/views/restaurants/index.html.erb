@@ -6,7 +6,11 @@
 <% if current_user != nil %>
     <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you, <%= current_user.first_name.capitalize %>. </h2>
   <% else %>
-    <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you. </h2>
+    <% if @restaurants.count <= 1 %>
+     <h2 class="text-center"> We found <%= @restaurants.count %> restaurant for you. </h2>
+    <% else %>
+     <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you. </h2>
+    <% end %>
   <% end %>
 
  <div class="map-container-XS">
