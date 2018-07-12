@@ -18,6 +18,10 @@
   }
 
 .cont-pills-menus{
+  @media screen and (max-width: 601px) {
+    width: 98%;
+
+    }
   display: flex;
   align-self: flex-start;
   justify-content: space-between;
@@ -33,6 +37,9 @@
 
 
 .container-reviews{
+    @media screen and (max-width: 601px) {
+      display: none;
+    }
   // max-height: 1000px;
   width: 15%;
   width: 400px;
@@ -43,6 +50,26 @@
   position: relative;
   font-weight: 300;
 }
+
+.container-reviews-XS{
+    @media screen and (min-width: 601px) {
+      display: none;
+    }
+  // max-height: 1000px;
+  width: 90%;
+
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  position: relative;
+  font-weight: 300;
+}
+
+
+
+
+
 
 .container-reviews h4{
 color: $lblue-easyfork;
@@ -87,6 +114,9 @@ color: $lblue-easyfork;
 
 
 .menu-picture {
+      @media screen and (max-width: 601px) {
+      display: none;
+    }
   display: flex;
   align-items: center;
 ;
@@ -98,6 +128,9 @@ color: $lblue-easyfork;
 }
 
 .menu-description {
+  @media screen and (max-width: 601px) {
+     width: 73%;
+  }
  display: grid;
  color: $dblue-easyfork;
   width: 45%;
@@ -107,6 +140,9 @@ color: $lblue-easyfork;
 
 
 .menu-description h3 {
+   @media screen and (max-width: 601px) {
+    font-size: 17px;
+  }
   display:table-cell;
   vertical-align:middle;
   width: 100%;
@@ -124,6 +160,10 @@ color: $lblue-easyfork;
 }
 
 .menu-price {
+  @media screen and (max-width: 601px) {
+    width: 25%;
+    font-size: 16px;
+  }
   display: flex;
   align-items: center;
   color:#343434;
