@@ -14,3 +14,10 @@
 .form-control {
   display: inline;
 }
+
+
+@media screen and (max-width: 601px) {
+  .form-control {
+    font-size: 12px;
+  }
+}
