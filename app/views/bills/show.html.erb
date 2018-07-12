@@ -49,10 +49,13 @@
 
   </div>
 <% end %>
+<div class="menu-items-XS">
+  <%= render :partial => 'pages/navbar-horizontal' %>
+</div>
 
 <div class="cont-pills-menus-order">
   <div class="container-pills">
-    <div class="col-md-12">
+    <div class="menu-items-LG col-md-12">
       <ul class="nav nav-pills nav-stacked">
         <li class="btn-menu"><%= link_to "Menu", bill_path(@bill, query: ""), remote: true  %></li>
         <li><%= link_to "Starters", bill_path(@bill, query: "starters"), remote: true %></li>
@@ -62,6 +65,7 @@
       </ul>
     </div>
   </div>
+
 
 <div class="container-show menu-items" style="overflow:scroll;">
   <%= render "items/menu-items", bill: @bill, order: @order, order_item: @order_item %>

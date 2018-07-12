@@ -69,11 +69,15 @@ class RestaurantsController < ApplicationController
     # calls for the same method within restaurant_policy
     authorize @restaurant
     @markers = [{lat: @restaurant.latitude, lng: @restaurant.longitude}]
+
     if params[:query].present?
       sql_query = "category ILIKE :query"
-      @restaurant.items.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+
+      @restaurant.items = @restaurant.items.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
     else
-      @restaurant.items = @restaurant.items
+      @restaurant.items = Item.includes(:restaurant).all
+
+
     end
     respond_to do |format|
       format.js

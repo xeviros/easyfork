@@ -80,7 +80,7 @@
     <div class="container-pills">
       <div class="col-md-12">
         <ul class="nav nav-pills nav-stacked">
-          <li class="btn-menu"><%= link_to "Menu", restaurant_path(@restaurant, query: ""), remote: true %></li>
+          <li class="btn-menu"><%= link_to "Menu", restaurant_path(@restaurant), remote: true %></li>
           <li><%= link_to "Starters", restaurant_path(@restaurant, @item, query: "starters"), remote: true %></li>
           <li><%= link_to "Mains", restaurant_path(@restaurant, @item, query: "mains"), remote: true %></li>
           <li><%= link_to "Desserts", restaurant_path(@restaurant, @item, query: "desserts"), remote: true %></li>
@@ -141,6 +141,31 @@
 
 
 <br>
+
+            <div class="container-reviews-XS text-center", style="overflow:scroll;">
+              <h4 class="text-center">About <strong> <%=  @restaurant.name %>  </strong> </h4>
+              <br>
+              <br>
+              <% if @restaurant.reviews.count < 1%>
+              No reviews yet
+              <% else %>
+                <% @restaurant.reviews.order('created_at DESC').each do |review| %>
+                  <p> <% if review.user.picture.file.nil? %>
+                    <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small" %>
+                  <% else %>
+                    <%= cl_image_tag review.user.picture, class: "avatar-small" %>
+                  <% end %> <%= review.user.first_name %></p>
+                 <% review.rating.times do %>
+                  <span> <i class="fas fa-star"></i> </span>
+                  <% end %>
+                  <% (5 - review.rating).times do %>
+                  <span><i class="far fa-star"></i> </span>
+                  <% end %>
+                   <div class= "review-content"> <p> "<%= review.content.capitalize %> " </p> </div>
+                <% end %>
+                <%end %>
+            </div>
+
 
 
 <br>
