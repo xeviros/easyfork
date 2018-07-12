@@ -67,14 +67,13 @@
 }
 
 
-
-
-
-
 .container-reviews h4{
 color: $lblue-easyfork;
 }
 .container-pills{
+    @media screen and (max-width: 601px) {
+      display: none;
+    }
   display: flex;
   flex-direction: column;
   height: 200px;
@@ -88,6 +87,11 @@ color: $lblue-easyfork;
 }
 
 .menu-all {
+    @media screen and (max-width: 601px) {
+      margin-left: 3px;
+      padding-left: 5px;
+      }
+
   height: 90px;
   display: flex;
   align-items: center;

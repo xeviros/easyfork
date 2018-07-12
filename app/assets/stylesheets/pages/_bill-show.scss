@@ -8,6 +8,11 @@
 }
 
 .container-order{
+   @media screen and (max-width: 601px) {
+      margin-left: 5px;
+      margin-right: 2px;
+      padding: 5px;
+  }
   display: flex;
   align-self: flex-start;
   flex-grow: 1;
@@ -120,6 +125,9 @@ font-weight: 500;
   box-shadow: 4px 3px 11.8px -2px $lblue-easyfork;
   border: none;
   width: 49px;
+  @media screen and (min-width: 601px) {
+   width: 40px;
+  }
 }
 
 #bill_date_1i{
@@ -133,6 +141,10 @@ font-weight: 500;
   border: none;
   box-shadow: 2px 2px 3px #0e2c40;
   width: 70px;
+    @media screen and (min-width: 601px) {
+   width: 60px;
+
+  }
 }
 
 #bill_date_3i{
@@ -157,4 +169,17 @@ font-weight: 500;
   flex-grow: 1;
   max-height: 200px;
 
+}
+
+.menu-items-XS{
+   @media screen and (min-width: 601px) {
+  display: none
+  }
+  height:235px;
+}
+
+.menu-items-LG{
+  @media screen and (max-width: 601px) {
+    display: none;
+  }
 }
