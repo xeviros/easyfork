@@ -3,8 +3,6 @@
   width: 100%;
 }
 
-
-
 @media screen and (min-width: 601px) {
   .map-container {
     display: flex;
@@ -17,7 +15,6 @@
   .map-container-XS{
     display: none;
   }
-
 }
 
 @media screen and (max-width: 601px) {
@@ -33,7 +30,6 @@
     justify-content: center;
     margin: 10px auto;
   }
-
 }
 
   #map {
@@ -60,4 +56,4 @@
   color: #4D4C4C;
   font-family: Open Sans;
   font-size: 15px;
-  }
+}

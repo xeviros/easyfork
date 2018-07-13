@@ -14,6 +14,7 @@ body {
   background: url('http://thecodeplayer.com/uploads/media/geometry.png');
   font-family: 'Ubuntu', sans-serif;
 }
+
 a {
   text-decoration: none;
   color: $grey;
@@ -28,9 +29,9 @@ a {
 }
 
 .btn-order {
- margin-top: 20px;
- margin-bottom: 40px;
- z-index: 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  z-index: 0;
 }
 
 
