@@ -5,59 +5,56 @@
   margin: 0 20px;
 }
 
-  .card-order-status-info {
-    display: flex;
-    justify-content: space-between;
-  }
+.card-order-status-info {
+  display: flex;
+  justify-content: space-between;
+}
 
-    .card-order-status-info a {
-      color: red;
-      padding: 5px 10px;
-    }
+.card-order-status-info a {
+  color: red;
+  padding: 5px 10px;
+}
 
-    .card-order-status-info p {
-      padding: 5px 10px;
-    }
+.card-order-status-info p {
+  padding: 5px 10px;
+}
 
-  .total-price-edit {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 10px;
-  }
+.total-price-edit {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
 
-    .total-price-bill-edit-text {
-      font-size: 20px;
-    }
+.total-price-bill-edit-text {
+  font-size: 20px;
+}
 
-    .total-price-bill-edit-sum {
-      font-size: 18px;
-      font-weight: 100;
-      color: #434343;
-    }
+.total-price-bill-edit-sum {
+  font-size: 18px;
+  font-weight: 100;
+  color: #434343;
+}
 
-  .order-items {
-    height: 150px;
-    padding-left: 15px;
-  }
+.order-items {
+  height: 150px;
+  padding-left: 15px;
+}
 
-  .order-item-inline {
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 14px;
-  }
+.order-item-inline {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 14px;
+}
 
-    .order-item-inline i {
-      padding-right: 5px;
-    }
-
+.order-item-inline i {
+  padding-right: 5px;
+}
 
 .order-accepted{
   background: #A4EDA3;
   padding: 20px;
   color: white;
 }
-
-
 
 .order-validated{
   background: orange;

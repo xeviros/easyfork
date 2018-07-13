@@ -62,20 +62,19 @@
 .message-order-status{
   padding-left: 60px;
   flex: 17%;
-
-
 }
-  .message-status--pending {
-    color: grey;
-  }
 
-  .message-status--accepted {
-    color: green;
-  }
+.message-status--pending {
+  color: grey;
+}
 
-  .message-status--declined {
-    color: red;
-  }
+.message-status--accepted {
+  color: green;
+}
+
+.message-status--declined {
+  color: red;
+}
 
 .status.accepted {
   color: #04A366;
@@ -113,41 +112,34 @@
   }
 }
 
-
 .pay-order i{
   padding-left: 10px;
 }
 
-
 .m-price p{
   font-size: 30px;
   font-weight: 700;
-
 }
 
 .m-order-paid{
   color: green;
   font-size: 20px;
   font-weight: 900;
-
 }
 
 .m-order-pending{
   color: orange;
   font-size: 20px;
-
 }
 
 .m-order-rejected{
   color: red;
   font-size: 20px;
-
 }
 
 
 .order-bill-accepted{
   color: green;
-
 }
 
 
@@ -164,12 +156,11 @@
   font-weight: 100;
   font-size: 15px;
   padding-left: 40px;
-   opacity: 0.7;
+  opacity: 0.7;
 }
 
 
 .see-reservation i{
   padding-left: 5px;
-   opacity: 0.7;
-
+  opacity: 0.7;
 }
