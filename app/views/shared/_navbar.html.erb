@@ -38,11 +38,11 @@
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
-            <li>
+<!--             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
-            </li>
+            </li> -->
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
@@ -65,14 +65,20 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
+          <% if current_user.restaurants.count > 0 %>
+          <li>  <%= link_to "My order requests ", my_orders_requests_path, class: "navbar-wagon-item navbar-wagon-link" %> </li>
+          <li>  <%= link_to "My restaurants", my_restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %> </li>
+          <% end %>
+          <li>  <%= link_to "My orders", my_orders_path, class: "navbar-wagon-item navbar-wagon-link" %> </li>
+          <li>  <%= link_to "All restaurants", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %> </li>
         <li> <%= link_to "my-profile" do %>
               <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
        </li>
-       <li> <%= link_to "#" do %>
+<!--        <li> <%= link_to "#" do %>
               <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
-       </li>
+       </li> -->
         <li> <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
