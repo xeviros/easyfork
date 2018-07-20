@@ -34,3 +34,20 @@
   }
 }
 
+
+.btn-warning{
+   @media screen and (max-width: 601px) {
+    padding: 2px 7px;
+    font-size: 14px;
+   }
+
+}
+
+
+.btn-blue.btn-lg{
+     @media screen and (max-width: 601px) {
+    padding: 5px 10px;
+    font-size: 16px;
+   }
+
+}

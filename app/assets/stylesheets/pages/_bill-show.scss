@@ -167,6 +167,9 @@ font-weight: 500;
 }
 
 #user-orders {
+   @media screen and (max-width: 601px) {
+    min-height: 100px;
+  }
   flex-grow: 1;
   max-height: 200px;
 

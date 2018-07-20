@@ -164,6 +164,9 @@
 }
 
 .menu-description p {
+  @media screen and (max-width: 601px) {
+  display: none;
+  }
   display:table-cell;
   vertical-align:middle;
   width: 90%;
