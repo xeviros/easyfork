@@ -35,7 +35,12 @@
   font-style: italic;
   padding-bottom: 30px;
 }
-
+.container-order h2{
+   @media screen and (max-width: 601px) {
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
 .container-order h3{
   color: $lblue-easyfork;
   font-weight: 500;
@@ -54,7 +59,11 @@
 }
 
 .order-i{
+   @media screen and (max-width: 601px) {
+    font-size:13px;
+   }
   position: relative;
+
 }
 
 .price-i{
