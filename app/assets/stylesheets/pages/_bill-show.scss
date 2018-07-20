@@ -35,7 +35,12 @@
   font-style: italic;
   padding-bottom: 30px;
 }
-
+.container-order h2{
+   @media screen and (max-width: 601px) {
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
 .container-order h3{
   color: $lblue-easyfork;
   font-weight: 500;
@@ -54,7 +59,11 @@
 }
 
 .order-i{
+   @media screen and (max-width: 601px) {
+    font-size:13px;
+   }
   position: relative;
+
 }
 
 .price-i{
@@ -104,6 +113,10 @@ font-weight: 500;
 */
 
 .submit-plus {
+  @media screen and (max-width: 601px) {
+    margin-right: -3px;
+    margin-left: 4px;
+     }
   box-shadow: none;
   border: none;
   width: 18px;
@@ -163,6 +176,9 @@ font-weight: 500;
 }
 
 #user-orders {
+   @media screen and (max-width: 601px) {
+    min-height: 100px;
+  }
   flex-grow: 1;
   max-height: 200px;
 

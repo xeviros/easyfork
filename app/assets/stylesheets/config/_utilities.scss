@@ -12,10 +12,19 @@
 
 #super_form {
   .form-group {
+        @media screen and (max-width: 601px) {
+      justify-content: space-around;
+      font-size: 17px;
+      display: grid;
+    }
     display: flex;
     align-items: center;
     justify-content: space-between;
       input {
+      @media screen and (max-width: 601px) {
+      width: 100%;
+      padding: 0px;
+    }
       border: none;
       box-shadow: 4px 3px 11.8px -2px $lblue-easyfork;
       width: 58%;
@@ -23,4 +32,22 @@
       background-color: #fffdfd;
     }
   }
+}
+
+
+.btn.btn-warning{
+   @media screen and (max-width: 601px) {
+    padding: 2px 7px;
+    font-size: 14px;
+   }
+
+}
+
+
+.btn-blue.btn-lg{
+     @media screen and (max-width: 601px) {
+    padding: 5px 10px;
+    font-size: 16px;
+   }
+
 }

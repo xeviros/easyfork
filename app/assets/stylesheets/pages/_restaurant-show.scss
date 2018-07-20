@@ -51,10 +51,10 @@
   font-weight: 300;
 }
 
+
+
 .container-reviews-XS{
-    @media screen and (min-width: 601px) {
-      display: none;
-    }
+
   // max-height: 1000px;
   width: 90%;
 
@@ -81,6 +81,18 @@
   width: 30%;
   color: #505050;
 }
+.container-pills-horizontal{
+    @media screen and (min-width: 601px) {
+      display: none;
+    }
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 30%;
+  color: #505050;
+}
+
+
 
 .container-pills a{
   color: #2E6C7D;
@@ -152,6 +164,9 @@
 }
 
 .menu-description p {
+  @media screen and (max-width: 601px) {
+  display: none;
+  }
   display:table-cell;
   vertical-align:middle;
   width: 90%;
@@ -162,8 +177,8 @@
 
 .menu-price {
   @media screen and (max-width: 601px) {
-    width: 25%;
-    font-size: 16px;
+    width: 30%;
+    font-size: 13px;
   }
   display: flex;
   align-items: center;
@@ -198,3 +213,7 @@
   color: white !important;
 }
 
+.menu-items-XS{
+  height: 140px !important;
+  background-color: $light-gray;
+}
