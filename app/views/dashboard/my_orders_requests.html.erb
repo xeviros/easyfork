@@ -5,31 +5,43 @@
         <h1 class="text-center"> You have no orders yet </h1>
       <% else %>
         <h1 class="text-center">My order requests</h1>
+
         <% @bills.each do |bill| %>
-          <div class="message">
-            <% if current_user.picture.file.nil? %>
-              <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small"%>
-            <% else %>
-              <%= cl_image_tag current_user.picture, class: "avatar-small" %>
-            <% end %>
-          <div class="message-name">
-            <p> <%= bill.number_of_people %> people </p>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="message">
+                <% if current_user.picture.file.nil? %>
+                  <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small"%>
+                <% else %>
+                  <%= cl_image_tag current_user.picture, class: "avatar-small" %>
+                <% end %>
+                <div class="message-name">
+                  <p> <%= bill.number_of_people %> people </p>
+                </div>
+                <div class="message-body">
+                  <h3><strong> <%=  bill.restaurant.name %></strong></h3>
+                  <p>From  <%= bill.date %> </p>
+
+                </div>
+                <p class="price"> <%= bill.total_price %> € </p>
+              </div>
+            </div>
           </div>
-          <div class="message-body">
-            <h3><strong> <%=  bill.restaurant.name %></strong></h3>
-            <p>From  <%= bill.date %> </p>
-          </div>
-          <p class="price"> <%= bill.total_price %> € </p>
+
           <div class="message-status text-center">
             <div class="form-group">
               <%= render 'form', bill: bill %>
             </div>
           </div>
+
           <div class= "see-reservation">
-          <%= link_to "See details" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(bill), class: "pay-order" %> </p>
+            <%= link_to "See details" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(bill), class: "pay-order" %> </p>
           </div>
+
+          <br>
           <br>
         <% end %>
+
       <% end %>
     </div>
   </div>
