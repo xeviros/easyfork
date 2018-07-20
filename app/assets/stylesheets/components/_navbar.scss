@@ -79,3 +79,12 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.navbar-inverse{
+  background-color: $dblue-easyfork;
+}
+
+.navbar-inverse .navbar-nav > .open > a{
+    background-color: $dblue-easyfork;
+
+}

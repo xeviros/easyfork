@@ -104,6 +104,10 @@ font-weight: 500;
 */
 
 .submit-plus {
+  @media screen and (max-width: 601px) {
+    margin-right: -3px;
+    margin-left: 4px;
+     }
   box-shadow: none;
   border: none;
   width: 18px;
