@@ -39,7 +39,16 @@ class BillsController < ApplicationController
   def edit
     @bill = Bill.find(params[:id])
     @bill_completed = bill_completed(@bill)
+    # orders_sum = 0
+    # @bill.orders.each do |order|
+    #   orders_sum += order.order_item.item.price
+    # end
+
+    # orders_sum = @bill.total_price
+
     authorize @bill
+    @bill.save
+
   end
 
  def update
