@@ -1,11 +1,12 @@
 class BillsController < ApplicationController
 
+  before_action :find_bill, only: [:show, :edit, :update]
+
   def new
     authorize @bill
   end
 
   def show
-    @bill = Bill.find(params[:id])
     authorize @bill
     if @order = @bill.has_ordered?(current_user)
         @order
@@ -37,7 +38,6 @@ class BillsController < ApplicationController
   end
 
   def edit
-    @bill = Bill.find(params[:id])
     @bill_completed = bill_completed(@bill)
     # orders_sum = 0
     # @bill.orders.each do |order|
@@ -48,12 +48,9 @@ class BillsController < ApplicationController
 
     authorize @bill
     @bill.save
-
   end
 
- def update
-
-  @bill = Bill.find(params[:id])
+  def update
     @bill.update(bill_params)
     authorize @bill
     if @bill.save
@@ -72,6 +69,10 @@ class BillsController < ApplicationController
 
   def bill_params
     params.require(:bill).permit(:number_of_people, :total_price, :date, :restaurant_id, :user_id, :status)
+  end
+
+  def find_bill
+    @bill = Bill.find(params[:id])
   end
 
 end
