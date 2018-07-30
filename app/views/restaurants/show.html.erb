@@ -1,25 +1,19 @@
-
-
-
 <% if @restaurant.photo.file.nil? %>
-
-<div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
-  <div class="resto-infos">
-    <h3><%= @restaurant.name %></h3>
-    <% if @restaurant.average_rating == nil %>
-    <p>  </p>
-    <% else %>
-
-    <% @restaurant.average_rating.times do %>
-    <span> <i class="fas fa-star"></i> </span>
-    <% end %>
-    <% (5 - @restaurant.average_rating).times do %>
-    <span><i class="far fa-star"></i> </span>
-    <% end %>
-    <% end %>
+  <div class="banner-resto" style="background-image: url('<%= image_path 'rest1.jpg' %>')">
+    <div class="resto-infos">
+      <h3><%= @restaurant.name %></h3>
+      <% if @restaurant.average_rating == nil %>
+        <p>  </p>
+      <% else %>
+        <% @restaurant.average_rating.times do %>
+          <span> <i class="fas fa-star"></i> </span>
+        <% end %>
+        <% (5 - @restaurant.average_rating).times do %>
+          <span><i class="far fa-star"></i> </span>
+        <% end %>
+      <% end %>
       <p> <%#= @restaurant.description %></p>
       <div class= "text-box"> <p> <%= @restaurant.address %></p>
-
       </div>
     </div>
   <div class="resto-infos">
@@ -30,47 +24,38 @@
       to <span style="font-size:130%; "><%= @restaurant.closing_time.strftime("%H:%Mh") %></span></p>
 
        <div id="wrapper"> <p><a class="btn-add-images" href="#popup1">More Pictures</a></p> </div>
-     </div>
+       </div>
+      </div>
     </div>
   </div>
-</div>
-
-
-</div>
-</div>
 
 <% else %>
-
-
-<div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>'); background-position-y: center">
-
-  <div class="resto-infos">
-    <h3 ><%= @restaurant.name %></h3>
-    <div class= "text-box"> <p> <%=  @restaurant.address  %></p> </div>
-  </div>
+  <div class="banner-resto" style="background-image: url('<%= cl_image_path @restaurant.photo %>'); background-position-y: center">
+    <div class="resto-infos">
+      <h3 ><%= @restaurant.name %></h3>
+      <div class= "text-box"> <p> <%=  @restaurant.address  %></p> </div>
+    </div>
       <div class="resto-infos">
-    <div class= "text-box">
-      <div class= "open-time">
-      <h4>Opening hours</h4>
-      <p>from <span style="font-size:130%;"><%= @restaurant.opening_time.strftime("%H:%Mh") %></span>
-      to <span style="font-size:130%; "><%= @restaurant.closing_time.strftime("%H:%Mh") %></span></p>
-
-       <div id="wrapper"> <p><a class="btn-add-images" href="#popup1">More Pictures</a></p> </div>
-     </div>
+        <div class= "text-box">
+          <div class= "open-time">
+          <h4>Opening hours</h4>
+          <p>from <span style="font-size:130%;"><%= @restaurant.opening_time.strftime("%H:%Mh") %></span>
+          to <span style="font-size:130%; "><%= @restaurant.closing_time.strftime("%H:%Mh") %></span></p>
+           <div id="wrapper"> <p><a class="btn-add-images" href="#popup1">More Pictures</a></p> </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
-
 <% end %>
 
 <div class="button-order-container">
   <% if @current_user != nil %>
-  <% if @restaurant.user_id != @current_user.id %>
-  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-order btn-blue btn-lg'%>
-  <% end %>
+    <% if @restaurant.user_id != @current_user.id %>
+      <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-order btn-blue btn-lg btn-big'%>
+    <% end %>
   <% else %>
-  <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-order btn-blue btn-lg'%>
+    <%= link_to "Start order", restaurant_bills_path(@restaurant), method: :post, class: 'btn btn-order btn-blue btn-lg btn-big'%>
   <% end %>
 </div>
 
@@ -90,45 +75,43 @@
           <li><%= link_to "Drinks", restaurant_path(@restaurant, @item, query: "drinks"), remote: true %></li>
           <br>
           <% if @current_user != nil %>
-          <% if @restaurant.user_id == @current_user.id %>
-          <%= link_to "Add images",  new_restaurant_image_path(@restaurant), class: "btn-add-images btn btn-blue" %>
-          <% end %>
-
+            <% if @restaurant.user_id == @current_user.id %>
+              <%= link_to "Add images",  new_restaurant_image_path(@restaurant), class: "btn-add-images btn btn-blue" %>
+            <% end %>
           <% end %>
         </ul>
       </div>
-
     </div>
 
     <div class="container-show menu-items" style="overflow:scroll;">
       <%= render "items/restaurant-items", item: @item, restaurant: @restaurant, bill: @bill, order: @order, order_item: @order_item %>
     </div>
+  </div>
 
-      </div>
-            <div class="container-reviews text-center", style="overflow:scroll;">
-              <h4 class="text-center">About <strong> <%=  @restaurant.name %>  </strong> </h4>
-              <br>
-              <br>
-              <% if @restaurant.reviews.count < 1%>
-              No reviews yet
-              <% else %>
-                <% @restaurant.reviews.order('created_at DESC').each do |review| %>
-                  <p> <% if review.user.picture.file.nil? %>
-                    <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small" %>
-                  <% else %>
-                    <%= cl_image_tag review.user.picture, class: "avatar-small" %>
-                  <% end %> <%= review.user.first_name %></p>
-                 <% review.rating.times do %>
-                  <span> <i class="fas fa-star"></i> </span>
-                  <% end %>
-                  <% (5 - review.rating).times do %>
-                  <span><i class="far fa-star"></i> </span>
-                  <% end %>
-                   <div class= "review-content"> <p> "<%= review.content.capitalize %> " </p> </div>
-                <% end %>
-                <%end %>
-            </div>
-
+  <div class="container-reviews text-center", style="overflow:scroll;">
+    <h4 class="text-center">About <strong> <%=  @restaurant.name %>  </strong> </h4>
+    <br>
+    <br>
+    <% if @restaurant.reviews.count < 1%>
+      No reviews yet
+    <% else %>
+      <% @restaurant.reviews.order('created_at DESC').each do |review| %>
+        <p>
+          <% if review.user.picture.file.nil? %>
+            <%= image_tag "http://steamavatars.co/?media_dl=2408", class: "avatar-small" %>
+          <% else %>
+            <%= cl_image_tag review.user.picture, class: "avatar-small" %>
+          <% end %> <%= review.user.first_name %>
+        </p>
+        <% review.rating.times do %>
+          <span> <i class="fas fa-star"></i> </span>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <span><i class="far fa-star"></i> </span>
+        <% end %>
+        <div class= "review-content"> <p> "<%= review.content.capitalize %> " </p> </div>
+      <% end %>
+    <%end %>
   </div>
 </div>
 
@@ -177,18 +160,13 @@
 
 <!-- Modal -->
 <div class="modal-background fade" id="myImages" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-
-    <div class="modal-content-img">
-
-          <!-- The Close Button -->
-          <span class="close-img">&times;</span>
+  <div class="modal-content-img">
+    <!-- The Close Button -->
+    <span class="close-img">&times;</span>
     </span></button>
-
-
-      <div class="modal-body">
-
-          </div>
-        </div>
+    <div class="modal-body">
+    </div>
+  </div>
 
 
       </div>

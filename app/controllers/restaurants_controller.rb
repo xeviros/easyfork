@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_rest, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def new
     @restaurant = Restaurant.new
@@ -72,10 +72,10 @@ class RestaurantsController < ApplicationController
 
     if params[:query].present?
       sql_query = "category ILIKE :query"
-
       @restaurant.items = @restaurant.items.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+
     else
-      @restaurant.items = Item.includes(:restaurant).all
+      @restaurant.items
 
 
     end
@@ -83,6 +83,7 @@ class RestaurantsController < ApplicationController
       format.js
       format.html
     end
+
   end
 
   def edit
