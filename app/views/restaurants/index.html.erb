@@ -13,16 +13,6 @@
     <% end %>
   <% end %>
 
- <div class="map-container-XS">
-
-      <div
-        id="map2"
-        style="width: 100%;
-        height: 500px;"
-        data-markers2="<%= @markers2.to_json %>"
-        >
-      </div>
-</div>
 
 <div class="main-container">
   <div class="card-container">
@@ -103,11 +93,22 @@
       </div>
     </div>
 
+
+
+
+
+
 </div>
-
-
-
 
 <br>
 
+   <div class="map-container-XS">
 
+        <div
+          id="map2"
+          style="width: 100%;
+          height: 500px;"
+          data-markers2="<%= @markers2.to_json %>"
+          >
+        </div>
+  </div>

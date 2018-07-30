@@ -49,141 +49,16 @@
 
   </div>
 <% end %>
+
+<!-- Display for desktop version -->
+<div class="menu-items-LG">
+   <%= render :partial => 'pages/show-bills-desktop' %>
+</div>
+
+<!-- Display for mobile version -->
 <div class="menu-items-XS">
-  <%= render :partial => 'pages/navbar-horizontal-bill' %>
-</div>
 
-<div class="cont-pills-menus-order">
-  <div class="container-pills">
-    <div class="menu-items-LG col-md-12">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="btn-menu"><%= link_to "Menu", bill_path(@bill, query: ""), remote: true  %></li>
-        <li><%= link_to "Starters", bill_path(@bill, query: "starters"), remote: true %></li>
-        <li><%= link_to "Mains", bill_path(@bill, query: "mains"), remote: true %></li>
-        <li><%= link_to "Desserts", bill_path(@bill, query: "desserts"), remote: true %></li>
-        <li><%= link_to "Drinks", bill_path(@bill, query: "drinks"), remote: true %></li>
-      </ul>
-    </div>
-  </div>
-
-
-<div class="container-show menu-items" style="overflow:scroll;">
-  <%= render "items/menu-items", bill: @bill, order: @order, order_item: @order_item %>
-</div>
-
-    <div class="container-order">
-      <h2 class="text-center your-order">Your order</h2>
-      <%= form_for @bill do |f| %>
-        <div class="spaced-between"> <%= f.label :number_of_people %>
-          <%= f.select :number_of_people, 1..20 %></div>
-          <br>
-
-            <div class="form-wrapper" id="super_form">
-              <div class="form-group">
-                <label for="bill_date">Date</label>
-                <input type="text" name="bill[date]" class="datepicker" id="bill_date" value="<%= @bill.date.strftime('%A %d %B %Y') if @bill.date %>">
-              </div>
-          <hr>
-
-          <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
-            <% @bill.orders.each do |order| %>
-              <% if order.user_id == current_user.id %>
-                <% order.order_items.each do |order_item| %>
-                  <%= render "order_items/order_item", order_item: order_item %>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-
-
-          <hr>
-        <div class="text-center">
-            <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#myModal">
-              Invite your friends!
-            </button>
-        </div>
-
-        <hr>
-
-        <div class="total-price-bill-show">
-          <div class="total-price-bill-show-text">
-            <u> Total price: </u>
-          </div>
-
-          <% sum = 0 %>
-            <% @bill.orders.each do |order| %>
-              <% order.order_items.each do |order_item| %>
-                <% sum += order_item.item.price%>
-            <% end %>
-          <% end %>
-
-          <div data-order-price-id="<%= @order.id %>" class="total-price-bill-show-sum">
-            <u> <%= sum %>€ </u>
-          </div>
-        </div>
-
-        <br>
-
-       <div class="text-center">
-          <input type="submit" name="commit" value="Confirm Order" data-disable-with="Confirm Order"  class="btn btn-blue btn-lg">
-       </div>
-       <% end %>
-       </div>
-      </div>
-    </div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Invite your friends!</h4>
-      </div>
-      <div class="modal-body">
-          <p>Share this link with your friends for them to place an order!</p>
-            <div>
-              <a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=<%= request.original_url %>" target="_blank"> <%= '<i style="width: 20px;" class="fab fa-whatsapp"></i>'.html_safe %> Whatsapp  </a>
-            </div>
-            <!--       <a href="mailto:{email_address}?subject=Join me for lunch!&body=<%= request.original_url %>">  <%= '<i class="far fa-envelope"></i>'.html_safe %>Send Email</a> -->
-            <div>
-              <a href="https://mail.google.com/mail/?view=cm&to={email_address}&su=Join me for lunch!&body=<%= request.original_url %>" target="_blank">  <%= '<i style="width: 20px;" class="far fa-envelope"></i>'.html_safe %> Send Email  </a>
-            </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+  <%= render :partial => 'pages/show-bills-mobile' %>
 </div>
 
 
-
-    <%#= simple_form_for [@order, @order_item], remote: true do |f| %>
-    <%#= f.association :item,
-    collection: @bill.restaurant.items,
-    as: :radio_buttons,
-    item_wrapper_class: '',
-    label_method:
-    ->(item){ "
-      <div class='menu-all'>
-      <div class='menu-picture'>
-      <img src='#{categories[item.category]}' height='42'/>
-      </div>
-      <div class='menu-description'>
-      <h3>#{ item.name.capitalize }</h3>
-      <p>#{ item.description }</p>
-      </div>
-      <div class='menu-price'>
-      #{ item.price } €
-      </div>
-      <div class='menu-add'>
-      <img src='#{add}' height='18'>
-      </div>
-      </div>
-      ".html_safe } %>
-      <%#= f.button :submit %>
-      <%# end %>
