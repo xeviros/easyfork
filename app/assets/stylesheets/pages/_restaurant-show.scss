@@ -217,3 +217,12 @@
   height: 140px !important;
   background-color: $light-gray;
 }
+
+.container-mobile{
+  display: flex;
+  background-color: pink;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+}
