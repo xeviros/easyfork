@@ -1,22 +1,19 @@
 
 
- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Categories</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu" >
+
+
+
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown">  Categories</i>
+      <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
         <li><%= link_to "Starters", bill_path(@bill, query: "starters"), remote: true %></li>
         <li><%= link_to "Mains", bill_path(@bill, query: "mains"), remote: true %></li>
         <li><%= link_to "Desserts", bill_path(@bill, query: "desserts"), remote: true %></li>
         <li><%= link_to "Drinks", bill_path(@bill, query: "drinks"), remote: true %></li>
-        </ul>
-      </li>
-    </ul>
+       </ul>
+    </div>
   </div>
-</nav>
+
 
