@@ -127,7 +127,10 @@
 
 .menu-picture {
       @media screen and (max-width: 601px) {
-      display: none;
+      width: 10%;
+      height: 20px;
+      align-items: center;
+      margin-left: 0px;
     }
   display: flex;
   align-items: center;
@@ -142,6 +145,7 @@
 .menu-description {
   @media screen and (max-width: 601px) {
      width: 73%;
+     margin-left: 35px;
   }
  display: grid;
  color: $dblue-easyfork;
@@ -214,6 +218,15 @@
 }
 
 .menu-items-XS{
-  height: 140px !important;
   background-color: $light-gray;
+}
+
+.container-mobile{
+  background-color: pink;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: scroll;
+  height: 400px;
+
 }

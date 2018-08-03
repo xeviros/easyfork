@@ -1,5 +1,11 @@
-   <div class="container-order">
+<div class="container-mobile">
+
+    <%= render "items/menu-items", bill: @bill, order: @order, order_item: @order_item %>
+
+
+    <div class="container-order">
       <h2 class="text-center your-order">Your order</h2>
+      <br>
       <%= form_for @bill do |f| %>
         <div class="spaced-between"> <%= f.label :number_of_people %>
           <%= f.select :number_of_people, 1..20 %></div>
@@ -11,17 +17,51 @@
                 <input type="text" name="bill[date]" class="datepicker" id="bill_date" value="<%= @bill.date.strftime('%A %d %B %Y') if @bill.date %>">
               </div>
           <hr>
-            </div>
-                </div>
-    </div>
-<div class="cont-pills-menus-order">
 
-<div class="container-show menu-items" style="overflow:scroll;">
-  <%= render "items/menu-items", bill: @bill, order: @order, order_item: @order_item %>
-</div>
-</div>
+          <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
+            <% @bill.orders.each do |order| %>
+              <% if order.user_id == current_user.id %>
+                <% order.order_items.each do |order_item| %>
+                  <%= render "order_items/order_item", order_item: order_item %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
 
- <div class="text-center">
+
+
+
+        <div class="total-price-bill-show">
+          <div class="total-price-bill-show-text">
+            <u> Total price: </u>
+          </div>
+
+          <% sum = 0 %>
+            <% @bill.orders.each do |order| %>
+              <% order.order_items.each do |order_item| %>
+                <% sum += order_item.item.price%>
+            <% end %>
+          <% end %>
+
+          <div data-order-price-id="<%= @order.id %>" class="total-price-bill-show-sum">
+            <u> <%= sum %>€ </u>
+          </div>
+        </div>
+
+        <br>
+
+       <div class="text-center">
           <input type="submit" name="commit" value="Confirm Order" data-disable-with="Confirm Order"  class="btn btn-blue btn-lg">
+                      <button type="button" class="btn btn-warning text-center" data-toggle="modal" data-target="#myModal">
+              Invite your friends!
+            </button>
        </div>
-        <% end %>
+
+       <% end %>
+       </div>
+    </div>
+
+
+
+
+</div>
