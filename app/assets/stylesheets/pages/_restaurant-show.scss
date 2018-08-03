@@ -223,8 +223,10 @@
 
 .container-mobile{
   background-color: pink;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
+  overflow: scroll;
+  height: 400px;
 
 }

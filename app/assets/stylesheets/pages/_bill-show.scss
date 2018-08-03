@@ -12,10 +12,13 @@
 .container-order{
    @media screen and (max-width: 601px) {
 
-      padding: 5px;
-      width:100%;
+
+      width:90%;
       margin-left: auto;
       margin-right: auto;
+      position: fixed;
+      bottom: 10px;
+      z-index: 1;
   }
   display: flex;
   align-self: flex-start;
@@ -109,6 +112,13 @@ font-weight: 500;
   margin-bottom: 25px;
 }
 
+@media screen and (max-width: 601px) {
+  .container-order h2{
+    font-size:20px;
+
+  }
+}
+
 /* input[type=submit] {
    border: none;
    background-repeat: no-repeat;
@@ -181,7 +191,8 @@ font-weight: 500;
 
 #user-orders {
    @media screen and (max-width: 601px) {
-    min-height: 100px;
+    height: 100px;
+
   }
   flex-grow: 1;
   max-height: 200px;
@@ -192,6 +203,8 @@ font-weight: 500;
    @media screen and (min-width: 601px) {
   display: none
   }
+  height: 528px;
+
 
 }
 
