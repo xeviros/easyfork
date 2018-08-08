@@ -1,5 +1,5 @@
 class BillsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :find_bill, only: [:show, :edit, :update]
 
   def new
