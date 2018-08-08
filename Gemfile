@@ -14,6 +14,7 @@ gem 'redis'
 gem 'money-rails'
 gem 'stripe'
 gem "pundit"
+gem 'rails_admin', '~> 1.3'
 
 gem 'friendly_id', '~> 5.1.0'
 
