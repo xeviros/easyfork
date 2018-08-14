@@ -2,8 +2,9 @@
 // MODIFY
 
 function addOrder(htmlPartial) {
-  const userOrders = document.getElementById('user-orders')
+  const userOrders = document.querySelector("#user-orders, #user-orders-mob")
   userOrders.insertAdjacentHTML("beforeend", htmlPartial)
+
 }
 
 addOrder("<%= j render 'order_item', order_item: @order_item %>");
@@ -16,3 +17,6 @@ function updatePrice() {
 }
 
 updatePrice()
+
+
+
