@@ -1,39 +1,47 @@
 // SELECT ITEM
 // MODIFY
 
-function deleteOrderItem() {
+if ( $(window).width() > 601) {
+  function deleteOrderItem() {
   let deleteOrderItem = document.querySelector("[data-order-item-id='<%= @order_item.id %>']");
   // userOrderItems.insertAdjacentHTML("beforeend", htmlPartial)
-deleteOrderItem.remove();
-}
+  deleteOrderItem.remove();
+  }
 
-deleteOrderItem()
+  deleteOrderItem()
 
-function deleteOrderItemMob() {
-  let deleteOrderItemMob= document.querySelector("[data-order-item-id-mob='<%= @order_item.id %>']");
-  // userOrderItems.insertAdjacentHTML("beforeend", htmlPartial)
-deleteOrderItemMob.remove();
-}
-
-deleteOrderItemMob()
-
-// addOrder("<%= j render 'order_item', order_item: @order_item %>");
-
-function updatePrice() {
+  function updatePrice() {
   // SELECT PRICE
   // UPDATE THE PRICE
   const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>']");
   updatePrice.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+  }
+
+  updatePrice()
+
+
+}
+else {
+  function deleteOrderItemMob() {
+  let deleteOrderItemMob= document.querySelector("[data-order-item-id='<%= @order_item.id %>']");
+  // userOrderItems.insertAdjacentHTML("beforeend", htmlPartial)
+  deleteOrderItemMob.remove();
+  }
+
+  deleteOrderItemMob()
+
+  function updatePriceMob() {
+    // SELECT PRICE
+    // UPDATE THE PRICE
+    const updatePriceMob = document.querySelector("[data-order-price-id-mob='<%= @order.id %>']");
+    updatePriceMob.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+  }
+
+  updatePriceMob()
 }
 
-updatePrice()
 
-function updatePriceMob() {
-  // SELECT PRICE
-  // UPDATE THE PRICE
-  const updatePriceMob = document.querySelector("[data-order-price-id-mob='<%= @order.id %>']");
-  updatePriceMob.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
-}
 
-updatePriceMob()
+
+
 
