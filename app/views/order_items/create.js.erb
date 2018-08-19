@@ -1,22 +1,46 @@
 // SELECT ITEM
 // MODIFY
+if ( $(window).width() > 601) {
+  //Add your javascript for large screens here
+  function addOrder(htmlPartial) {
+    const userOrders = document.querySelector("#user-orders-desk")
+    userOrders.insertAdjacentHTML("beforeend", htmlPartial)
+  }
+  addOrder("<%= j render 'order_item', order_item: @order_item %>");
 
-function addOrder(htmlPartial) {
-  const userOrders = document.querySelector("#user-orders, #user-orders-mob")
-  userOrders.insertAdjacentHTML("beforeend", htmlPartial)
+  function updatePriceMob() {
+    // SELECT PRICE
+    // UPDATE THE PRICE
+    const updatePriceMob = document.querySelector("[data-order-price-id='<%= @order.id %>']");
+    updatePriceMob.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+  }
+
+  updatePriceMob()
+
+
+
 
 }
-
-addOrder("<%= j render 'order_item', order_item: @order_item %>");
-
-function updatePrice() {
+else {
+  //Add your javascript for small screens here
+  function addOrderMob(htmlPartial) {
+    const userOrdersMob = document.querySelector("#user-orders-mob")
+    userOrdersMob.insertAdjacentHTML("beforeend", htmlPartial)
+  }
+  addOrderMob("<%= j render 'order_item', order_item: @order_item %>");
+  function updatePriceMob() {
   // SELECT PRICE
   // UPDATE THE PRICE
-  const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>']");
-  updatePrice.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+    const updatePriceMob = document.querySelector("[data-order-price-id-mob='<%= @order.id %>']");
+    updatePriceMob.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+  }
+
+  updatePriceMob()
 }
 
-updatePrice()
+
+
+
 
 
 
