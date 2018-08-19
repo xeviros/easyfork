@@ -2,17 +2,22 @@
 // MODIFY
 
 function addOrder(htmlPartial) {
-  const userOrders = document.querySelector("#user-orders, #user-orders-mob")
+  const userOrders = document.querySelector("#user-orders")
   userOrders.insertAdjacentHTML("beforeend", htmlPartial)
+}
 
+function addOrderMob(htmlPartial) {
+  const userOrdersMob = document.querySelector("#user-orders-mob")
+  userOrdersMob.insertAdjacentHTML("beforeend", htmlPartial)
 }
 
 addOrder("<%= j render 'order_item', order_item: @order_item %>");
+addOrderMob("<%= j render 'order_item', order_item: @order_item %>");
 
 function updatePrice() {
   // SELECT PRICE
   // UPDATE THE PRICE
-  const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>']");
+  const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>'], [data-order-price-id-mob='<%= @order.id %>']");
   updatePrice.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
 }
 

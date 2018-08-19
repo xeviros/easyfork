@@ -22,7 +22,7 @@
             <% @bill.orders.each do |order| %>
               <% if order.user_id == current_user.id %>
                 <% order.order_items.each do |order_item| %>
-                  <%= render "order_items/order_item", order_item: order_item %>
+                  <%= render "order_items/order_item-mob", order_item: order_item %>
                 <% end %>
               <% end %>
             <% end %>

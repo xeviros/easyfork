@@ -2,7 +2,7 @@
 // MODIFY
 
 function deleteOrderItem() {
-  let deleteOrderItem = document.querySelector("[data-order-item-id='<%= @order_item.id %>']");
+  let deleteOrderItem = document.querySelector("[data-order-item-id='<%= @order_item.id %>'],[data-order-item-id-mob='<%= @order_item.id %>']");
   // userOrderItems.insertAdjacentHTML("beforeend", htmlPartial)
 deleteOrderItem.remove();
 }
