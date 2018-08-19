@@ -18,7 +18,7 @@
               </div>
           <hr>
 
-          <div class= "overflow-bill" id="user-orders" style="overflow:scroll">
+          <div class= "overflow-bill" id="user-orders-desk" style="overflow:scroll">
             <% @bill.orders.each do |order| %>
               <% if order.user_id == current_user.id %>
                 <% order.order_items.each do |order_item| %>

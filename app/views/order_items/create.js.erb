@@ -1,20 +1,28 @@
 // SELECT ITEM
 // MODIFY
-
-function addOrder(htmlPartial) {
-  const userOrders = document.querySelector("#user-orders")
+if ( $(window).width() > 601) {
+  //Add your javascript for large screens here
+  function addOrder(htmlPartial) {
+  const userOrders = document.querySelector("#user-orders-desk")
   userOrders.insertAdjacentHTML("beforeend", htmlPartial)
-
-
+  }
+  addOrder("<%= j render 'order_item', order_item: @order_item %>");
 }
-
-function addOrderMob(htmlPartial) {
+else {
+  //Add your javascript for small screens here
+  function addOrderMob(htmlPartial) {
   const userOrdersMob = document.querySelector("#user-orders-mob")
   userOrdersMob.insertAdjacentHTML("beforeend", htmlPartial)
+  }
+  addOrderMob("<%= j render 'order_item', order_item: @order_item %>");
 }
 
-addOrder("<%= j render 'order_item', order_item: @order_item %>");
-addOrderMob("<%= j render 'order_item', order_item: @order_item %>");
+
+
+
+
+
+
 
 function updatePrice() {
   // SELECT PRICE
