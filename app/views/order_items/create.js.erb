@@ -17,11 +17,18 @@ addOrderMob("<%= j render 'order_item', order_item: @order_item %>");
 function updatePrice() {
   // SELECT PRICE
   // UPDATE THE PRICE
-  const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>'], [data-order-price-id-mob='<%= @order.id %>']");
+  const updatePrice = document.querySelector("[data-order-price-id='<%= @order.id %>']");
   updatePrice.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
 }
 
 updatePrice()
 
+function updatePriceMob() {
+  // SELECT PRICE
+  // UPDATE THE PRICE
+  const updatePriceMob = document.querySelector("[data-order-price-id-mob='<%= @order.id %>']");
+  updatePriceMob.innerHTML = "<%= humanized_money_with_symbol(@order.amount) %>"
+}
 
+updatePriceMob()
 
