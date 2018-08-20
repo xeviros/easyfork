@@ -14,7 +14,7 @@ puts "Creating new database..."
 
 luca = User.create(email: "luca@luca.com", password: "123456", first_name: "Luca", last_name: "De Montis")
 anna = User.create(email: "anna@anna.com", password: "123456", first_name: "Anna", last_name: "Bendahan")
-xavi = User.create(email: "xavi@xavi.com", password: "123456", first_name: "Xavi", last_name: "Ros")
+xavi = User.create(email: "xavi@xavi.com", password: "123456", first_name: "Xavi", last_name: "Ros", admin: true)
 ben = User.create(email: "ben@ben.com", password: "123456", first_name: "Ben", last_name: "De Boissieu")
 
 
