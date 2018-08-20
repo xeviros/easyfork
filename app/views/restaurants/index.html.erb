@@ -11,7 +11,6 @@
   <% else %>
     <h2 class="text-center"> We found <%= @restaurants.count %> restaurants for you. </h2>
   <% end %>
-
 <% end %>
 
 <div class="main-container">
@@ -20,16 +19,15 @@
       <% @restaurants.each do |restaurant| %>
         <% if restaurant.photo.file.nil? %>
           <div class="col-xs-12 col-md-4 col-sm-6">
-
-                <div class="card-home" data-restaurant-id="<%= restaurant.id %>"> <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
-        <div class="card-home-title">
+            <div class="card-home" data-restaurant-id="<%= restaurant.id %>"> <div class="card-home-picture", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path 'rest1.jpg', height: 300, width: 400, crop: :fill %>')">
+              <div class="card-home-title">
                   <h4> <%= restaurant.name.capitalize %> </h4>
-                </div>
-                <div class="card-home-category">
-                 <p class="category-name"> <%= restaurant.category.upcase %> </p>
-                 <div class="card-home-rating">
+              </div>
+              <div class="card-home-category">
+                <p class="category-name"> <%= restaurant.category.upcase %> </p>
+                <div class="card-home-rating">
                   <% if restaurant.average_rating == nil %>
-                     <p>  </p>
+                    <p>  </p>
                   <% else %>
                     <% restaurant.average_rating.times do %>
                       <span> <i class="fas fa-star"></i> </span>
@@ -38,62 +36,58 @@
                      <span><i class="far fa-star"></i> </span>
                     <% end %>
                   <% end %>
-                  </div>
                 </div>
-        <div class="card-home-description">
-          <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
-        </div>
-        <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
-      </div>
-    </div>
-        </div>
+              </div>
+              <div class="card-home-description">
+                <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
+              </div>
+              <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
+              </div>
+            </div>
+          </div>
         <% else %>
           <div class="col-xs-12 col-md-4 col-sm-6">
-      <div class="card-home" data-restaurant-id="<%= restaurant.id %>"> <div class="card-home-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
-          <div class="card-home-title">
+            <div class="card-home" data-restaurant-id="<%= restaurant.id %>">
+              <div class="card-home-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= cl_image_path restaurant.photo, height: 300, width: 400, crop: :fill %>')">
+                <div class="card-home-title">
                   <h4> <%= restaurant.name.capitalize %> </h4>
                 </div>
                 <div class="card-home-category">
-                 <p class="category-name"> <%= restaurant.category.upcase %> </p>
-                 <div class="card-home-rating">
-                  <% if restaurant.average_rating == nil %>
-                     <p>  </p>
-                  <% else %>
-                    <% restaurant.average_rating.times do %>
-                      <span> <i class="fas fa-star"></i> </span>
+                  <p class="category-name"> <%= restaurant.category.upcase %> </p>
+                  <div class="card-home-rating">
+                    <% if restaurant.average_rating == nil %>
+                      <p>  </p>
+                    <% else %>
+                      <% restaurant.average_rating.times do %>
+                        <span> <i class="fas fa-star"></i> </span>
+                      <% end %>
+                      <% (5 - restaurant.average_rating).times do %>
+                       <span><i class="far fa-star"></i> </span>
+                      <% end %>
                     <% end %>
-                    <% (5 - restaurant.average_rating).times do %>
-                     <span><i class="far fa-star"></i> </span>
-                    <% end %>
-                  <% end %>
                   </div>
                 </div>
-        <div class="card-home-description">
-          <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
-        </div>
-        <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
-      </div>
-    </div>
-</div>
+                <div class="card-home-description">
+                  <p><i class="fas fa-map-marker"></i> <%= restaurant.address %> </p>
+                </div>
+                <%= link_to "", restaurant_path(restaurant), class: "card-link" %>
+              </div>
+            </div>
+          </div>
         <% end %>
-
       <% end %>
     </div>
   </div>
   <br>
-
-    <div class="map-container">
-
-      <div
+  <div class="map-container">
+    <div
         id="map"
         style="width: 100%;
         height: 500px;"
         data-markers="<%= @markers.to_json %>"
         >
-      </div>
     </div>
-
-
+  </div>
 </div>
 <div class="map-container-XS">
   <div
@@ -104,23 +98,14 @@
     >
   </div>
 </div>
-
-
-
-
-
-
 </div>
-
 <br>
-
-   <div class="map-container-XS">
-
-        <div
-          id="map2"
-          style="width: 100%;
-          height: 500px;"
-          data-markers2="<%= @markers2.to_json %>"
-          >
-        </div>
+<div class="map-container-XS">
+  <div
+    id="map2"
+    style="width: 100%;
+    height: 500px;"
+    data-markers2="<%= @markers2.to_json %>"
+    >
   </div>
+</div>
