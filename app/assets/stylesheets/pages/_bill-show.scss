@@ -17,7 +17,7 @@
       margin-left: auto;
       margin-right: auto;
       position: fixed;
-      bottom: 10px;
+      bottom: 6px;
       z-index: 1;
   }
   display: flex;
@@ -159,9 +159,11 @@ font-weight: 500;
   background-color: #fffdfd;
   box-shadow: 4px 3px 11.8px -2px $lblue-easyfork;
   border: none;
-  width: 49px;
-  @media screen and (min-width: 601px) {
+  width: 40px;
+  @media screen and (max-width: 601px) {
    width: 40px;
+   margin-right: 20px;
+   margin-left: 10px;
   }
 }
 
@@ -261,11 +263,13 @@ font-weight: 500;
 
 .read-more-trigger {
   cursor: pointer;
-  display: inline-block;
-  padding: 0 .5em;
+  display: block;
+  padding: 0 .4em;
   color: #666;
-  font-size: .9em;
+  font-size: .7em;
   line-height: 2;
   border: 1px solid #ddd;
   border-radius: .25em;
+  text-align: center;
+  margin-top:10px;
 }

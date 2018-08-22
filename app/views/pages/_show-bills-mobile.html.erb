@@ -9,7 +9,8 @@
       <br>
       <%= form_for @bill do |f| %>
         <div class="spaced-between"> <%= f.label :number_of_people %>
-          <%= f.select :number_of_people, 1..20 %></div>
+          <%= f.select :number_of_people, 1..20 %>
+
           <br>
 
             <div class="form-wrapper" id="super_form">
@@ -17,14 +18,16 @@
                 <label for="bill_date">Date</label>
                 <input type="text" name="bill[date]" class="datepicker" id="bill_date" value="<%= @bill.date.strftime('%A %d %B %Y') if @bill.date %>">
               </div>
+          </div>
+        </div>
 
           <!-- For button Show more -->
           <input type="checkbox" class="read-more-state" id="post-1" />
           <label for="post-1" class="read-more-trigger"></label>
           <div class="read-more-wrap">
             <div class="read-more-target">
-                <hr>
                 <div class= "overflow-bill" id="user-orders-mob" style="overflow:scroll">
+                <hr>
                   <% @bill.orders.each do |order| %>
                     <% if order.user_id == current_user.id %>
                       <% order.order_items.each do |order_item| %>
