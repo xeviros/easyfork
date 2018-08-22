@@ -1,9 +1,11 @@
 .spaced-between {
   @media screen and (max-width: 601px) {
-      justify-content: space-around;
-      width:60%;
+      justify-content: inline-block;
+      width:100%;
       margin-left: auto;
       margin-right:auto;
+      font-size: 12px;
+
   }
   display: flex;
   align-items: center;
@@ -20,16 +22,19 @@
   .form-group {
         @media screen and (max-width: 601px) {
       justify-content: space-around;
-      font-size: 17px;
-      display: grid;
+      font-size: 12px;
+      margin-bottom: 0px;
+      margin-left: 10px;
     }
     display: flex;
     align-items: center;
     justify-content: space-between;
       input {
       @media screen and (max-width: 601px) {
-      width: 100%;
+      width: 90%;
       padding: 0px;
+      margin-left: 15px;
+      margin-right:15px;
     }
       border: none;
       box-shadow: 4px 3px 11.8px -2px $lblue-easyfork;
