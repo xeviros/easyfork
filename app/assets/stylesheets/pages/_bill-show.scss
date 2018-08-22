@@ -199,6 +199,14 @@ font-weight: 500;
 
 }
 
+.overflow-bill{
+    @media screen and (max-width: 601px) {
+      max-height: 200px;
+  }
+  overflow:scroll;
+  max-height: 350px;
+}
+
 .menu-items-XS{
    @media screen and (min-width: 601px) {
   display: none
@@ -213,3 +221,4 @@ font-weight: 500;
     display: none;
   }
 }
+
