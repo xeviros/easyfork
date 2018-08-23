@@ -82,44 +82,42 @@
   <br>
   <div class="row">
     <% @bill.orders.each do |order| %>
-    <div class="col-md-6">
-      <div class="card-order">
-        <div class="card-order-status-info">
-          <p class= "order-<%=order.status.downcase%>"><%= order.status %> </p>
-          <% if @bill_completed %>
-          <p> </p>
-          <% else %>
-          <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }%>
-          <% end %>
-        </div>
-        <div class="order-infos">
-          <p class= "order-name text-center"> Order of <%= order.user.email.capitalize %></p>
-          <div class="order-items" style="overflow:scroll">
-            <% sum = 0 %>
-            <% order.order_items.each do |order_item| %>
-            <div class="order-item-inline">
-              <div class="order-item-inline-food"><i class="fas fa-utensils"></i> <%= order_item.item.name.capitalize %></div>
-              <div class="order-price"> <%= order_item.item.price%> €</div>
-            </div>
-            <% sum += order_item.item.price%>
+      <div class="col-md-6">
+        <div class="card-order">
+          <div class="card-order-status-info">
+            <p class= "order-<%=order.status.downcase%>"><%= order.status %> </p>
+            <% if @bill_completed %>
+            <p> </p>
+            <% else %>
+            <%= link_to "Cancel order", order_path(order), method: :delete, data: { confirm: "Are you sure?" }%>
             <% end %>
           </div>
-        </div>
-        <div class="total-price-edit">
-          <div class="total-price-bill-edit-text">
-            Total price:
+          <div class="order-infos">
+            <p class= "order-name text-center"> Order of <%= order.user.email.capitalize %></p>
+            <div class="order-items" style="overflow:scroll">
+              <% sum = 0 %>
+              <% order.order_items.each do |order_item| %>
+                <div class="order-item-inline">
+                  <div class="order-item-inline-food"><i class="fas fa-utensils"></i> <%= order_item.item.name.capitalize %></div>
+                  <div class="order-price"> <%= order_item.item.price%> €</div>
+                </div>
+                <% sum += order_item.item.price%>
+              <% end %>
+            </div>
           </div>
-          <div class="total-price-bill-edit-sum">
-            <%= sum %>€
+          <div class="total-price-edit">
+            <div class="total-price-bill-edit-text">
+              Total price:
+            </div>
+            <div class="total-price-bill-edit-sum">
+              <%= sum %>€
+            </div>
           </div>
+          <% if order.status.downcase == "pending" %>
+            <p class="text-center"> <%= link_to 'PAY ORDER',new_order_payment_path(order), class: 'btn btn-blue'%></p>
+          <% end %>
         </div>
-        <% if order.status == "pending" || "Pending" %>
-        <p class="text-center"> <%= link_to 'PAY ORDER',new_order_payment_path(order), class: 'btn btn-blue'%></p>
-        <% elsif  order.status == "paid" || "Paid" %>
-        <p> </p>
-        <% end %>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
