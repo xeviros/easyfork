@@ -10,16 +10,14 @@
 }
 
 .container-order{
-   @media screen and (max-width: 601px) {
-
-
-      width:90%;
-      margin-left: auto;
-      margin-right: auto;
-      position: fixed;
-      bottom: 6px;
-      z-index: 1;
-      background-color:$lgrey-easyfork;
+  @media screen and (max-width: 601px) {
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 6px;
+    z-index: 1;
+    background-color:$lgrey-easyfork;
   }
   display: flex;
   align-self: flex-start;
@@ -43,6 +41,7 @@
   font-style: italic;
   padding-bottom: 30px;
 }
+
 .container-order h2{
    @media screen and (max-width: 601px) {
     font-size: 30px;

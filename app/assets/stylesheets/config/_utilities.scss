@@ -1,11 +1,10 @@
 .spaced-between {
   @media screen and (max-width: 601px) {
-      justify-content: inline-block;
-      width:100%;
-      margin-left: auto;
-      margin-right:auto;
-      font-size: 12px;
-
+    justify-content: inline-block;
+    width:100%;
+    margin-left: auto;
+    margin-right:auto;
+    font-size: 12px;
   }
   display: flex;
   align-items: center;
@@ -15,7 +14,6 @@
 .light-form {
   border: none;
   box-shadow: 0.5px 0.5px 0.1px lightgrey;
-
 }
 
 #super_form {
@@ -47,18 +45,16 @@
 
 
 .btn.btn-warning{
-   @media screen and (max-width: 601px) {
+  @media screen and (max-width: 601px) {
     padding: 2px 7px;
     font-size: 14px;
-   }
-
+  }
 }
 
 
 .btn-blue.btn-lg{
-     @media screen and (max-width: 601px) {
+  @media screen and (max-width: 601px) {
     padding: 5px 10px;
     font-size: 16px;
-   }
-
+  }
 }
