@@ -51,13 +51,22 @@
   font-weight: 300;
 }
 
+// .mobileShow {display: none;}
+
+// /* Smartphone Portrait and Landscape */
+// @media only screen
+//   and (min-device-width : 320px)
+//   and (max-device-width : 480px){
+//     .mobileShow {display: inline;}
+// }
 
 
 .container-reviews-XS{
-
+  @media screen and (min-width: 602px) {
+    display: none;
+  }
   // max-height: 1000px;
   width: 90%;
-
   background-color: white;
   margin-left: auto;
   margin-right: auto;
