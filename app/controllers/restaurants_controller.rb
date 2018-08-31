@@ -73,12 +73,10 @@ class RestaurantsController < ApplicationController
     if params[:query].present?
       sql_query = "category ILIKE :query"
       @restaurant.items = @restaurant.items.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-
     else
       @restaurant.items
-
-
     end
+
     respond_to do |format|
       format.js
       format.html
