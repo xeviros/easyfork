@@ -1,0 +1,30 @@
+.about-us{
+  @media screen and (max-width: 601px) {
+    height: 1300px;
+  }
+  height: 950px;
+  display: flex;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+
+.container-about{
+  @media screen and (max-width: 601px) {
+    height: 75%;
+    top:10%;
+  }
+  opacity: 0.8;
+  position:absolute;
+  top:17%;
+  height: 65%;
+  left: 10%;
+  right: 10%;
+
+}
+
+.container-about p{
+  padding-right: 15px;
+  padding-left: 15px;
+}
