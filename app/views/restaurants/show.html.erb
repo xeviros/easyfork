@@ -65,7 +65,7 @@
 
 <div class="cont-pills-menus-order">
   <div class="cont-pills-menus">
-    <div class="container-pills">
+    <!-- <div class="container-pills">
       <div class="col-md-12">
         <ul class="nav nav-pills nav-stacked">
           <li class="btn-menu"><%= link_to "Menu", restaurant_path(@restaurant), remote: true %></li>
@@ -81,10 +81,10 @@
           <% end %>
         </ul>
       </div>
-    </div>
+    </div> -->
 
     <div class="container-show menu-items" style="overflow:scroll;">
-      <%= render "items/restaurant-items", item: @item, restaurant: @restaurant, bill: @bill, order: @order, order_item: @order_item %>
+      <%= render "items/restaurant-items", item: @item, restaurant: @restaurant %>
     </div>
   </div>
 
