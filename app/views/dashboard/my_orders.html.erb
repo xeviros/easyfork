@@ -38,11 +38,12 @@
         <p class= "order-bill-<%=order.bill.status.downcase%>"><%= order.bill.status.capitalize %> </p>
         <%= link_to "Leave a review" '<i class="far fa-star"></i>'.html_safe, new_order_review_path(order), class: "pay-order" %>
         <% end %>
+      <div class= "see-reservation-mobile">
+        <%= link_to "See details" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(order), class: "pay-order" %> </p>
       </div>
-
+      </div>
       <div class= "see-reservation">
         <%= link_to "See details" '<i class="fas fa-arrow-right"></i>'.html_safe, edit_bill_path(order), class: "pay-order" %> </p>
-
       </div>
     </div>
     <% end %>
