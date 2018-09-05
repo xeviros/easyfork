@@ -17,3 +17,4 @@ class Bill < ApplicationRecord
     self.orders.find_by(user_id: user.id)
   end
 end
+
