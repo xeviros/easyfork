@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_152220) do
   create_table "bills", force: :cascade do |t|
     t.bigint "restaurant_id"
     t.integer "total_price"
-    t.integer "number_of_people"
+    t.integer "number_of_people", default: 1
     t.string "status", default: "Pending"
     t.datetime "date"
     t.text "comment"
