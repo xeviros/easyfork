@@ -33,7 +33,8 @@ class RestaurantsController < ApplicationController
       end
     else
       @restaurants = policy_scope(Restaurant).order(created_at: :desc)
-      @restaurants = @restaurants.where.not(latitude: nil, longitude: nil)
+      @restaurants = Restaurant.all
+      #@restaurants = @restaurants.where.not(latitude: nil, longitude: nil)
       @markers = @restaurants.map do |restaurant|
         {
           lat: restaurant.latitude,

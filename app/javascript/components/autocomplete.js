@@ -1,6 +1,6 @@
 function autocomplete() {
   document.addEventListener("DOMContentLoaded", function() {
-    var restaurantAddress = document.getElementById('restaurant_address');
+    var restaurantAddress = document.getElementById('gmaps-input-address');
 
     if (restaurantAddress) {
       var autocomplete = new google.maps.places.Autocomplete(restaurantAddress, { types: [ 'geocode' ] });
@@ -13,4 +13,6 @@ function autocomplete() {
   });
 }
 
+autocomplete();
 export { autocomplete };
+
