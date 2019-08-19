@@ -14,7 +14,8 @@
   align-items: center;
   background-color: white;
   justify-content: center;
-
+  background: fixed;
+  clip-path: polygon(100% 0, 100% 100%, 50% 90%, 0 100%, 0 0);
 }
 
 .banner h3 {

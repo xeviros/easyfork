@@ -5676,6 +5676,11 @@ safe-regex@^1.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
+sal.js@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/sal.js/-/sal.js-0.6.1.tgz#7b9c9f0dce01e2f0472143c693f067b5ff982a4d"
+  integrity sha512-fQacb5cqg/q83FBLNYN/4ehEMCxtPsT5uO8ZNIvB9BMGVx+jpz9+sejG3Ricn4hcq4eqjgRduYqzY3stiOWWnQ==
+
 sass-graph@^2.1.1, sass-graph@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.4.tgz#13fbd63cd1caf0908b9fd93476ad43a51d1e0b49"

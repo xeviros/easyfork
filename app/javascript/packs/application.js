@@ -7,12 +7,14 @@ import time from "../components/time"
 import add_order_items_bill from "../components/add_order_items_bill"
 import "../plugins/flatpickr"
 import billconfirm from "../components/billconfirm"
-
+import sal from 'sal.js'
 
 myFunction();
 nbPersons();
 time();
 billconfirm();
+sal();
+scroll();
 
 
 $('#myModal').on('shown.bs.modal', function () {
