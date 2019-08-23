@@ -45,6 +45,10 @@
   font-weight: 500;
   font-size: 60px;
   text-align: center;
+  @media screen and (maxs-width: 601px) {
+    width: 70%;
+    margin: auto;
+  }
 }
 
 .row h2{

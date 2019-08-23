@@ -48,6 +48,7 @@ win.scroll(function(event) {
     }
     if (el.visible(false)) {
       el.removeClass("come-in");
+      el.addClass("already-visible");
     }
   });
 
