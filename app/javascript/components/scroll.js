@@ -46,10 +46,6 @@ win.scroll(function(event) {
     if (el.visible(true)) {
       el.addClass("come-in");
     }
-    if (el.visible(false)) {
-      el.removeClass("come-in");
-      el.addClass("already-visible");
-    }
   });
 
 });
