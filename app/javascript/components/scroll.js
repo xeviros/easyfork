@@ -35,7 +35,7 @@ var allMods = $(".home-icons");
 allMods.each(function(i, el) {
   var el = $(el);
   if (el.visible(true)) {
-    el.addClass("already-visible");
+     el.addClass("already-visible");
   }
 });
 
@@ -45,6 +45,9 @@ win.scroll(function(event) {
     var el = $(el);
     if (el.visible(true)) {
       el.addClass("come-in");
+    }
+    if (el.visible(false)) {
+      el.removeClass("come-in");
     }
   });
 
