@@ -40,14 +40,23 @@ allMods.each(function(i, el) {
 });
 
 win.scroll(function(event) {
+  var scrollPosition = $("body, html").scrollTop()
+  if (scrollPosition == 0){
+   // top of the page
+   el.removeClass("come-in");
+  }
 
   allMods.each(function(i, el) {
     var el = $(el);
-    console.log("val el");
-    console.log(el);
     if (el.visible(true)) {
       el.addClass("come-in");
     }
   });
 
 });
+
+var scrollPosition = $("body, html").scrollTop()
+console.log(scrollPosition)
+if (scrollPosition == 0){
+   // top of the page
+}
