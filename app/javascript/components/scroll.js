@@ -43,6 +43,8 @@ win.scroll(function(event) {
 
   allMods.each(function(i, el) {
     var el = $(el);
+    console.log("val el");
+    console.log(el);
     if (el.visible(true)) {
       el.addClass("come-in");
     }

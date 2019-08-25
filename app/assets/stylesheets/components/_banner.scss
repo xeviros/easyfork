@@ -15,7 +15,9 @@
   background-color: white;
   justify-content: center;
   background: fixed;
-  clip-path: polygon(100% 0, 100% 100%, 50% 90%, 0 100%, 0 0);
+  @media screen and (min-width: 601px) {
+    clip-path: polygon(100% 0, 100% 100%, 50% 90%, 0 100%, 0 0);
+  }
 }
 
 .banner h3 {
@@ -45,7 +47,7 @@
   font-weight: 500;
   font-size: 60px;
   text-align: center;
-  @media screen and (maxs-width: 601px) {
+  @media screen and (max-width: 601px) {
     width: 70%;
     margin: auto;
   }
