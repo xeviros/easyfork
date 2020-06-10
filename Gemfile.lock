@@ -94,7 +94,7 @@ GEM
       sassc (>= 1.11)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
-    geocoder (1.4.9)
+    geocoder (1.6.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
