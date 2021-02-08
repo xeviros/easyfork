@@ -19,7 +19,7 @@ gem 'rails_admin', '~> 1.3'
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'cloudinary'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem "geocoder"
 
 gem 'autoprefixer-rails'
